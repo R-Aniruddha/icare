@@ -1,0 +1,58 @@
+        <footer class="page-footer text-center border-top" style="padding: 20px 0 10px 0;">
+        <div class="row" style="padding: 0 80px;">
+            <div class="col-sm-6 text-left">
+                <h4>Our Aim</h4>
+                <p>
+                    To revolutionize the health industry <br>
+                    Using technology to have provide better service <br>
+                    To help our patients recover faster <br>
+                    Ensure our doctors have the best facilities at hand
+
+                </p>
+            </div>
+            <div class="col-sm-4 offset-md-1 text-left">
+                <h4>Address:</h4>
+                <p>
+                    28 Rue Notre Dame des Champs, 75006 Paris <br>
+                    10 Rue de Vanves, 92130 Issy-les-Moulineaux
+                </p>
+                <h4>Subscribe to our Newsletter</h4>
+                <input type="email" placeholder=" youremail@email.com" size="25">
+                <button class="btn btn-primary" type="submit">Subscribe</button>
+
+            </div>
+        </div>
+        <div class="row"> 
+            <div class="col-sm-12">
+                <h4>Social Media</h4>
+                <div>
+                    <a href="#">
+                        <img src="images/social_icon3.png" style="-webkit-filter: invert(100%)"/>
+                    </a> 
+                </div>
+            </div>
+        </div>
+
+        <div class="border-top" style="padding:5px;">
+            <a href="#" target="_blank">&copy; Copyright 2019 </a>
+            <a href="#" class="verticalLine" target="_blank"> ICare </a>
+        </div>
+    </footer>
+     
+    </div> 
+
+    <script src="js/jquery-3.4.1.min.js"></script>
+    
+    <script src="js/bootstrap.min.js"></script>
+    <!--
+    <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
+
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
+    -->
+    <script src="js/script.js"></script>
+
+</body>
+
+</html>
