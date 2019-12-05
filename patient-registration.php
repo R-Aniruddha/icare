@@ -4,24 +4,27 @@
 ?>
         
     <div class="main-content">
-      <form id="patient-registration-form" class="jotform-form" action="https://submit.jotformeu.com/submit/92766146676370/" method="post" name="form_92766146676370" id="92766146676370" accept-charset="utf-8">
-  <input type="hidden" name="formID" value="92766146676370" />
-  <input type="hidden" id="JWTContainer" value="" />
-  <input type="hidden" id="cardinalOrderNumber" value="" />
-  <div role="main" class="form-all">
-      <ul class="form-section page-section">
-          <li id="cid_1" class="form-input-wide" data-type="control_head">
-              <div class="form-header-group ">
-                  <div class="header-text httal htvam">
-                      <h1 id="header_1" class="form-header" data-component="header">
-                          Patient Registration Form
-                      </h1>
-                      <div id="subHeader_1" class="form-subHeader">
-                          Please fill out your information carefully
-                      </div>
-                  </div>
-              </div>
-          </li>
+      <form id="patient-registration-form" action="register.php" method="post" name="registeration-form" id="123" accept-charset="utf-8">
+
+      <?php echo display_error(); ?>
+
+        <input type="hidden" name="formID" value="92766146676370" />
+        <input type="hidden" id="JWTContainer" value="" />
+        <input type="hidden" id="cardinalOrderNumber" value="" />
+        <div role="main" class="form-all">
+            <ul class="form-section page-section">
+            <li id="cid_1" class="form-input-wide" data-type="control_head">
+                <div class="form-header-group ">
+                    <div class="header-text httal htvam">
+                        <h1 id="header_1" class="form-header" data-component="header">
+                            Patient Registration Form
+                        </h1>
+                        <div id="subHeader_1" class="form-subHeader">
+                            Please fill out your information carefully
+                        </div>
+                    </div>
+                </div>
+            </li>
           <li class="form-line" data-type="control_fullname" id="id_5">
               <label class="form-label form-label-left form-label-auto" id="label_5" for="first_5">
                   Name

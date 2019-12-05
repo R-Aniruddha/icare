@@ -14,12 +14,17 @@
      
 </head>
 <body>        
-        <?php if($thisPage!="Home")
+        <?php if($thisPage == "")
             include('includes/nav.php');
         ?>
         <?php if($thisPage == "Home")
             include('includes/homenav.php');
         ?>
+
+        <?php if($thisPage == "Dashboard")
+        
+        ?>
+
         <div class="container-fluid">
 
     

@@ -1,7 +1,7 @@
 <nav id="myNavbar" class="navbar navbar-expand-lg navbar-light" role="navigation" >
         <!--navbar navbar-default navbar-fixed-top    -->
         <!-- Brand and toggle get grouped for better mobile display -->
-        <a class="navbar-brand d-flex flex-row" href="#">
+        <a class="navbar-brand d-flex flex-row" href="index.php">
             <!--<img src="images/Logo.jpeg" height="40" alt="ICare Logo">-->
              <h3 id="nav-title">𝓘𝓒𝓪𝓻𝓮</h3> 
         </a>
@@ -32,6 +32,6 @@
             </div>
             <form class="form-inline my-2 my-lg-0">
                 <button class="btn btn-outline-success mr-sm-4" type="submit"><a href="login.php">Login</a></button>
-                <button class="btn btn-outline-secondary" type="submit"><a href="patient-registration.php">Register</a></button>
+                <button class="btn btn-outline-secondary" type="submit"><a href="register.php">Register</a></button>
             </form>
         </nav>

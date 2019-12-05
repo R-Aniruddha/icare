@@ -77,7 +77,7 @@
             </div>
             <div class="col-sm-6">
                 <h3>Statistics</h3>
-                <p>
+                <p style="line-height: 2; padding-top:15px;">
                     View Health Statistics at the tip of your finger. <br>
                     Data shown as graphs for better viewability and can be used to easily identify trends. <br>
                     Monitor your health over a period of time <br>
@@ -89,7 +89,7 @@
         <div class="row homepage-row">
             <div class="col-sm-6">
                 <h3>Stay Updated with the Patient's Status</h3>
-                <p>
+                <p style="line-height: 2; padding-top:15px;">
                     Family members and loved ones can remain updated with the patient's status. <br>
                     Monitor their health and see how their recovery is progressing <br>
                     View doctor's comments on recovery process
@@ -102,8 +102,8 @@
         <div class="row homepage-row">
             <div style="margin:auto; text-align: center; padding: 40px 0;">
                 <h2>Join Us Now</h2>
-                <a class="btn btn-info" href="#">Register</a>
-                <a class="btn btn-info" href="#">Learn More</a>
+                <a class="btn btn-info" href="patient-registration.php">Register</a>
+                <a class="btn btn-info" href="about.php">Learn More</a>
             </div>
         </div>
         <div class="row homepage-row" style="text-align: center;">
