@@ -17,7 +17,7 @@
     <div class="main-content">
         
         <div class="header">
-            <h2>Home Page</h2>
+            <h2>Temporary Home Page</h2>
         </div>
         <div class="content">
   	<!-- notification message -->
