@@ -23,7 +23,7 @@ if (isset($_POST['register_btn'])) {
   if (empty($email)) { array_push($errors, "Email is required"); }
   if (empty($password_1)) { array_push($errors, "Password is required"); }
   if ($password_1 != $password_2) {
-	array_push($errors, "The two passwords do not match");
+	array_push($errors, "Passwords do not match");
   }
 
   // first check the database to make sure 
