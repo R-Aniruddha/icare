@@ -1,6 +1,6 @@
         <footer class="page-footer text-center border-top" style="padding: 20px 0 10px 0;">
         <div class="row" style="padding: 0 80px;">
-            <div class="col-sm-6 text-left">
+            <div class="col-sm-5 text-left">
                 <h4>Our Aim</h4>
                 <p>
                     To revolutionize the health industry <br>
@@ -10,15 +10,24 @@
 
                 </p>
             </div>
-            <div class="col-sm-4 offset-md-1 text-left">
+            <div class="col-sm-2">
+                <h4>Useful Links</h4>
+                <ul>
+                    <li>About Us</li>
+                    <li>Registration</li>
+                    <li>Contact Us</li>
+
+                </ul>
+            </div>
+            <div class="col-sm-4 offset-sm-1 text-left">
                 <h4>Address:</h4>
                 <p>
                     28 Rue Notre Dame des Champs, 75006 Paris <br>
                     10 Rue de Vanves, 92130 Issy-les-Moulineaux
                 </p>
-                <h4>Subscribe to our Newsletter</h4>
-                <input type="email" placeholder=" youremail@email.com" size="25">
-                <button class="btn btn-primary" type="submit">Subscribe</button>
+                <h5>Subscribe to our Newsletter</h5>
+                <input type="email" placeholder=" youremail@email.com" size="20">
+                <button class="btn btn-primary btn-sm" type="submit">Subscribe</button>
 
             </div>
         </div>

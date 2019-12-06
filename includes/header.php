@@ -14,11 +14,14 @@
      
 </head>
 <body>        
-        <?php if($thisPage == "")
-            include('includes/nav.php');
-        ?>
-        <?php if($thisPage == "Home")
-            include('includes/homenav.php');
+      
+        <?php 
+            if(($thisPage == "Home") || ($thisPage == "Login") || ($thisPage == "Registration Page")  ) {
+                include('includes/homenav.php');
+            } else {
+                include('includes/nav.php');
+
+            }
         ?>
 
         <?php if($thisPage == "Dashboard")
