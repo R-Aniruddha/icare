@@ -77,9 +77,7 @@ if(isset($_POST['submit']))
         <input type="hidden" id="JWTContainer" value="" />
         <input type="hidden" id="cardinalOrderNumber" value="" />
         <div role="main" class="form-all">
-            <h1 id="header_1" class="form-header" data-component="header">
-                Patient Details
-            </h1>
+            <h2> Patient Details </h2>
             <ul class="form-section page-section">
                 <li id="cid_1" class="form-input-wide" data-type="control_head">
                     <div class="form-header-group ">
