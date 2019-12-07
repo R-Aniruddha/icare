@@ -1,26 +1,26 @@
 <?php
     session_start(); 
-    $thisPage = "Dashboard";
+    $thisPage = "Admin Dashboard";
     include('includes/header.php');
     include('controller/functions.php');
 
-  if (!isLoggedIn()) {
-  	$_SESSION['msg'] = "You must log in first";
-  	header('location: login.php');
-  }
-  
-
+    if (!isAdmin()) {
+        $_SESSION['msg'] = "You must log in first";
+        header('location: login.php');
+    }
+    
 
 ?>
         
     <div class="main-content">
         
-        <h2>Temporary Home Page</h2>
-
+        <div class="header">
+            <h2>Admin - Dashboard</h2>
+        </div>
         <div class="content">
   	<!-- notification message -->
   	<?php if (isset($_SESSION['success'])) : ?>
-      <div>
+      <div class="error success" >
       	<h3>
           <?php 
           	echo $_SESSION['success']; 
@@ -32,8 +32,9 @@
 
     <!-- logged in user information -->
     <?php  if (isset($_SESSION['user'])) : ?>
-    	<p>Welcome <strong><?php echo $_SESSION['user']['username']; ?></strong></p>
-    	<p> <a href="dashboard.php?logout='1'" style="color: red;">Logout</a> </p>
+    	<p>Welcome <strong>
+              <?php echo $_SESSION['user']['username']; ?> 
+        </strong></p>
     <?php endif ?>
 </div>
           

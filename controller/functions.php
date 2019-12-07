@@ -1,5 +1,7 @@
 <?php
-session_start();
+
+if(!isset($_SESSION)){session_start();}
+//session_start();
 
 // initializing variables
 $username = "";
@@ -11,6 +13,16 @@ $conn = mysqli_connect('localhost', 'root', '', 'mydb');
 
 // REGISTER USER
 if (isset($_POST['register_btn'])) {
+  register();
+}
+
+if (isset($_POST['login_user'])) {
+  login();
+}
+
+function register() {
+   global $errors;
+
   // receive all input values from the form
   $username = mysqli_real_escape_string($conn, $_POST['username']);
   $email = mysqli_real_escape_string($conn, $_POST['email']);
@@ -26,8 +38,7 @@ if (isset($_POST['register_btn'])) {
 	array_push($errors, "Passwords do not match");
   }
 
-  // first check the database to make sure 
-  // a user does not already exist with the same username and/or email
+  // first check the database to make sure a user does not already exist with the same username and/or email
   $user_check_query = "SELECT * FROM users WHERE username='$username' OR email='$email' LIMIT 1";
   $result = mysqli_query($conn, $user_check_query);
   $user = mysqli_fetch_assoc($result);
@@ -47,16 +58,17 @@ if (isset($_POST['register_btn'])) {
 
     //encrypt the password before saving in the database
   	$password = md5($password_1);
-  	$query = "INSERT INTO users (username, email, password) 
-  			  VALUES('$username', '$email', '$password')";
+  	$query = "INSERT INTO users (username, email, user_type, password) 
+  			  VALUES('$username', '$email', 'patient', '$password')";
   	mysqli_query($conn, $query);
-  	$_SESSION['username'] = $username;
+  	$_SESSION['user'] = $username;
   	$_SESSION['success'] = "You are now logged in";
   	header('location: dashboard.php');
   }
 }
 
-if (isset($_POST['login_user'])) {
+function login() {
+  global $conn, $username, $errors;
   $username = mysqli_real_escape_string($conn, $_POST['username']);
   $password = mysqli_real_escape_string($conn, $_POST['password']);
 
@@ -70,15 +82,72 @@ if (isset($_POST['login_user'])) {
   if (count($errors) == 0) {
   	$password = md5($password);
   	$query = "SELECT * FROM users WHERE username='$username' AND password='$password'";
-  	$results = mysqli_query($conn, $query);
+    $results = mysqli_query($conn, $query);
+  
+    if (mysqli_num_rows($results) == 1) { // user found
+			// check if user is admin or user
+			$logged_in_user = mysqli_fetch_assoc($results);
+			if ($logged_in_user['user_type'] == 'admin') {
+        $_SESSION['user'] = $logged_in_user;
+        $_SESSION['success']  = "You are now logged in";
+        header('location: admin-dashboard.php');		  
+			}else{
+				$_SESSION['user'] = $logged_in_user;
+				$_SESSION['success']  = "You are now logged in";
+				header('location: dashboard.php');
+			}
+		}else {
+			array_push($errors, "Wrong username/password combination");
+    }
+    
+    /*
   	if (mysqli_num_rows($results) == 1) {
   	  $_SESSION['username'] = $username;
   	  $_SESSION['success'] = "You are now logged in";
   	  header('location: dashboard.php');
   	}else {
   		array_push($errors, "Wrong username/password combination");
-  	}
+    }
+    */
+
   }
 }
+
+//Logout
+if (isset($_GET['logout'])) {
+  session_destroy();
+  unset($_SESSION['user']);
+  header("location: ../login.php");
+}
+
+// Checks if user is the Admin
+function isAdmin() {
+	if (isset($_SESSION['user']) && $_SESSION['user']['user_type'] == 'admin' ) {
+		return true;
+	}else{
+		return false;
+	}
+}
+
+function isLoggedIn()
+	{
+		if (isset($_SESSION['user'])) {
+			return true;
+		}else{
+			return false;
+		}
+	}
+
+// return user array from their id
+function getUserById($id){
+  global $conn;
+  $query = "SELECT * FROM users WHERE id=" . $id;
+  $result = mysqli_query($conn, $query);
+
+  $user = mysqli_fetch_assoc($result);
+  return $user;
+}
+
+
 
 ?>

@@ -81,6 +81,7 @@
                         </div> 
                     </li>
                 </ul>
+                <button class="btn btn-outline-danger" type="submit"><a href="index.php?logout='1'" style="color:red">Logout</a></button>
             </div>
 	
         </nav>

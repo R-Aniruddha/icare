@@ -12,10 +12,10 @@
             </div>
             <div class="col-sm-2">
                 <h4>Useful Links</h4>
-                <ul>
-                    <li>About Us</li>
-                    <li>Registration</li>
-                    <li>Contact Us</li>
+                <ul style="list-style:none;">
+                    <li><a href="about.php"> About Us </a> </li>
+                    <li><a href="register.php"> Registration</a></li>
+                    <li><a href="contact.php"> Contact Us</a></li>
 
                 </ul>
             </div>
@@ -31,7 +31,7 @@
 
             </div>
         </div>
-        <div class="row"> 
+        <div class="row" style="margin-bottom: 15px;"> 
             <div class="col-sm-12">
                 <h4>Social Media</h4>
                 <div>
@@ -42,7 +42,7 @@
             </div>
         </div>
 
-        <div class="border-top" style="padding:5px;">
+        <div class="border-top" style="padding:5px; margin-top: 5px;">
             <a href="#" target="_blank">&copy; Copyright 2019 </a>
             <a href="#" class="verticalLine" target="_blank"> ICare </a>
         </div>
