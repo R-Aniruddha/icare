@@ -15,11 +15,11 @@
 	 		<div class="col-md-4 col-sm-7">
 	 			<div class="rounded" style="background-color: white;text-align: center;">
 	 				<br><br><br><br>
-	 				<a href="#"><img  src="images/heartrate-sensor.png" alt=""></a>
+	 				<a href="sensor1.php"><img  src="images/heartrate-sensor.png" alt=""></a>
 	 				<br><br><br><br>
 	 				<div class="text-left">
 						<p class="text-center">
-                            <a href="#"><button type="button" style="background-color: white;color: #065596;letter-spacing: 5px;" class="btn btn-info btn-md"><b>ECG Graph</b></button></a>
+                            <a href="sensor1.php"><button type="button" style="background-color: white;color: #065596;letter-spacing: 5px;" class="btn btn-info btn-md"><b>ECG Graph</b></button></a>
 						</p>
 						<br><br><br>
 					</div>
@@ -29,11 +29,11 @@
 	 		<div class="col-md-4 col-sm-7">
 				<div class="rounded" style="background-color: white; text-align: center;">
                     <br><br><br><br>
-					<a href="#"><img src="images/bloodpressure-sensor.png" alt=""> </a>
+					<a href="sensor1.php"><img src="images/bloodpressure-sensor.png" alt=""> </a>
                     <br><br><br><br>
 					<div class="text-left">
 						<p class="text-center">
-							<a href="#"><button type="button" style="background-color: white;color: #065596;letter-spacing: 5px" class="btn btn-info btn-md" ><b>Blood Pressure </b></button></a>
+							<a href="sensor1.php"><button type="button" style="background-color: white;color: #065596;letter-spacing: 5px" class="btn btn-info btn-md" ><b>Blood Pressure </b></button></a>
 						</p>
 						<br><br><br>
 					</div>
@@ -42,11 +42,11 @@
 			<div class="col-md-4 col-sm-7">
 				<div class="rounded" style="background-color: white;text-align: center;">
                     <br><br><br><br>
-					<a href="#"><img src="images/sleep-tracking.png" alt=""></a>
+					<a href="sensor1.php"><img src="images/sleep-tracking.png" alt=""></a>
                     <br><br><br><br>
 					<div class="text-left">
 						<p class="text-center">
-						  <a href="#">	<button type="button" style="background-color: white;color: #065596;letter-spacing: 5px;" class="btn btn-info btn-md"><b>Sleep Timer</b></button></a>
+						  <a href="sensor1.php"><button type="button" style="background-color: white;color: #065596;letter-spacing: 5px;" class="btn btn-info btn-md"><b>Sleep Timer</b></button></a>
 						</p>
 						<br><br><br>
 					</div>
