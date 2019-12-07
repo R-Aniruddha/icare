@@ -115,6 +115,7 @@ if(isset($_POST['submit']))
                 </p>
                 <p>
                     <td>Availability</td>
+                    
                     <td><select name="Availability" required>
                             <option>select</option>
                             <option value="yes">yes</option>
