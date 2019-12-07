@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Dec 07, 2019 at 12:32 AM
+-- Generation Time: Dec 07, 2019 at 12:50 PM
 -- Server version: 10.3.16-MariaDB
 -- PHP Version: 7.3.7
 
@@ -87,7 +87,8 @@ CREATE TABLE `doctorsdetails` (
 INSERT INTO `doctorsdetails` (`Name`, `Phone`, `Street`, `City`, `Country`, `Website`, `gen`, `dob`, `Nationality`, `Speciality`, `Department`, `Qualifications`, `Availability`) VALUES
 ('rakesh', '56885444', 'kmm', 'kmm', 'india', 'http://rakesh.hh', 'male', '1998-01-07', 'indian', 'nothing', 'cse', 'hhhh', 'yes'),
 ('Doctor1', '1234657980', 'Rue ', 'Paris', 'France', 'www.doctor.com', 'male', '2019-06-18', 'French', 'Surgeon', 'Surgery', 'MBBS', 'yes'),
-('Doctor1', '1234657980', 'Rue ', 'Paris', 'France', 'www.doctor.com', 'male', '2019-06-18', 'French', 'Surgeon', 'Surgery', 'MBBS', 'yes');
+('Doctor1', '1234657980', 'Rue ', 'Paris', 'France', 'www.doctor.com', 'male', '2019-06-18', 'French', 'Surgeon', 'Surgery', 'MBBS', 'yes'),
+('Doctor100', '1234657980', 'Rue ', 'Paris', 'France', 'www.doctor.com', 'female', '2017-12-09', 'French', 'General', 'Regular', 'Bachelors', 'No');
 
 -- --------------------------------------------------------
 
@@ -120,6 +121,75 @@ CREATE TABLE `patient` (
   `Weight` varchar(45) DEFAULT NULL,
   `DoctorId` int(11) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `patientdetails`
+--
+
+CREATE TABLE `patientdetails` (
+  `firstname` varchar(30) NOT NULL,
+  `lastname` varchar(30) NOT NULL,
+  `areacode` int(5) NOT NULL,
+  `phonenumber` int(10) NOT NULL,
+  `dobmonth` varchar(20) NOT NULL,
+  `dobdate` int(2) NOT NULL,
+  `dobyear` int(4) NOT NULL,
+  `gender` varchar(10) NOT NULL,
+  `occupation` varchar(20) NOT NULL,
+  `marital_status` varchar(20) NOT NULL,
+  `email` varchar(30) NOT NULL,
+  `socialsecurity` int(20) NOT NULL,
+  `street` varchar(50) NOT NULL,
+  `street2` varchar(50) NOT NULL,
+  `city` varchar(30) NOT NULL,
+  `state` varchar(30) NOT NULL,
+  `postal` int(10) NOT NULL,
+  `country` varchar(20) NOT NULL,
+  `e_firstname` varchar(30) NOT NULL,
+  `e_lastname` varchar(30) NOT NULL,
+  `relationship` varchar(30) NOT NULL,
+  `e_areacode` int(10) NOT NULL,
+  `e_phonenumber` int(10) NOT NULL,
+  `e_areacode2` int(10) NOT NULL,
+  `e_phonenumber2` int(10) NOT NULL,
+  `e2_firstname` varchar(30) NOT NULL,
+  `e2_lastname` varchar(30) NOT NULL,
+  `e2_relationship` varchar(30) NOT NULL,
+  `e2_areacode` int(10) NOT NULL,
+  `e2_phonenumber` int(10) NOT NULL,
+  `e2_areacode2` int(10) NOT NULL,
+  `e2_phonenumber2` int(10) NOT NULL,
+  `hepatitis` varchar(10) NOT NULL,
+  `chickenpox` varchar(10) NOT NULL,
+  `measles` varchar(10) NOT NULL,
+  `significantmedical` varchar(128) NOT NULL,
+  `cdate` varchar(20) NOT NULL,
+  `c_details` varchar(50) NOT NULL,
+  `c_results` varchar(10) NOT NULL,
+  `bpdate` varchar(20) NOT NULL,
+  `bp_details` varchar(50) NOT NULL,
+  `bp_result` varchar(10) NOT NULL,
+  `hdate` varchar(20) NOT NULL,
+  `h_detaiils` varchar(50) NOT NULL,
+  `h_result` varchar(10) NOT NULL,
+  `vaccination_history` varchar(128) NOT NULL,
+  `height` varchar(10) NOT NULL,
+  `weight` varchar(10) NOT NULL,
+  `other_issues` varchar(128) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+--
+-- Dumping data for table `patientdetails`
+--
+
+INSERT INTO `patientdetails` (`firstname`, `lastname`, `areacode`, `phonenumber`, `dobmonth`, `dobdate`, `dobyear`, `gender`, `occupation`, `marital_status`, `email`, `socialsecurity`, `street`, `street2`, `city`, `state`, `postal`, `country`, `e_firstname`, `e_lastname`, `relationship`, `e_areacode`, `e_phonenumber`, `e_areacode2`, `e_phonenumber2`, `e2_firstname`, `e2_lastname`, `e2_relationship`, `e2_areacode`, `e2_phonenumber`, `e2_areacode2`, `e2_phonenumber2`, `hepatitis`, `chickenpox`, `measles`, `significantmedical`, `cdate`, `c_details`, `c_results`, `bpdate`, `bp_details`, `bp_result`, `hdate`, `h_detaiils`, `h_result`, `vaccination_history`, `height`, `weight`, `other_issues`) VALUES
+('rakesh', 'nuvvula', 91, 2147483647, '0', 7, 1998, 'Male', 'Unemployed', 'Single', 'manofcoding07@gmail.com', 12345678, 'kmm', 'kmm', 'kmm', 'ts', 507003, 'India', 'rakesh', 'nuvvula', 'hhh', 456, 875, 847, 7, 'rakesh', 'nuvvula', 'rak', 384, 87776, 87667, 8876, 'No', 'NOT IMMUNE', 'NOT IMMUNE', 'nothing', '2014-09-03', 'nothing', '-', '2014-10-29', 'nothing', '-', '2007-05-28', 'nothing', '-', 'nothing', '6.1', '70', 'nothing'),
+('rakesh', 'nuvvula', 91, 2147483647, '0', 7, 1998, 'Male', 'Unemployed', 'Single', 'manofcoding07@gmail.com', 2147483647, 'kmm', 'hhh', 'khammam', 'khammam', 507003, 'India', 'nuvvula', 'sathyanarayana', 'son', 91, 2147483647, 91, 2147483647, 'nuvvula', 'nagamani', 'son', 91, 2147483647, 0, 0, 'No', 'NOT IMMUNE', 'NOT IMMUNE', '', '1945-01-01', 'nothing', '+', '1998-08-31', 'nothing', '-', '2917-07-05', 'nothing', '+', '', '6', '74', ''),
+('rakesh', 'nuvvula', 91, 2147483647, 'January', 7, 1998, 'Male', 'Unemployed', 'Single', 'manofcoding07@gmail.com', 2147483647, 'kmm', 'hhh', 'khammam', 'khammam', 507003, 'India', 'nuvvula', 'sathyanarayana', 'son', 91, 2147483647, 91, 2147483647, 'nuvvula', 'nagamani', 'son', 91, 2147483647, 91, 2147483647, 'No', 'NOT IMMUNE', 'NOT IMMUNE', '', '1945-01-01', 'nothing', '+', '1998-08-31', 'nothing', '-', '2917-07-05', 'nothing', '+', '', '6', '74', ''),
+('rakesh', 'nuvvula', 91, 2147483647, 'January', 7, 1998, 'Male', 'Unemployed', 'Single', 'manofcoding07@gmail.com', 2147483647, 'kmm', 'hhh', 'khammam', 'khammam', 507003, 'India', 'nuvvula', 'sathyanarayana', 'son', 91, 2147483647, 91, 2147483647, 'nuvvula', 'nagamani', 'son', 91, 2147483647, 91, 2147483647, 'No', 'NOT IMMUNE', 'NOT IMMUNE', '', '1945-01-01', 'nothing', '+', '1998-08-31', 'nothing', '-', '2917-07-05', 'nothing', '+', '', '6', '74', ''),
+('Ani', 'R', 91, 2147483647, 'April', 24, 1996, 'Male', 'Employed', 'Single', 'aniruddha04@gmail.com', 2147483647, 'Rue', 'Vaugirad', 'Paris', 'Ille', 75015, 'France', 'John', 'M', 'Friend', 91, 2147483647, 0, 0, 'Frank', 'J', 'Uncle', 91, 1234567890, 0, 0, 'No', 'IMMUNE', 'IMMUNE', 'Broken leg', '2019-01-02', 'Yes', '+', '2019-03-04', 'No', '-', '2019-12-07', 'No', '-', 'Pox\r\n', '185', '70', 'Liver');
 
 -- --------------------------------------------------------
 
@@ -181,7 +251,11 @@ CREATE TABLE `users` (
 --
 
 INSERT INTO `users` (`id`, `username`, `email`, `user_type`, `password`) VALUES
-(0, 'Aniruddha', 'aniruddha04@gmail.com', '', '1a1dc91c907325c69271ddf0c944bc72');
+(0, 'Aniruddha', 'aniruddha04@gmail.com', '', '1a1dc91c907325c69271ddf0c944bc72'),
+(0, 'Frank', 'frank@gmail.com', '', '1a1dc91c907325c69271ddf0c944bc72'),
+(0, 'John', 'john@email.com', '', '1a1dc91c907325c69271ddf0c944bc72'),
+(0, 'David', 'david@email.com', '', '1a1dc91c907325c69271ddf0c944bc72'),
+(0, 'Joe', 'joe@email.com', '', '1a1dc91c907325c69271ddf0c944bc72');
 
 --
 -- Indexes for dumped tables
