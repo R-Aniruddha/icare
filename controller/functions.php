@@ -63,7 +63,7 @@ function register() {
   	mysqli_query($conn, $query);
   	$_SESSION['user'] = $username;
   	$_SESSION['success'] = "You are now logged in";
-  	header('location: patient-registration.php');
+  	header('location: dashboard.php');
   }
 }
 
@@ -91,11 +91,15 @@ function login() {
         $_SESSION['user'] = $logged_in_user;
         $_SESSION['success']  = "You are now logged in";
         header('location: admin-dashboard.php');		  
-			}else{
+			}else if ($logged_in_user['user_type'] == 'user'){
 				$_SESSION['user'] = $logged_in_user;
 				$_SESSION['success']  = "You are now logged in";
 				header('location: dashboard.php');
-			}
+			} else {
+        $_SESSION['user'] = $logged_in_user;
+				$_SESSION['success']  = "You are now logged in";
+				header('location: doctor-details.php');
+      }
 		}else {
 			array_push($errors, "Wrong username/password combination");
     }

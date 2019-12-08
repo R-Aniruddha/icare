@@ -32,12 +32,6 @@
                                 <div class="dropdown-menu" aria-labelledby="navbarDropdown">
                                     <a class="dropdown-item" href="dashboard.php">Dashboard</a>
                                     <a class="dropdown-item" href="dashboard.php#doctor-comments">Doctor Comments</a>
-                                    <!--
-                                    <a class="dropdown-item
-                                        if ($subPage=="Sensor") 
-                                            echo " active"; 
-                                    " href="sensor.php">Sensor Data</a>
-                                    -->
                                 </div>
                             </li>
                     ' ?>

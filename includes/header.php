@@ -19,7 +19,7 @@
            // include('controller/functions.php');
 
 
-            if(($thisPage == "Home") || ($thisPage == "Login") || ($thisPage == "Registration Page")  ) {
+            if(($thisPage == "Home") || ($thisPage == "Login") || ($thisPage == "Patient Registration")  ) {
                 include('includes/homenav.php');
                 include('controller/functions.php');
             } else if( ($thisPage == "About") || ($thisPage == "Contact") ){
