@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Dec 07, 2019 at 12:50 PM
+-- Generation Time: Dec 08, 2019 at 11:48 PM
 -- Server version: 10.3.16-MariaDB
 -- PHP Version: 7.3.7
 
@@ -103,24 +103,44 @@ CREATE TABLE `patient` (
   `Phone_number` varchar(45) DEFAULT NULL,
   `BirthDate` varchar(45) DEFAULT NULL,
   `Address` varchar(45) DEFAULT NULL,
-  `Patientcol` varchar(450) DEFAULT NULL,
+  `Cholesterol` varchar(450) DEFAULT NULL,
   `Emerg_FirstName` varchar(45) DEFAULT NULL,
   `Emerg_LastName` varchar(45) DEFAULT NULL,
-  `Emerg_Address` varchar(45) DEFAULT NULL,
-  `Emerg_HomePhoneNumber` varchar(45) DEFAULT NULL,
-  `Emerg_WorkPhoneNumber` varchar(45) DEFAULT NULL,
-  `Emerg_MobileNumber` varchar(45) DEFAULT NULL,
+  `Emerg_Relaton` varchar(45) DEFAULT NULL,
+  `Emerg_PhoneNumber1` varchar(20) DEFAULT NULL,
+  `Emerg2_PhoneNumber2` varchar(20) DEFAULT NULL,
+  `Emerg_PhoneNumber2` varchar(20) DEFAULT NULL,
   `HepatitisB` varchar(45) DEFAULT NULL,
   `ChickenPox` varchar(45) DEFAULT NULL,
   `Measles` varchar(45) DEFAULT NULL,
   `Medical_History` varchar(800) DEFAULT NULL,
-  `Medical_Problems` varchar(605) DEFAULT NULL,
-  `Medication_Taken_Regularly` varchar(405) DEFAULT NULL,
-  `Allergies` varchar(405) DEFAULT NULL,
   `Height` varchar(45) DEFAULT NULL,
   `Weight` varchar(45) DEFAULT NULL,
-  `DoctorId` int(11) DEFAULT NULL
+  `DoctorId` int(11) DEFAULT NULL,
+  `Username` varchar(50) NOT NULL,
+  `Password` varchar(50) NOT NULL,
+  `Gender` varchar(30) NOT NULL,
+  `Occupation` varchar(30) NOT NULL,
+  `Marital_Status` varchar(30) NOT NULL,
+  `EmailID` varchar(50) NOT NULL,
+  `Social_Security` varchar(50) NOT NULL,
+  `Emerg2_Relation` varchar(50) NOT NULL,
+  `Emerg2_FirstName` varchar(50) NOT NULL,
+  `Emerg2_PhoneNumber1` varchar(20) NOT NULL,
+  `BloodPressure` varchar(100) NOT NULL,
+  `HeartDisease` varchar(100) NOT NULL,
+  `Vaccination_History` varchar(100) NOT NULL,
+  `OtherHealthIssues` varchar(500) NOT NULL,
+  `Emerg2_LastName` varchar(30) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+--
+-- Dumping data for table `patient`
+--
+
+INSERT INTO `patient` (`idPatient`, `First_Name`, `Last_Name`, `Phone_number`, `BirthDate`, `Address`, `Cholesterol`, `Emerg_FirstName`, `Emerg_LastName`, `Emerg_Relaton`, `Emerg_PhoneNumber1`, `Emerg2_PhoneNumber2`, `Emerg_PhoneNumber2`, `HepatitisB`, `ChickenPox`, `Measles`, `Medical_History`, `Height`, `Weight`, `DoctorId`, `Username`, `Password`, `Gender`, `Occupation`, `Marital_Status`, `EmailID`, `Social_Security`, `Emerg2_Relation`, `Emerg2_FirstName`, `Emerg2_PhoneNumber1`, `BloodPressure`, `HeartDisease`, `Vaccination_History`, `OtherHealthIssues`, `Emerg2_LastName`) VALUES
+(1, 'vishal', 'patel', '33', 'October', '1 rue des poissonniers', 'wcvcwv', 'qqqq', 'sss', 'ssssss', '5556522255', '5265558522', '54545454545', 'No', 'NOT IMMUNE', 'NOT IMMUNE', 'fdgfxbxcb cv cv ', '178', '70', NULL, 'vishal123', '123', 'Male', 'Unemployed', 'Married', 'vishalpatel2788@gmail.com', '2222455214', 'xcxzcxzvzx', 'ddddd', '7845855545', 'cwvwcxvw', '', 'fdhbddddddddddddddd', 'gfjfjjjjjjjjjjjjjjjjjj', 'vvvvvvv'),
+(2, 'David', 'Peterson', '91', 'January', '10', 's', 'John', 'k', 'Friend', '123456798', '', '', 'Yes', 'IMMUNE', 'NOT IMMUNE', 'Liver disease', '199', '99', NULL, 'David', 'pass', 'Male', 'Unemployed', 'Other', 'david@email.com', '1234567890', 'Brother', 'Mark', '987987987', 's', '-', 'Small pox', 'Kidney Failure', 'Henry');
 
 -- --------------------------------------------------------
 
@@ -189,7 +209,9 @@ INSERT INTO `patientdetails` (`firstname`, `lastname`, `areacode`, `phonenumber`
 ('rakesh', 'nuvvula', 91, 2147483647, '0', 7, 1998, 'Male', 'Unemployed', 'Single', 'manofcoding07@gmail.com', 2147483647, 'kmm', 'hhh', 'khammam', 'khammam', 507003, 'India', 'nuvvula', 'sathyanarayana', 'son', 91, 2147483647, 91, 2147483647, 'nuvvula', 'nagamani', 'son', 91, 2147483647, 0, 0, 'No', 'NOT IMMUNE', 'NOT IMMUNE', '', '1945-01-01', 'nothing', '+', '1998-08-31', 'nothing', '-', '2917-07-05', 'nothing', '+', '', '6', '74', ''),
 ('rakesh', 'nuvvula', 91, 2147483647, 'January', 7, 1998, 'Male', 'Unemployed', 'Single', 'manofcoding07@gmail.com', 2147483647, 'kmm', 'hhh', 'khammam', 'khammam', 507003, 'India', 'nuvvula', 'sathyanarayana', 'son', 91, 2147483647, 91, 2147483647, 'nuvvula', 'nagamani', 'son', 91, 2147483647, 91, 2147483647, 'No', 'NOT IMMUNE', 'NOT IMMUNE', '', '1945-01-01', 'nothing', '+', '1998-08-31', 'nothing', '-', '2917-07-05', 'nothing', '+', '', '6', '74', ''),
 ('rakesh', 'nuvvula', 91, 2147483647, 'January', 7, 1998, 'Male', 'Unemployed', 'Single', 'manofcoding07@gmail.com', 2147483647, 'kmm', 'hhh', 'khammam', 'khammam', 507003, 'India', 'nuvvula', 'sathyanarayana', 'son', 91, 2147483647, 91, 2147483647, 'nuvvula', 'nagamani', 'son', 91, 2147483647, 91, 2147483647, 'No', 'NOT IMMUNE', 'NOT IMMUNE', '', '1945-01-01', 'nothing', '+', '1998-08-31', 'nothing', '-', '2917-07-05', 'nothing', '+', '', '6', '74', ''),
-('Ani', 'R', 91, 2147483647, 'April', 24, 1996, 'Male', 'Employed', 'Single', 'aniruddha04@gmail.com', 2147483647, 'Rue', 'Vaugirad', 'Paris', 'Ille', 75015, 'France', 'John', 'M', 'Friend', 91, 2147483647, 0, 0, 'Frank', 'J', 'Uncle', 91, 1234567890, 0, 0, 'No', 'IMMUNE', 'IMMUNE', 'Broken leg', '2019-01-02', 'Yes', '+', '2019-03-04', 'No', '-', '2019-12-07', 'No', '-', 'Pox\r\n', '185', '70', 'Liver');
+('Ani', 'R', 91, 2147483647, 'April', 24, 1996, 'Male', 'Employed', 'Single', 'aniruddha04@gmail.com', 2147483647, 'Rue', 'Vaugirad', 'Paris', 'Ille', 75015, 'France', 'John', 'M', 'Friend', 91, 2147483647, 0, 0, 'Frank', 'J', 'Uncle', 91, 1234567890, 0, 0, 'No', 'IMMUNE', 'IMMUNE', 'Broken leg', '2019-01-02', 'Yes', '+', '2019-03-04', 'No', '-', '2019-12-07', 'No', '-', 'Pox\r\n', '185', '70', 'Liver'),
+('Test', 'twelveth December', 91, 2147483647, 'April', 14, 2000, 'Male', 'Employed', 'Single', 'test@email.com', 2147483647, 'Rue', 'Vaugirad', 'Auroville', 'Ille', 75015, 'Finland', 'John', 'M', 'Friend', 91, 2147483647, 0, 0, 'Frank', 'J', 'Uncle', 91, 1234567890, 0, 0, 'Yes', 'IMMUNE', 'IMMUNE', 'sdaf', '2019-12-04', 'Yes', '+', '2019-12-12', 'No', '-', '2019-12-08', 'No', '-', 'sadfdsf', '185', '70', 'Test'),
+('Testing', 'final', 91, 2147483647, 'January', 10, 2010, 'Male', 'Employed', 'Single', 'testing@email.com', 2147483647, 'Rue', 'Vaugirad', 'Auroville', 'Ille', 75015, 'Bangladesh', 'John', 'M', 'Friend', 91, 2147483647, 0, 0, 'Frank', 'J', 'Uncle', 91, 1234567890, 0, 0, 'Yes', 'IMMUNE', '', ' asdfsdfasdfds', '2019-12-12', 'Yes', '+', '2019-12-03', 'No', '+', '2019-12-04', 'No', '+', 'adsfasdqwe', '200', '100', 'Na');
 
 -- --------------------------------------------------------
 
@@ -251,11 +273,11 @@ CREATE TABLE `users` (
 --
 
 INSERT INTO `users` (`id`, `username`, `email`, `user_type`, `password`) VALUES
-(0, 'Aniruddha', 'aniruddha04@gmail.com', '', '1a1dc91c907325c69271ddf0c944bc72'),
-(0, 'Frank', 'frank@gmail.com', '', '1a1dc91c907325c69271ddf0c944bc72'),
-(0, 'John', 'john@email.com', '', '1a1dc91c907325c69271ddf0c944bc72'),
-(0, 'David', 'david@email.com', '', '1a1dc91c907325c69271ddf0c944bc72'),
-(0, 'Joe', 'joe@email.com', '', '1a1dc91c907325c69271ddf0c944bc72');
+(1, 'Aniruddha', 'aniruddha04@gmail.com', 'admin', '5f4dcc3b5aa765d61d8327deb882cf99'),
+(2, 'Frank', 'frank@gmail.com', 'patient', '1a1dc91c907325c69271ddf0c944bc72'),
+(3, 'John', 'john@email.com', 'user', '1a1dc91c907325c69271ddf0c944bc72'),
+(4, 'test', 'test@email.com', 'doctor', '098f6bcd4621d373cade4e832627b4f6'),
+(5, 'Testing', 'testing@email.com', 'patient', '1a1dc91c907325c69271ddf0c944bc72');
 
 --
 -- Indexes for dumped tables
@@ -296,6 +318,28 @@ ALTER TABLE `sensor`
 --
 ALTER TABLE `sensordata`
   ADD PRIMARY KEY (`idSensorData`);
+
+--
+-- Indexes for table `users`
+--
+ALTER TABLE `users`
+  ADD PRIMARY KEY (`id`);
+
+--
+-- AUTO_INCREMENT for dumped tables
+--
+
+--
+-- AUTO_INCREMENT for table `patient`
+--
+ALTER TABLE `patient`
+  MODIFY `idPatient` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+
+--
+-- AUTO_INCREMENT for table `users`
+--
+ALTER TABLE `users`
+  MODIFY `id` int(10) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
