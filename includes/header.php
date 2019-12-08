@@ -16,17 +16,25 @@
 <body>        
       
         <?php 
+           // include('controller/functions.php');
+
+
             if(($thisPage == "Home") || ($thisPage == "Login") || ($thisPage == "Registration Page")  ) {
                 include('includes/homenav.php');
+                include('controller/functions.php');
+            } else if( ($thisPage == "About") || ($thisPage == "Contact") ){
+                include('controller/functions.php');
+                
+                if(!isLoggedIn()) {
+                    include('includes/homenav.php');
+                } else {
+                    include('includes/nav.php');
+                }
             } else {
                 include('includes/nav.php');
-
             }
         ?>
 
-        <?php if($thisPage == "Dashboard")
-        
-        ?>
 
         <div class="container-fluid">
 

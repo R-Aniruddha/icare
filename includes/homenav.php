@@ -19,12 +19,12 @@
                         <a class="nav-link"href="index.php">Home</a>
                     </li>
                     <li class="  
-                        <?php if ($thisPage=="About") 
+                        <?php if ($subPage=="About") 
 						echo "active"; ?> ">
                         <a class="nav-link"href="about.php">About Us</a>
                     </li>
                     <li class="  
-                        <?php if ($thisPage=="Contact") 
+                        <?php if ($subPage=="Contact") 
 						echo "active"; ?> ">
                         <a class="nav-link"href="contact.php">Contact Us</a>
                     </li>

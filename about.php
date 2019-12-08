@@ -1,6 +1,6 @@
 <?php
-    $thisPage="Other";
-	$subPage="About";
+    $thisPage="About";
+	$subMenu="Other";
     include('includes/header.php');
 ?>
 

@@ -3,7 +3,7 @@
 	include('includes/header.php');
 
 
-	include_once("controller/connection.php");
+	//include_once("controller/connection.php");
 
 
 if(isset($_POST['submit']))

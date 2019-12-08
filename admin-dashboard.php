@@ -1,7 +1,6 @@
 <?php
-    session_start(); 
+    //session_start(); 
     $thisPage = "Admin Dashboard";
-    include('includes/header.php');
     include('controller/functions.php');
 
     if (!isAdmin()) {
@@ -9,6 +8,8 @@
         header('location: login.php');
     }
     
+    include('includes/header.php');
+
 
 ?>
         

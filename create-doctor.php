@@ -1,7 +1,7 @@
 <?php
     $thisPage="Create Doctor";
     include('includes/header.php');
-    include('controller/functions.php')
+    //include('controller/functions.php')
 ?>
         
     <div class="main-content">

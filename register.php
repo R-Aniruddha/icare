@@ -1,5 +1,5 @@
 <?php
-    include('controller/functions.php');
+    //include('controller/functions.php');
     $thisPage="Registration Page";
     include('includes/header.php');
 

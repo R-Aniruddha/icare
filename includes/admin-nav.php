@@ -21,45 +21,44 @@
                     </li>
                     -->
                     
-                    <?php if (userType() == 3)
-                        echo '
-                            <li class=" nav-item dropdown
-                                if ($thisPage=="Dashboard") 
-                                echo " active"; ?>
-                                <a class="nav-link dropdown-toggle" href="dashboard.php" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                                Dashboard
-                                </a>
-                                <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-                                    <a class="dropdown-item" href="dashboard.php">Dashboard</a>
-                                    <a class="dropdown-item" href="dashboard.php#doctor-comments">Doctor Comments</a>
-                                    <!--
-                                    <a class="dropdown-item
-                                        if ($subPage=="Sensor") 
-                                            echo " active"; 
-                                    " href="sensor.php">Sensor Data</a>
-                                    -->
-                                </div>
-                            </li>
-                    ' ?>
-                    <?php if (userType() == 2)
-                        echo '
-                        <li class="nav-item   
-                            if ($thisPage=="Doctor Details") 
-						    echo "active"; ">
-                            <a class="nav-link" href="doctor-details.php">Doctor Details</a>
-                        </li>
-                        ' 
-                    ?>
 
-                    <?php if (userType() == 3)
-                        echo '
-                        <li class="nav-item  
-                            if ($thisPage=="Patient Details") 
-						        echo "active"; ">
-                            <a class="nav-link" href="patient-details.php">Patient Details</a>
-                        </li>
-                        ' 
-                    ?>
+                    <li class=" nav-item dropdown
+                        <?php if ($thisPage=="Dashboard") 
+						echo " active"; ?> ">
+                        <a class="nav-link dropdown-toggle" href="dashboard.php" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                          Dashboard
+                        </a>
+                        <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+                            <a class="dropdown-item" href="dashboard.php">Dashboard</a>
+                            <a class="dropdown-item" href="dashboard.php#doctor-comments">Recovery Status</a>
+                            <!--
+                            <a class="dropdown-item
+                                <?php if ($subPage=="Sensor") 
+                                    echo " active"; ?>
+                            " href="sensor.php">Sensor Data</a>
+                            -->
+                        </div>
+                    </li>
+
+                    <li class=" nav-item dropdown
+                        <?php if ($thisPage=="Details") 
+						echo " active"; ?>  ">
+                        <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                        Details
+                        </a>
+                        <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+                            <a class="dropdown-item  
+                                <?php if ($thisPage=="Doctor Details") 
+                                echo "active"; ?> >" href="doctor-details.php">Doctor Details
+                            </a>
+                            <a class="dropdown-item
+                                <?php if ($subPage=="Patient Details") 
+                                        echo " active"; ?>
+                                " href="patient-details.php">Patient Details
+                            </a>
+                        </div>
+                    </li>
+
 
                     <li class=" nav-item dropdown
                         <?php if ($subMenu=="Other") 

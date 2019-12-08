@@ -21,7 +21,7 @@ if (isset($_POST['login_user'])) {
 }
 
 function register() {
-   global $errors;
+   global $conn, $errors;
 
   // receive all input values from the form
   $username = mysqli_real_escape_string($conn, $_POST['username']);
@@ -63,7 +63,7 @@ function register() {
   	mysqli_query($conn, $query);
   	$_SESSION['user'] = $username;
   	$_SESSION['success'] = "You are now logged in";
-  	header('location: dashboard.php');
+  	header('location: patient-registration.php');
   }
 }
 
@@ -117,7 +117,7 @@ function login() {
 if (isset($_GET['logout'])) {
   session_destroy();
   unset($_SESSION['user']);
-  header("location: ../login.php");
+  header("location: login.php");
 }
 
 // Checks if user is the Admin
@@ -148,6 +148,14 @@ function getUserById($id){
   return $user;
 }
 
+//Returns User Type - Doctor/Patient
+function userType() {
+  if (isset($_SESSION['user']) && $_SESSION['user']['user_type'] == 'doctor' ) {
+		return 2;
+	}else if(isset($_SESSION['user']) && $_SESSION['user']['user_type'] == 'patient' ) {
+    return 3;
+  }
+}
 
 
 ?>

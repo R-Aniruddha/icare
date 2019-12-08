@@ -1,7 +1,7 @@
 <?php
      $thisPage="Login";
      include('includes/header.php'); 
-     include('controller/functions.php');
+     //include('controller/functions.php');
 
 ?>
         

@@ -1,9 +1,13 @@
 <?php
     $thisPage="Patient Details";
-	include('includes/header.php');
+	include('controller/functions.php');
 
-
-	include_once("controller/connection.php");
+    if (!isLoggedIn()) {
+      $_SESSION['msg'] = "You must log in first";
+      
+  	    header('location: login.php');
+    }
+    include('includes/header.php');
 
 
 if(isset($_POST['submit']))
