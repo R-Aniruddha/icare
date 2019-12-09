@@ -1,4 +1,4 @@
-        <footer class="page-footer text-center border-top" style="padding: 20px 0 10px 0;">
+    <footer id="myfooter" class="page-footer text-center border-top" style="padding: 20px 0 10px 0;">
         <div class="row" style="padding: 0 80px;">
             <div class="col-sm-5 text-left">
                 <h4>Our Aim</h4>
@@ -12,7 +12,7 @@
             </div>
             <div class="col-sm-2">
                 <h4>Useful Links</h4>
-                <ul style="list-style:none;">
+                <ul style="list-style:none; padding:0;">
                     <li><a href="about.php"> About Us </a> </li>
                     <li><a href="register.php"> Registration</a></li>
                     <li><a href="contact.php"> Contact Us</a></li>
@@ -26,7 +26,7 @@
                     10 Rue de Vanves, 92130 Issy-les-Moulineaux
                 </p>
                 <h5>Subscribe to our Newsletter</h5>
-                <input type="email" placeholder=" youremail@email.com" size="20">
+                <input type="email" placeholder=" youremail@email.com" size="20" style="border-radius: 5px; padding:1px;">
                 <button class="btn btn-primary btn-sm" type="submit">Subscribe</button>
 
             </div>

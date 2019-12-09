@@ -7,8 +7,12 @@
     padding-bottom: 0;
 }
 
-#myNavbar {
-    background-color: #335b77;
+#myNavbar, #myfooter {
+    background-color: #01375d;
+    color: #C7DDEE;
+}
+.navbar-light .navbar-nav .nav-link {
+    color: #C7DDEE;
 }
 
 #nav-title{

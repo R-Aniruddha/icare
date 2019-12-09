@@ -15,7 +15,14 @@
         
     <div class="main-content">
         
-        <h2>Dashboard</h2>   
+        <!-- logged in user information -->
+
+        <h2>
+        <?php  if (isset($_SESSION['user'])) : ?>
+            <strong>
+                <?php echo $_SESSION['user']['username'];?> 
+            </strong>
+        <?php endif ?> - Dashboard</h2>   
         
         <h3 class="text-center">Your Health Statistics</h3>
 

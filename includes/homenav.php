@@ -32,6 +32,6 @@
             </div>
             <form class="form-inline my-2 my-lg-0">
                 <button class="btn btn-outline-success mr-sm-4" type="submit"><a href="login.php">Login</a></button>
-                <button class="btn btn-outline-secondary" type="submit"><a href="register.php">Register</a></button>
+                <button class="btn btn-outline-primary" type="submit"><a href="register.php">Register</a></button>
             </form>
         </nav>

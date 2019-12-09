@@ -30,12 +30,7 @@
       </div>
   	<?php endif ?>
 
-    <!-- logged in user information -->
-    <?php  if (isset($_SESSION['user'])) : ?>
-    	<p>Welcome <strong>
-              <?php echo $_SESSION['user']['username']; ?> 
-        </strong></p>
-    <?php endif ?>
+    
 </div>
           
         
