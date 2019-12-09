@@ -34,7 +34,7 @@
                     <br><br><br><br>
                     <div class="text-left">
                         <p class="text-center">
-                            <a href="sensor1.php"><button type="button" style="background-color: white;color: #065596;letter-spacing: 5px;" class="btn btn-info btn-md"><b>ECG Graph</b></button></a>
+                            <a href="sensor1.php"><button type="button" style="background-color: white;color: #065596;letter-spacing: 5px;" class="btn btn-info btn-md"><b>Heart Rate</b></button></a>
                         </p>
                         <br><br><br>
                     </div>
@@ -61,7 +61,7 @@
                     <br><br><br><br>
                     <div class="text-left">
                         <p class="text-center">
-                        <a href="sensor1.php"><button type="button" style="background-color: white;color: #065596;letter-spacing: 5px;" class="btn btn-info btn-md"><b>Sleep Timer</b></button></a>
+                        <a href="sensor1.php"><button type="button" style="background-color: white;color: #065596;letter-spacing: 5px;" class="btn btn-info btn-md"><b>Sleep Tracker</b></button></a>
                         </p>
                         <br><br><br>
                     </div>
@@ -77,7 +77,7 @@
                     <ul>
                         <li>Patient is recovering very well. </li>
                         <li>Needs more sleep </li>
-                        <li>Watch sugar level</li>
+                        <li>Watch blood-pressure level</li>
                     </ul>
                 </div>
             </div>

@@ -10,66 +10,70 @@
     include('includes/header.php');
 
 
-if(isset($_POST['submit']))
-{
-    $firstname    			=  $_POST['firstname'];
-    $lastname    			=  $_POST['lastname'];
-    $areacode    			=  $_POST['areacode'];
-    $phonenumber    		=  $_POST['phonenumber'];
-    $dobmonth    			=  $_POST['dobmonth'];
-    $dobdate    			=  $_POST['dobdate'];
-    $dobyear    			=  $_POST['dobyear'];
-    $gender    			    =  $_POST['gender'];
-    $occupation    			=  $_POST['occupation'];
-    $marital_status    		=  $_POST['marital_status'];
-    $email    			    =  $_POST['email'];
-    $socialsecurity    		=  $_POST['socialsecurity'];
-    $street    			    =  $_POST['street'];
-    $street2    			=  $_POST['street2'];
-    $city    			    =  $_POST['city'];
-    $state    			    =  $_POST['state'];
-    $postal    			    =  $_POST['postal'];
-    $country    			=  $_POST['country'];
-    $e_firstname    		=  $_POST['e_firstname'];
-    $e_lastname    			=  $_POST['e_lastname'];
-    $relationship    		=  $_POST['relationship'];
-    $e_areacode    			=  $_POST['e_areacode'];
-    $e_phonenumber    		=  $_POST['e_phonenumber'];
-    $e_areacode2    		=  $_POST['e_areacode2'];
-    $e_phonenumber2    		=  $_POST['e_phonenumber2'];
-    $e2_firstname    		=  $_POST['e2_firstname'];
-    $e2_lastname    		=  $_POST['e2_lastname'];
-    $e2_realtionship    	=  $_POST['e2_relationship'];
-    $e2_areacode    		=  $_POST['e2_areacode'];
-    $e2_phonenumber    		=  $_POST['e2_phonenumber'];
-    $e2_areacode2    		=  $_POST['e2_areacode2'];
-    $e2_phonenumber2    	=  $_POST['e2_phonenumber2'];
-    $hepatitis    			=  $_POST['hepatitis'];
-    $chickenpox    			=  $_POST['chickenpox'];
-    $measles    			=  $_POST['measles'];
-    $significantmedical    	=  $_POST['significantmedical'];
-    $cdate    			    =  $_POST['cdate'];
-    $c_details    			=  $_POST['c_details'];
-    $c_results    			=  $_POST['c_results'];
-    $bpdate    			    =  $_POST['bpdate'];
-    $bp_details    			=  $_POST['bp_details'];
-    $bp_result    			=  $_POST['bp_result'];
-    $hdate    			    =  $_POST['hdate'];
-    $h_detaiils    			=  $_POST['h_detaiils'];
-    $h_result    			=  $_POST['h_result'];
-    $vaccination_history    =  $_POST['vaccination_history'];
-    $height    			    =  $_POST['height'];
-    $weight    			    =  $_POST['weight'];
-    $other_issues    		=  $_POST['other_issues'];
+    if (isLoggedIn()) {
+        $id = $_SESSION['user']['id'];
+        $update = true;
+        $record = mysqli_query($conn, "SELECT * FROM patientdetails WHERE PatientId=$id");
+      
+        $n = mysqli_fetch_array($record);
+
+        $firstname    			=  $n['firstname'];
+        $lastname    			=  $n['lastname'];
+        $areacode    			=  $n['areacode'];
+        $phonenumber    		=  $n['phonenumber'];
+        $dobmonth    			=  $n['dobmonth'];
+        $dobdate    			=  $n['dobdate'];
+        $dobyear    			=  $n['dobyear'];
+        $gender    			    =  $n['gender'];
+        $occupation    			=  $n['occupation'];
+        $marital_status    		=  $n['marital_status'];
+        $email    			    =  $n['email'];
+        $socialsecurity    		=  $n['socialsecurity'];
+        $street    			    =  $n['street'];
+        $street2    			=  $n['street2'];
+        $city    			    =  $n['city'];
+        $state    			    =  $n['state'];
+        $postal    			    =  $n['postal'];
+        $country    			=  $n['country'];
+        $e_firstname    		=  $n['e_firstname'];
+        $e_lastname    			=  $n['e_lastname'];
+        $relationship    		=  $n['relationship'];
+        $e_areacode    			=  $n['e_areacode'];
+        $e_phonenumber    		=  $n['e_phonenumber'];
+        $e_areacode2    		=  $n['e_areacode2'];
+        $e_phonenumber2    		=  $n['e_phonenumber2'];
+        $e2_firstname    		=  $n['e2_firstname'];
+        $e2_lastname    		=  $n['e2_lastname'];
+        $e2_realtionship    	=  $n['e2_relationship'];
+        $e2_areacode    		=  $n['e2_areacode'];
+        $e2_phonenumber    		=  $n['e2_phonenumber'];
+        $e2_areacode2    		=  $n['e2_areacode2'];
+        $e2_phonenumber2    	=  $n['e2_phonenumber2'];
+        $hepatitis    			=  $n['hepatitis'];
+        $chickenpox    			=  $n['chickenpox'];
+        $measles    			=  $n['measles'];
+        $significantmedical    	=  $n['significantmedical'];
+        $cdate    			    =  $n['cdate'];
+        $c_details    			=  $n['c_details'];
+        $c_results    			=  $n['c_results'];
+        $bpdate    			    =  $n['bpdate'];
+        $bp_details    			=  $n['bp_details'];
+        $bp_result    			=  $n['bp_result'];
+        $hdate    			    =  $n['hdate'];
+        $h_detaiils    			=  $n['h_detaiils'];
+        $h_result    			=  $n['h_result'];
+        $vaccination_history    =  $n['vaccination_history'];
+        $height    			    =  $n['height'];
+        $weight    			    =  $n['weight'];
+        $other_issues    		=  $n['other_issues'];
     
     
-    $sql = mysqli_query($conn,"INSERT INTO patientdetails(firstname,lastname,areacode,phonenumber,dobmonth,dobdate,dobyear,gender,occupation,marital_status,email,socialsecurity,street,street2,city,state,postal,country,e_firstname,e_lastname,relationship,e_areacode,e_phonenumber,e_areacode2,e_phonenumber2,e2_firstname,e2_lastname,e2_relationship,e2_areacode,e2_phonenumber,e2_areacode2,e2_phonenumber2,hepatitis,chickenpox,measles,significantmedical,cdate,c_details,c_results,bpdate,bp_details,bp_result,hdate,h_detaiils,h_result,vaccination_history,height,weight,other_issues)values('$firstname','$lastname','$areacode','$phonenumber','$dobmonth','$dobdate','$dobyear','$gender','$occupation','$marital_status','$email','$socialsecurity','$street','$street2','$city','$state','$postal','$country','$e_firstname','$e_lastname','$relationship','$e_areacode','$e_phonenumber','$e_areacode2','$e_phonenumber2','$e2_firstname','$e2_lastname','$e2_realtionship','$e2_areacode','$e2_phonenumber','$e2_areacode2','$e2_phonenumber2','$hepatitis','$chickenpox','$measles','$significantmedical','$cdate','$c_details','$c_results','$bpdate','$bp_details','$bp_result','$hdate','$h_detaiils','$h_result','$vaccination_history','$height','$weight','$other_issues')")or die(mysqli_error($conn));
+    $sql = mysqli_query($conn,"INSERT INTO patientdetails
+    (firstname,lastname,areacode,phonenumber,dobmonth,dobdate,dobyear,gender,occupation,marital_status,email,socialsecurity,street,street2,city,state,postal,country,e_firstname,e_lastname,relationship,e_areacode,e_phonenumber,e_areacode2,e_phonenumber2,e2_firstname,e2_lastname,e2_relationship,e2_areacode,e2_phonenumber,e2_areacode2,e2_phonenumber2,hepatitis,chickenpox,measles,significantmedical,cdate,c_details,c_results,bpdate,bp_details,bp_result,hdate,h_detaiils,h_result,vaccination_history,height,weight,other_issues)
+    values('$firstname','$lastname','$areacode','$phonenumber','$dobmonth','$dobdate','$dobyear','$gender','$occupation','$marital_status','$email','$socialsecurity','$street','$street2','$city','$state','$postal','$country','$e_firstname','$e_lastname','$relationship','$e_areacode','$e_phonenumber','$e_areacode2','$e_phonenumber2','$e2_firstname','$e2_lastname','$e2_realtionship','$e2_areacode','$e2_phonenumber','$e2_areacode2','$e2_phonenumber2','$hepatitis','$chickenpox','$measles','$significantmedical','$cdate','$c_details','$c_results','$bpdate','$bp_details','$bp_result','$hdate','$h_detaiils','$h_result','$vaccination_history','$height','$weight','$other_issues')")or die(mysqli_error($conn));
     
     
-	if($sql)
-	{
-		echo "Data Inserted Successfully..";
-	}
+	
 }
 
 ?>

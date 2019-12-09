@@ -55,6 +55,16 @@
                         ' 
                     ?>
 
+                    <?php if (isAdmin())
+                        echo '
+                        <li class="nav-item  
+                            if ($thisPage=="Create Doctor") 
+						        echo "active"; ">
+                            <a class="nav-link" href="create-doctor.php">Create Doctor Account</a>
+                        </li>
+                        ' 
+                    ?>
+
                     <li class=" nav-item dropdown
                         <?php if ($subMenu=="Other") 
 						echo " active"; ?>  ">
@@ -74,15 +84,7 @@
                         </div> 
                     </li>
 
-                    <?php if (isAdmin())
-                        echo '
-                        <li class="nav-item  
-                            if ($thisPage=="Create Doctor") 
-						        echo "active"; ">
-                            <a class="nav-link" href="create-doctor.php">Create Doctor Account</a>
-                        </li>
-                        ' 
-                    ?>
+                    
 
 
                 </ul>

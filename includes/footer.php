@@ -36,7 +36,7 @@
                 <h4>Social Media</h4>
                 <div>
                     <a href="#">
-                        <img src="images/social_icon3.png" style="-webkit-filter: invert(100%)"/>
+                        <img src="images/social_icon3.png" height="40px"/>
                     </a> 
                 </div>
             </div>

@@ -203,7 +203,7 @@ JotForm.paymentExtrasOnTheFly([null,{"name":"clickTo","qid":"1","text":"Medical 
         <div class="form-header-group ">
           <div class="header-text httal htvam">
             <h1 id="header_1" class="form-header" data-component="header">
-              Patient Information Form
+              Patient Registration Form
             </h1>
             <div id="subHeader_1" class="form-subHeader">
               Fill out your information carefully
@@ -1177,13 +1177,8 @@ JotForm.paymentExtrasOnTheFly([null,{"name":"clickTo","qid":"1","text":"Medical 
                     </div>
                 </li>
       <li class="form-line" data-type="control_button" id="id_2">
-        <div id="cid_2" class="form-input-wide">
-          <div style="margin-left:156px" class="form-buttons-wrapper ">
-            <button id="input_2" name="submit" type="submit" class="form-submit-button" data-component="button">
-              Submit Form
-            </button>
-            <button type="submit" class="btn" name="register_btn">Register</button>
-          </div>
+        <div class="text-center">
+              <button type="submit" class="btn-primary btn" name="register_btn">Register</button>
         </div>
       </li>
       <li style="display:none">

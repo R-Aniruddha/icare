@@ -316,6 +316,7 @@ function patient_registeration() {
 //Login
 function login() {
   global $conn, $username, $errors;
+
   $username = mysqli_real_escape_string($conn, $_POST['username']);
   $password = mysqli_real_escape_string($conn, $_POST['password']);
 
@@ -327,7 +328,9 @@ function login() {
   }
 
   if (count($errors) == 0) {
-  	$password = md5($password);
+
+    $password = md5($password);
+    
   	$query = "SELECT * FROM users WHERE username='$username' AND password='$password'";
     $results = mysqli_query($conn, $query);
   

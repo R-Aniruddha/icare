@@ -53,10 +53,7 @@
     <!-- CAROUSEL CODE ENDS HERE --> 
 
     <div class="main-content">
-        <h2>WHO WE ARE</h2>
-        <p>
-            Smart System to create an environment at home or in a hospital room to monitor people’s health. Taking precautions for emergency situations by notifying registered family members or trusted persons to avoid worst-case scenarios. Allows for remote monitoring and gathering of medical data. This will allow a cost-effective solution for patients thereby allowing them to stay in the comfort of their homes instead of being admitted into an expensive hospital. 
-        </p>
+        
         <div class="row homepage-row"> 
             <div class="col-sm-4 text-center">
                 <h3>Automate Health Analytics</h3>
@@ -71,6 +68,28 @@
                 <img class="img-responsive img-circle" src="images/emergency_call.png" />
             </div>
         </div>
+        <div class="row homepage-row" style="text-align: center;">
+            <div class="col-sm-12 text-center" style="padding-bottom:15px;">
+                <h2>Our Smart System can help monitor your health</h2>
+            </div>
+            <div class="col-sm-3" >
+                <h3>Movement</h3>
+                <img src="images/smart-body-sensor.png" class="img-responsive img-rounded"/>
+            </div>
+            <div class="col-sm-3">
+                <h3>Heart Rate</h3>
+                <img src="images/heartrate-sensor.png" class="img-responsive img-rounded"/>
+            </div>
+            <div class="col-sm-3">
+                <h3>Sleep Tracking</h3>
+                <img src="images/sleep-tracking.png" class="img-responsive img-rounded"/>
+            </div>
+            <div class="col-sm-3">
+                <h3>Blood Pressure</h3>
+                <img src="images/bloodpressure-sensor.png" class="img-responsive img-rounded"/>
+            </div>
+
+        </div>    
         <div class="row homepage-row">
             <div class="col-sm-6">
                 <img class="" src="images/raw/image-5.png" width="100%" />
@@ -106,30 +125,9 @@
                 <a class="btn btn-info" href="about.php">Learn More</a>
             </div>
         </div>
-        <div class="row homepage-row" style="text-align: center;">
-            <div class="col-sm-12 text-center" style="padding-bottom:15px;">
-                <h2>Our Smart System can help monitor your health</h2>
-            </div>
-            <div class="col-sm-3" >
-                <h3>Movement</h3>
-                <img src="images/smart-body-sensor.png" class="img-responsive img-rounded"/>
-            </div>
-            <div class="col-sm-3">
-                <h3>Heart Rate</h3>
-                <img src="images/heartrate-sensor.png" class="img-responsive img-rounded"/>
-            </div>
-            <div class="col-sm-3">
-                <h3>Sleep Tracking</h3>
-                <img src="images/sleep-tracking.png" class="img-responsive img-rounded"/>
-            </div>
-            <div class="col-sm-3">
-                <h3>Blood Pressure</h3>
-                <img src="images/bloodpressure-sensor.png" class="img-responsive img-rounded"/>
-            </div>
-
-        </div>    
+        
             
-            
+</div>
     </div>
         
 
