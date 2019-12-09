@@ -10,7 +10,6 @@
     
     include('includes/header.php');
 
-
 ?>
         
     <div class="main-content">

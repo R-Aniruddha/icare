@@ -6,54 +6,6 @@
 	include_once("controller/connection.php");
 
 
-// Fetching variables of the form which travels in URL
-if(isset($_POST['submit']))
-{ 
-  $First_Name						=  $_POST['First_Name'];
-  $Last_Name   		    		=  $_POST['Last_Name'];
-  $Phone_number					=  $_POST['Phone_number'];
-  $BirthDate  					=  $_POST['BirthDate'];
-  $Address 						=  $_POST['Address'];
-  $Cholesterol 					=  $_POST['Cholesterol'];
-  $Emerg_FirstName 				=  $_POST['Emerg_FirstName'];
-  $Emerg_LastName 				=  $_POST['Emerg_LastName'];
-  $Emerg_Relaton 					=  $_POST['Emerg_Relaton'];
-  $Emerg_PhoneNumber1 			=  $_POST['Emerg_PhoneNumber1'];
-  $Emerg2_PhoneNumber2 			=  $_POST['Emerg2_PhoneNumber2'];
-  $Emerg_PhoneNumber2 			=  $_POST['Emerg_PhoneNumber2'];
-  $HepatitisB	 					=  $_POST['HepatitisB'];
-  $ChickenPox 					=  $_POST['ChickenPox'];
-  $Measles 						=  $_POST['Measles'];
-  $Medical_History 				=  $_POST['Medical_History'];
-  $Height 						=  $_POST['Height'];
-  $Weight 						=  $_POST['Weight'];
-  $Username 						=  $_POST['Username'];
-  $Password 						=  $_POST['Password'];
-  $Gender 						=  $_POST['Gender'];
-  $Occupation 					=  $_POST['Occupation'];
-  $Marital_Status 				=  $_POST['Marital_Status'];
-  $EmailID						=  $_POST['EmailID'];
-  $Social_Security 				=  $_POST['Social_Security'];
-  $Emerg2_Relation 				=  $_POST['Emerg2_Relation'];
-  $Emerg2_FirstName 				=  $_POST['Emerg2_FirstName'];
-  $Emerg2_LastName                =  $_POST['Emerg2_LastName'];
-  $Emerg2_PhoneNumber1 			=  $_POST['Emerg2_PhoneNumber1'];
-  $BloodPressure	 				=  $_POST['BloodPressure'];
-  $HeartDisease 					=  $_POST['HeartDisease'];
-  $Vaccination_History 			=  $_POST['Vaccination_History'];
-  $OtherHealthIssues 				=  $_POST['OtherHealthIssues'];
-
-  register();
-
-  
-  if(count($errors)== 0){
-    //Insert Query of SQL
-    $sql = mysqli_query($conn,"INSERT INTO patient(First_Name,Last_Name,Phone_number,BirthDate,Address,Cholesterol,Emerg_FirstName,Emerg_LastName,Emerg_Relaton,Emerg_PhoneNumber1,Emerg2_PhoneNumber2,Emerg_PhoneNumber2,	HepatitisB,ChickenPox,Measles,Medical_History,Height,Weight,Username,	Password, Gender, Occupation, Marital_Status, EmailID, Social_Security,	Emerg2_Relation, Emerg2_FirstName,Emerg2_LastName, Emerg2_PhoneNumber1, BloodPressure, HeartDisease, Vaccination_History, OtherHealthIssues)values('$First_Name','$Last_Name',	'$Phone_number','$BirthDate',	'$Address','$Cholesterol','$Emerg_FirstName','$Emerg_LastName','$Emerg_Relaton','$Emerg_PhoneNumber1','$Emerg2_PhoneNumber2','$Emerg_PhoneNumber2','$HepatitisB',	'$ChickenPox','$Measles','$Medical_History','$Height','$Weight','$Username','$Password','$Gender','$Occupation',	'$Marital_Status','$EmailID','$Social_Security','$Emerg2_Relation','$Emerg2_FirstName','$Emerg2_LastName','$Emerg2_PhoneNumber1','$BloodPressure','$HeartDisease','$Vaccination_History',	'$OtherHealthIssues')")or die(mysqli_error($conn));
-      
-      
-  }
-  
-}
 
 ?>
 
@@ -99,7 +51,7 @@ if(isset($_POST['submit']))
 	
 	f6 {
 	color: #4477B5;
-	font-size:20px;
+	font-size:20px;  
 	font-family: "Source Sans Pro", "Arial", serif;
 	font-weight: normal; }
 
@@ -271,13 +223,13 @@ JotForm.paymentExtrasOnTheFly([null,{"name":"clickTo","qid":"1","text":"Medical 
       <li class="form-line form-line-column form-col-2" data-type="control_textbox" id="id_36">
         <label class="form-label form-label-left" id="label_36" for="input_36"> Password: </label>
         <div id="cid_36" class="form-input">
-          <input type="text" id="input_36" name="Password" required data-type="input-textbox" class="form-textbox validate[Numeric]" size="20" value="" placeholder=" " data-component="textbox" aria-labelledby="label_36" />
+          <input type="text" id="input_36" name="password_1" required data-type="input-textbox" class="form-textbox validate[Numeric]" size="20" value="" placeholder=" " data-component="textbox" aria-labelledby="label_36" />
         </div>
       </li>
 	   <li class="form-line form-line-column form-col-2" data-type="control_textbox" id="id_36">
         <label class="form-label form-label-left" id="label_36" for="input_36"> Repeat Password: </label>
         <div id="cid_36" class="form-input">
-          <input type="text" id="input_36" name="RepeatPassword" required data-type="input-textbox" class="form-textbox validate[Numeric]" size="20" value="" placeholder=" " data-component="textbox" aria-labelledby="label_36" />
+          <input type="text" id="input_36" name="password_2" required data-type="input-textbox" class="form-textbox validate[Numeric]" size="20" value="" placeholder=" " data-component="textbox" aria-labelledby="label_36" />
         </div>
       </li>
       <li class="form-line" data-type="control_fullname" id="id_5">
@@ -1230,6 +1182,7 @@ JotForm.paymentExtrasOnTheFly([null,{"name":"clickTo","qid":"1","text":"Medical 
             <button id="input_2" name="submit" type="submit" class="form-submit-button" data-component="button">
               Submit Form
             </button>
+            <button type="submit" class="btn" name="register_btn">Register</button>
           </div>
         </div>
       </li>

@@ -70,8 +70,14 @@ border-left: thin solid #000000;
     list-style: none;
 }
 
+/* Doctor Registration Page */
+#doctor-details-registration{
+    padding:20px;
+}
 
-
+#doctor-details-registration .input-group{
+    margin: 10px auto;
+}
 
 
 /* Blog sidebar */ 
