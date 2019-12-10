@@ -159,7 +159,7 @@ function register() {
 }
 */
 
-//Doctor Registration (First time when logs in)
+//Doctor Registration (Delete)
 function register_doctor_ac() {
   global $conn, $errors;
 
@@ -283,7 +283,7 @@ $Area2Cont2						=  $_POST['Area2Cont2'];
  if (count($errors) == 0) {
 
    //encrypt the password before saving in the database
-   $password = md5($password_1);
+   $Password = md5($Password);
 
 
    // Inserting data into users table
