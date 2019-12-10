@@ -80,7 +80,7 @@ border-left: thin solid #000000;
     padding:20px;
 }
 
-#doctor-details-registration .input-group{
+#doctor-details-registration .input-group, #create-doctor-form .input-group{
     margin: 10px auto;
 }
 
