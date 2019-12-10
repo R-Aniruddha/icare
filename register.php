@@ -11,8 +11,7 @@
 
 
 
-
-<meta property="og:title" content="Patient Information Form" >
+<meta property="og:title" content="Patient Registration Form" >
 <meta property="og:url" content="" >
 <meta property="og:description" content="Please click the link to complete this form.">
 <meta name="slack-app-id" content="AHNMASS8M">
@@ -26,12 +25,16 @@
 <link type="text/css" rel="stylesheet" href="https://cdn.jotfor.ms/css/styles/nova.css?3.3.13242" />
 <link type="text/css" rel="stylesheet" href="https://cdn.jotfor.ms/themes/CSS/566a91c2977cdfcd478b4567.css?themeRevisionID=5d713a7304e9ed3c13620001"/>      
     <style type="text/css">
-    
+    .form-label-left{
+        width:150px;
+    }
     .form-line{
         padding-top:12px;
         padding-bottom:12px;
     }
-    
+    .form-label-right{
+        width:150px;
+    }
     body, html{
         margin:0;
         padding:0;
@@ -41,6 +44,7 @@
     .form-all{
         margin:0px auto;
         padding-top:0px;
+        width:690px;
         color:#555 !important;
         font-family:"Lucida Grande", "Lucida Sans Unicode", "Lucida Sans", Verdana, sans-serif;
         font-size:14px;
@@ -51,7 +55,7 @@
 	
 	f6 {
 	color: #4477B5;
-	font-size:20px;  
+	font-size:20px;
 	font-family: "Source Sans Pro", "Arial", serif;
 	font-weight: normal; }
 
@@ -93,7 +97,9 @@
       margin-bottom: 12px 36px 12px 36px px;
     }
   
-
+    .form-all {
+      width: 590px;
+    }
   
     .form-label-left,
     .form-label-right,
@@ -203,19 +209,17 @@ JotForm.paymentExtrasOnTheFly([null,{"name":"clickTo","qid":"1","text":"Medical 
         <div class="form-header-group ">
           <div class="header-text httal htvam">
             <h1 id="header_1" class="form-header" data-component="header">
-              Patient Registration Form
+              Patient Information Form
             </h1>
             <div id="subHeader_1" class="form-subHeader">
               Fill out your information carefully
             </div>
-
-            <?php include('controller/errors.php'); ?>
-
           </div>
         </div>
       </li>
 	  <li class="form-line form-line-column form-col-1" data-type="control_textbox" id="id_35">
         <label class="form-label form-label-left" id="label_35" for="input_35"> User name: </label>
+
         <div id="cid_35" class="form-input">
           <input type="text" id="input_35" name="Username" required data-type="input-textbox"  class="form-textbox validate[Numeric]" size="20" value="" placeholder=" " data-component="textbox" aria-labelledby="label_35" />
         </div>
@@ -223,13 +227,13 @@ JotForm.paymentExtrasOnTheFly([null,{"name":"clickTo","qid":"1","text":"Medical 
       <li class="form-line form-line-column form-col-2" data-type="control_textbox" id="id_36">
         <label class="form-label form-label-left" id="label_36" for="input_36"> Password: </label>
         <div id="cid_36" class="form-input">
-          <input type="text" id="input_36" name="password_1" required data-type="input-textbox" class="form-textbox validate[Numeric]" size="20" value="" placeholder=" " data-component="textbox" aria-labelledby="label_36" />
+          <input type="password" id="input_36" name="Password" required data-type="input-textbox" class="form-textbox validate[Numeric]" size="20" value="" placeholder=" " data-component="textbox" aria-labelledby="label_36" />
         </div>
       </li>
 	   <li class="form-line form-line-column form-col-2" data-type="control_textbox" id="id_36">
         <label class="form-label form-label-left" id="label_36" for="input_36"> Repeat Password: </label>
         <div id="cid_36" class="form-input">
-          <input type="text" id="input_36" name="password_2" required data-type="input-textbox" class="form-textbox validate[Numeric]" size="20" value="" placeholder=" " data-component="textbox" aria-labelledby="label_36" />
+          <input type="password" id="input_36" name="RepeatPassword" required data-type="input-textbox" class="form-textbox validate[Numeric]" size="20" value="" placeholder=" " data-component="textbox" aria-labelledby="label_36" />
         </div>
       </li>
       <li class="form-line" data-type="control_fullname" id="id_5">
@@ -237,11 +241,11 @@ JotForm.paymentExtrasOnTheFly([null,{"name":"clickTo","qid":"1","text":"Medical 
         <div id="cid_5" class="form-input">
           <div data-wrapper-react="true">
             <span class="form-sub-label-container" style="vertical-align:top">
-              <input type="text" id="first_5" name="First_Name" class="form-textbox" size="10" value="" data-component="first" aria-labelledby="label_5 sublabel_5_first" />
+              <input type="text" id="first_5" name="First_Name" required class="form-textbox" size="10" value="" data-component="first" aria-labelledby="label_5 sublabel_5_first" />
               <label class="form-sub-label" for="first_5" id="sublabel_5_first" style="min-height:13px"> First Name </label>
             </span>
             <span class="form-sub-label-container" style="vertical-align:top">
-              <input type="text" id="last_5" name="Last_Name" class="form-textbox" size="15" value="" data-component="last" aria-labelledby="label_5 sublabel_5_last" />
+              <input type="text" id="last_5" name="Last_Name" required class="form-textbox" size="15" value="" data-component="last" aria-labelledby="label_5 sublabel_5_last" />
               <label class="form-sub-label" for="last_5" id="sublabel_5_last" style="min-height:13px"> Last Name </label>
             </span>
           </div>
@@ -252,14 +256,14 @@ JotForm.paymentExtrasOnTheFly([null,{"name":"clickTo","qid":"1","text":"Medical 
         <div id="cid_6" class="form-input">
           <div data-wrapper-react="true">
             <span class="form-sub-label-container" style="vertical-align:top">
-              <input type="tel" id="input_6_area" name="Phone_number" class="form-textbox" size="6" value="" data-component="areaCode" aria-labelledby="label_6 sublabel_6_area" />
+              <input type="tel" id="input_6_area" name="AreaPhonepersonal" required class="form-textbox" size="6" value="" data-component="areaCode" aria-labelledby="label_6 sublabel_6_area" />
               <span class="phone-separate" aria-hidden="true">
                  -
               </span>
               <label class="form-sub-label" for="input_6_area" id="sublabel_6_area" style="min-height:13px"> Area Code </label>
             </span>
             <span class="form-sub-label-container" style="vertical-align:top">
-              <input type="tel" id="input_6_phone" name="q6_phoneNumber6[phone]" class="form-textbox" size="12" value="" data-component="phone" aria-labelledby="label_6 sublabel_6_phone" />
+              <input type="tel" id="input_6_phone" name="Phone_number" required class="form-textbox" size="12" value="" data-component="phone" aria-labelledby="label_6 sublabel_6_phone" />
               <label class="form-sub-label" for="input_6_phone" id="sublabel_6_phone" style="min-height:13px"> Phone Number </label>
             </span>
           </div>
@@ -270,7 +274,7 @@ JotForm.paymentExtrasOnTheFly([null,{"name":"clickTo","qid":"1","text":"Medical 
         <div id="cid_7" class="form-input">
           <div data-wrapper-react="true">
             <span class="form-sub-label-container" style="vertical-align:top">
-              <select name="BirthDate" id="input_7_month" class="form-dropdown" data-component="birthdate-month">
+              <select name="BirthMonth" required id="input_7_month" class="form-dropdown" data-component="birthdate-month">
                 <option>  </option>
                 <option value="January"> January </option>
                 <option value="February"> February </option>
@@ -288,7 +292,7 @@ JotForm.paymentExtrasOnTheFly([null,{"name":"clickTo","qid":"1","text":"Medical 
               <label class="form-sub-label" for="input_7_month" id="sublabel_month" style="min-height:13px"> Month </label>
             </span>
             <span class="form-sub-label-container" style="vertical-align:top">
-              <select name="q7_birthDate7[day]" id="input_7_day" class="form-dropdown" data-component="birthdate-day">
+              <select name="BirthDay" required id="input_7_day" class="form-dropdown" data-component="birthdate-day">
                 <option>  </option>
                 <option value="1"> 1 </option>
                 <option value="2"> 2 </option>
@@ -325,7 +329,7 @@ JotForm.paymentExtrasOnTheFly([null,{"name":"clickTo","qid":"1","text":"Medical 
               <label class="form-sub-label" for="input_7_day" id="sublabel_day" style="min-height:13px"> Day </label>
             </span>
             <span class="form-sub-label-container" style="vertical-align:top">
-              <select name="q7_birthDate7[year]" id="input_7_year" class="form-dropdown" data-component="birthdate-year">
+              <select name="BirthYear" required id="input_7_year" class="form-dropdown" data-component="birthdate-year">
                 <option>  </option>
                 <option value="2019"> 2019 </option>
                 <option value="2018"> 2018 </option>
@@ -441,7 +445,7 @@ JotForm.paymentExtrasOnTheFly([null,{"name":"clickTo","qid":"1","text":"Medical 
               <tr>
                 <td colSpan="2">
                   <span class="form-sub-label-container" style="vertical-align:top">
-                    <input type="text" id="input_8_addr_line1" name="Address" class="form-textbox form-address-line" autoComplete="address-line1" value="" data-component="address_line_1" aria-labelledby="label_8 sublabel_8_addr_line1" />
+                    <input type="text" id="input_8_addr_line1" name="Street_Address" required class="form-textbox form-address-line" autoComplete="address-line1" value="" data-component="address_line_1" aria-labelledby="label_8 sublabel_8_addr_line1" />
                     <label class="form-sub-label" for="input_8_addr_line1" id="sublabel_8_addr_line1" style="min-height:13px"> Street Address </label>
                   </span>
                 </td>
@@ -449,7 +453,7 @@ JotForm.paymentExtrasOnTheFly([null,{"name":"clickTo","qid":"1","text":"Medical 
               <tr>
                 <td colSpan="2">
                   <span class="form-sub-label-container" style="vertical-align:top">
-                    <input type="text" id="input_8_addr_line2" name="q8_address8[addr_line2]" class="form-textbox form-address-line" autoComplete="address-line2" size="46" value="" data-component="address_line_2" aria-labelledby="label_8 sublabel_8_addr_line2" />
+                    <input type="text" id="input_8_addr_line2" name="Street_Address2" class="form-textbox form-address-line" autoComplete="address-line2" size="46" value="" data-component="address_line_2" aria-labelledby="label_8 sublabel_8_addr_line2" />
                     <label class="form-sub-label" for="input_8_addr_line2" id="sublabel_8_addr_line2" style="min-height:13px"> Street Address Line 2 </label>
                   </span>
                 </td>
@@ -457,13 +461,13 @@ JotForm.paymentExtrasOnTheFly([null,{"name":"clickTo","qid":"1","text":"Medical 
               <tr>
                 <td>
                   <span class="form-sub-label-container" style="vertical-align:top">
-                    <input type="text" id="input_8_city" name="q8_address8[city]" class="form-textbox form-address-city" autoComplete="address-level2" size="21" value="" data-component="city" aria-labelledby="label_8 sublabel_8_city" />
+                    <input type="text" id="input_8_city" name="City" required class="form-textbox form-address-city" autoComplete="address-level2" size="21" value="" data-component="city" aria-labelledby="label_8 sublabel_8_city" />
                     <label class="form-sub-label" for="input_8_city" id="sublabel_8_city" style="min-height:13px"> City </label>
                   </span>
                 </td>
                 <td>
                   <span class="form-sub-label-container" style="vertical-align:top">
-                    <input type="text" id="input_8_state" name="q8_address8[state]" class="form-textbox form-address-state" autoComplete="address-level1" size="22" value="" data-component="state" aria-labelledby="label_8 sublabel_8_state" />
+                    <input type="text" id="input_8_state" name="State" class="form-textbox form-address-state" autoComplete="address-level1" size="22" value="" data-component="state" aria-labelledby="label_8 sublabel_8_state" />
                     <label class="form-sub-label" for="input_8_state" id="sublabel_8_state" style="min-height:13px"> State / Province </label>
                   </span>
                 </td>
@@ -471,13 +475,13 @@ JotForm.paymentExtrasOnTheFly([null,{"name":"clickTo","qid":"1","text":"Medical 
               <tr>
                 <td>
                   <span class="form-sub-label-container" style="vertical-align:top">
-                    <input type="text" id="input_8_postal" name="q8_address8[postal]" class="form-textbox form-address-postal" autoComplete="postal-code" size="10" value="" data-component="zip" aria-labelledby="label_8 sublabel_8_postal" />
+                    <input type="text" id="input_8_postal" name="PostalCode" required class="form-textbox form-address-postal" autoComplete="postal-code" size="10" value="" data-component="zip" aria-labelledby="label_8 sublabel_8_postal" />
                     <label class="form-sub-label" for="input_8_postal" id="sublabel_8_postal" style="min-height:13px"> Postal / Zip Code </label>
                   </span>
                 </td>
                 <td>
                   <span class="form-sub-label-container" style="vertical-align:top">
-                    <select class="form-dropdown form-address-country noTranslate" name="q8_address8[country]" id="input_8_country" data-component="country" aria-labelledby="label_8 sublabel_8_country" autoComplete="country">
+                    <select class="form-dropdown form-address-country noTranslate" name="Country" required id="input_8_country" data-component="country" aria-labelledby="label_8 sublabel_8_country" autoComplete="country">
                       <option value=""> Please Select </option>
                       <option value="United States"> United States </option>
                       <option value="Afghanistan"> Afghanistan </option>
@@ -741,13 +745,13 @@ JotForm.paymentExtrasOnTheFly([null,{"name":"clickTo","qid":"1","text":"Medical 
                             <span class="form-radio-item" style="clear:left">
                                 <span class="dragger-item">
                                 </span>
-                                <input type="radio" class="form-radio" id="input_20_0" name="Gender" value="Male" />
+                                <input type="radio" class="form-radio validate[required]" id="input_20_0" name="Gender" value="Male" required="" />
                                 <label id="label_input_20_0" for="input_20_0"> Male </label>
                             </span>
                             <span class="form-radio-item" style="clear:left">
                                 <span class="dragger-item">
                                 </span>
-                                <input type="radio" class="form-radio" id="input_20_1" name="Gender" value="Female" />
+                                <input type="radio" class="form-radio validate[required]" id="input_20_1" name="Gender" value="Female" required="" />
                                 <label id="label_input_20_1" for="input_20_1"> Female </label>
                             </span>
                         </div>
@@ -760,19 +764,19 @@ JotForm.paymentExtrasOnTheFly([null,{"name":"clickTo","qid":"1","text":"Medical 
                             <span class="form-radio-item" style="clear:left">
                                 <span class="dragger-item">
                                 </span>
-                                <input type="radio" class="form-radio" id="input_20_0" name="Occupation" value="Employed" />
+                                <input type="radio" class="form-radio validate[required]" id="input_20_0" name="Occupation" value="Employed" required="" />
                                 <label id="label_input_20_0" for="input_20_0"> Employed </label>
                             </span>
                             <span class="form-radio-item" style="clear:left">
                                 <span class="dragger-item">
                                 </span>
-                                <input type="radio" class="form-radio" id="input_20_1" name="Occupation" value="Unemployed" />
+                                <input type="radio" class="form-radio validate[required]" id="input_20_1" name="Occupation" value="Unemployed" required="" />
                                 <label id="label_input_20_1" for="input_20_1"> Unemployed </label>
                             </span>
                             <span class="form-radio-item" style="clear:left">
                                 <span class="dragger-item">
                                 </span>
-                                <input type="radio" class="form-radio" id="input_20_1" name="Occupation" value="Retied" />
+                                <input type="radio" class="form-radio validate[required]" id="input_20_1" name="Occupation" value="Retied" required=""/>
                                 <label id="label_input_20_1" for="input_20_1"> Retired </label>
                             </span>
                         </div>
@@ -785,31 +789,31 @@ JotForm.paymentExtrasOnTheFly([null,{"name":"clickTo","qid":"1","text":"Medical 
                             <span class="form-radio-item" style="clear:left">
                                 <span class="dragger-item">
                                 </span>
-                                <input type="radio" class="form-radio" id="input_20_0" name="Marital_Status" value="Single" />
+                                <input type="radio" class="form-radio validate[required]" id="input_20_0" name="Marital_Status" value="Single" required="" />
                                 <label id="label_input_20_0" for="input_20_0"> Single </label>
                             </span>
                             <span class="form-radio-item" style="clear:left">
                                 <span class="dragger-item">
                                 </span>
-                                <input type="radio" class="form-radio" id="input_20_1" name="Marital_Status" value="Married" />
+                                <input type="radio" class="form-radio validate[required]" id="input_20_1" name="Marital_Status" value="Married" required="" />
                                 <label id="label_input_20_1" for="input_20_1"> Married </label>
                             </span>
                             <span class="form-radio-item" style="clear:left">
                                 <span class="dragger-item">
                                 </span>
-                                <input type="radio" class="form-radio" id="input_20_1" name="Marital_Status" value="Divorced" />
+                                <input type="radio" class="form-radio validate[required]" id="input_20_1" name="Marital_Status" value="Divorced" required="" />
                                 <label id="label_input_20_1" for="input_20_1"> Divorced </label>
                             </span>
                             <span class="form-radio-item" style="clear:left">
                                 <span class="dragger-item">
                                 </span>
-                                <input type="radio" class="form-radio" id="input_20_1" name="Marital_Status" value="Widowed" />
+                                <input type="radio" class="form-radio validate[required]" id="input_20_1" name="Marital_Status" value="Widowed" required="" />
                                 <label id="label_input_20_1" for="input_20_1"> Widowed </label>
                             </span>
                             <span class="form-radio-item" style="clear:left">
                                 <span class="dragger-item">
                                 </span>
-                                <input type="radio" class="form-radio" id="input_20_1" name="Marital_Status" value="Other" />
+                                <input type="radio" class="form-radio validate[required]" id="input_20_1" name="Marital_Status" value="Other" required="" />
                                 <label id="label_input_20_1" for="input_20_1"> Other </label>
                             </span>
                         </div>
@@ -868,11 +872,11 @@ JotForm.paymentExtrasOnTheFly([null,{"name":"clickTo","qid":"1","text":"Medical 
                     <div id="cid_12" class="form-input">
                         <div data-wrapper-react="true">
                             <span class="form-sub-label-container" style="vertical-align:top">
-                                <input type="text" id="Emerg_First " name="Emerg_FirstName" class="form-textbox" size="10" value="" data-component="first" aria-labelledby="label_12 sublabel_12_first" />
+                                <input type="text" id="Emerg_First " name="Emerg_FirstName" required class="form-textbox" size="10" value="" data-component="first" aria-labelledby="label_12 sublabel_12_first" />
                                 <label class="form-sub-label" for="first_12" id="sublabel_12_first" style="min-height:13px"> First Name </label>
                             </span>
                             <span class="form-sub-label-container" style="vertical-align:top">
-                                <input type="text" id="last_12" name="Emerg_LastName" class="form-textbox" size="15" value="" data-component="last" aria-labelledby="label_12 sublabel_12_last" />
+                                <input type="text" id="last_12" name="Emerg_LastName" required class="form-textbox" size="15" value="" data-component="last" aria-labelledby="label_12 sublabel_12_last" />
                                 <label class="form-sub-label" for="last_12" id="sublabel_12_last" style="min-height:13px"> Last Name </label>
                             </span>
                         </div>
@@ -901,14 +905,14 @@ JotForm.paymentExtrasOnTheFly([null,{"name":"clickTo","qid":"1","text":"Medical 
                     <div id="cid_15" class="form-input">
                         <div data-wrapper-react="true">
                             <span class="form-sub-label-container" style="vertical-align:top">
-                                <input type="tel" id="input_13_area" name="e_areacode" class="form-textbox" size="6" value="" data-component="areaCode" aria-labelledby="label_15 sublabel_15_area" />
+                                <input type="tel" id="input_13_area" name="Area1Cont1" required class="form-textbox" size="6" value="" data-component="areaCode" aria-labelledby="label_15 sublabel_15_area" />
                                 <span class="phone-separate" aria-hidden="true">
                                     -
                                 </span>
                                 <label class="form-sub-label" for="input_13_area" id="sublabel_13_area" style="min-height:13px"> Area Code </label>
                             </span>
                             <span class="form-sub-label-container" style="vertical-align:top">
-                                <input type="tel" id="e_phonenumbe" name="Emerg_PhoneNumber1" class="form-textbox" size="12" value="" data-component="phone" aria-labelledby="label_15 sublabel_15_phone" />
+                                <input type="tel" id="e_phonenumbe" name="Emerg_PhoneNumber1" required class="form-textbox" size="12" value="" data-component="phone" aria-labelledby="label_15 sublabel_15_phone" />
                                 <label class="form-sub-label" for="input_13_phone" id="sublabel_13_phone" style="min-height:13px"> Phone Number 1 </label>
                             </span>
                         </div>
@@ -919,7 +923,7 @@ JotForm.paymentExtrasOnTheFly([null,{"name":"clickTo","qid":"1","text":"Medical 
                     <div id="cid_15" class="form-input">
                         <div data-wrapper-react="true">
                             <span class="form-sub-label-container" style="vertical-align:top">
-                                <input type="tel" id="input_14_area" name="e_areacode2" class="form-textbox" size="6" value="" data-component="areaCode" aria-labelledby="label_15 sublabel_15_area" />
+                                <input type="tel" id="input_14_area" name="Area2Cont1" class="form-textbox" size="6" value="" data-component="areaCode" aria-labelledby="label_15 sublabel_15_area" />
                                 <span class="phone-separate" aria-hidden="true">
                                     -
                                 </span>
@@ -981,7 +985,7 @@ JotForm.paymentExtrasOnTheFly([null,{"name":"clickTo","qid":"1","text":"Medical 
                     <div id="cid_15" class="form-input">
                         <div data-wrapper-react="true">
                             <span class="form-sub-label-container" style="vertical-align:top">
-                                <input type="tel" id="input_13_area" name="e2_areacode" class="form-textbox" size="6" value="" data-component="areaCode" aria-labelledby="label_15 sublabel_15_area" />
+                                <input type="tel" id="input_13_area" name="Area1Cont2" class="form-textbox" size="6" value="" data-component="areaCode" aria-labelledby="label_15 sublabel_15_area" />
                                 <span class="phone-separate" aria-hidden="true">
                                     -
                                 </span>
@@ -999,7 +1003,7 @@ JotForm.paymentExtrasOnTheFly([null,{"name":"clickTo","qid":"1","text":"Medical 
                     <div id="cid_15" class="form-input">
                         <div data-wrapper-react="true">
                             <span class="form-sub-label-container" style="vertical-align:top">
-                                <input type="tel" id="input_14_area" name="e2_areacode2" class="form-textbox" size="6" value="" data-component="areaCode" aria-labelledby="label_15 sublabel_15_area" />
+                                <input type="tel" id="input_14_area" name="Area2Cont2" class="form-textbox" size="6" value="" data-component="areaCode" aria-labelledby="label_15 sublabel_15_area" />
                                 <span class="phone-separate" aria-hidden="true">
                                     -
                                 </span>
@@ -1057,13 +1061,13 @@ JotForm.paymentExtrasOnTheFly([null,{"name":"clickTo","qid":"1","text":"Medical 
                             <span class="form-radio-item" style="clear:left">
                                 <span class="dragger-item">
                                 </span>
-                                <input type="radio" class="form-radio" id="input_19_0" name="ChickenPox" value="IMMUNE" />
+                                <input type="radio" class="form-radio validate[required]" id="input_19_0" name="ChickenPox" value="IMMUNE" required=""/>
                                 <label id="label_input_19_0" for="input_19_0"> IMMUNE </label>
                             </span>
                             <span class="form-radio-item" style="clear:left">
                                 <span class="dragger-item">
                                 </span>
-                                <input type="radio" class="form-radio" id="input_19_1" name="ChickenPox" value="NOT IMMUNE" />
+                                <input type="radio" class="form-radio validate[required]" id="input_19_1" name="ChickenPox" value="NOT IMMUNE" required="" />
                                 <label id="label_input_19_1" for="input_19_1"> NOT IMMUNE </label>
                             </span>
                         </div>
@@ -1076,13 +1080,13 @@ JotForm.paymentExtrasOnTheFly([null,{"name":"clickTo","qid":"1","text":"Medical 
                             <span class="form-radio-item" style="clear:left">
                                 <span class="dragger-item">
                                 </span>
-                                <input type="radio" class="form-radio" id="input_20_0" name="Measles" value="IMMUNE" />
+                                <input type="radio" class="form-radio validate[required]" id="input_20_0" name="Measles" value="IMMUNE" required="" />
                                 <label id="label_input_20_0" for="input_20_0"> IMMUNE </label>
                             </span>
                             <span class="form-radio-item" style="clear:left">
                                 <span class="dragger-item">
                                 </span>
-                                <input type="radio" class="form-radio" id="input_20_1" name="Measles" value="NOT IMMUNE" />
+                                <input type="radio" class="form-radio validate[required]" id="input_20_1" name="Measles" value="NOT IMMUNE" required="" />
                                 <label id="label_input_20_1" for="input_20_1"> NOT IMMUNE </label>
                             </span>
                         </div>
@@ -1177,8 +1181,12 @@ JotForm.paymentExtrasOnTheFly([null,{"name":"clickTo","qid":"1","text":"Medical 
                     </div>
                 </li>
       <li class="form-line" data-type="control_button" id="id_2">
-        <div class="text-center">
-              <button type="submit" class="btn-primary btn" name="register_btn">Register</button>
+        <div id="cid_2" class="form-input-wide">
+          <div style="margin-left:156px" class="form-buttons-wrapper ">
+            <button id="input_2" name="register_btn" type="submit" class="form-submit-button" data-component="button">
+              Register
+            </button>
+          </div>
         </div>
       </li>
       <li style="display:none">
@@ -1195,14 +1203,7 @@ JotForm.paymentExtrasOnTheFly([null,{"name":"clickTo","qid":"1","text":"Medical 
       
     </div>
   </div>
-</form></body>
-</html>
-       
-         
-            
-    </div>
-        
-</div>
+
 
 <?php
 	include('includes/footer.php');

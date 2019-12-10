@@ -216,54 +216,53 @@ function patient_registeration() {
   // receive all input values from the form
 
   $First_Name						=  $_POST['First_Name'];
-  $Last_Name   		    		=  $_POST['Last_Name'];
-  $Phone_number					=  $_POST['Phone_number'];
-  $BirthDate  					=  $_POST['BirthDate'];
-  $Address 						=  $_POST['Address'];
-  $Cholesterol 					=  $_POST['Cholesterol'];
-  $Emerg_FirstName 				=  $_POST['Emerg_FirstName'];
-  $Emerg_LastName 				=  $_POST['Emerg_LastName'];
-  $Emerg_Relaton 					=  $_POST['Emerg_Relaton'];
-  $Emerg_PhoneNumber1 			=  $_POST['Emerg_PhoneNumber1'];
-  $Emerg2_PhoneNumber2 			=  $_POST['Emerg2_PhoneNumber2'];
-  $Emerg_PhoneNumber2 			=  $_POST['Emerg_PhoneNumber2'];
-  $HepatitisB	 					=  $_POST['HepatitisB'];
-  $ChickenPox 					=  $_POST['ChickenPox'];
-  $Measles 						=  $_POST['Measles'];
-  $Medical_History 				=  $_POST['Medical_History'];
-  $Height 						=  $_POST['Height'];
-  $Weight 						=  $_POST['Weight'];
-  //$Username 						=  $_POST['Username'];
-  $username = mysqli_real_escape_string($conn, $_POST['username']);
-  //$Password 						=  $_POST['Password'];
-  $password_1 = mysqli_real_escape_string($conn, $_POST['password_1']);
-  $password_2 = mysqli_real_escape_string($conn, $_POST['password_2']);
-  $Gender 						=  $_POST['Gender'];
-  $Occupation 					=  $_POST['Occupation'];
-  $Marital_Status 				=  $_POST['Marital_Status'];
-  //$EmailID						=  $_POST['EmailID'];
-  $email = mysqli_real_escape_string($conn, $_POST['email']);
-  $Social_Security 				=  $_POST['Social_Security'];
-  $Emerg2_Relation 				=  $_POST['Emerg2_Relation'];
-  $Emerg2_FirstName 				=  $_POST['Emerg2_FirstName'];
-  $Emerg2_LastName                =  $_POST['Emerg2_LastName'];
-  $Emerg2_PhoneNumber1 			=  $_POST['Emerg2_PhoneNumber1'];
-  $BloodPressure	 				=  $_POST['BloodPressure'];
-  $HeartDisease 					=  $_POST['HeartDisease'];
-  $Vaccination_History 			=  $_POST['Vaccination_History'];
-  $OtherHealthIssues 				=  $_POST['OtherHealthIssues'];
+$Last_Name   		    		=  $_POST['Last_Name'];
+$Phone_number					=  $_POST['Phone_number'];
+$Cholesterol 					=  $_POST['Cholesterol'];
+$Emerg_FirstName 				=  $_POST['Emerg_FirstName'];
+$Emerg_LastName 				=  $_POST['Emerg_LastName'];
+$Emerg_Relaton 					=  $_POST['Emerg_Relaton'];
+$Emerg_PhoneNumber1 			=  $_POST['Emerg_PhoneNumber1'];
+$Emerg2_PhoneNumber2 			=  $_POST['Emerg2_PhoneNumber2'];
+$Emerg_PhoneNumber2 			=  $_POST['Emerg_PhoneNumber2'];
+$HepatitisB	 					=  $_POST['HepatitisB'];
+$ChickenPox 					=  $_POST['ChickenPox'];
+$Measles 						=  $_POST['Measles'];
+$Medical_History 				=  $_POST['Medical_History'];
+$Height 						=  $_POST['Height'];
+$Weight 						=  $_POST['Weight'];
+$Username 						=  $_POST['Username'];
+$Password 						=  $_POST['Password'];
+$Gender 						=  $_POST['Gender'];
+$Occupation 					=  $_POST['Occupation'];
+$Marital_Status 				=  $_POST['Marital_Status'];
+$EmailID						=  $_POST['EmailID'];
+$Social_Security 				=  $_POST['Social_Security'];
+$Emerg2_Relation 				=  $_POST['Emerg2_Relation'];
+$Emerg2_FirstName 				=  $_POST['Emerg2_FirstName'];
+$Emerg2_LastName                =  $_POST['Emerg2_LastName'];
+$Emerg2_PhoneNumber1 			=  $_POST['Emerg2_PhoneNumber1'];
+$BloodPressure	 				=  $_POST['BloodPressure'];
+$HeartDisease 					=  $_POST['HeartDisease'];
+$Vaccination_History 			=  $_POST['Vaccination_History'];
+$OtherHealthIssues 				=  $_POST['OtherHealthIssues'];
+$AreaPhonepersonal				=  $_POST['AreaPhonepersonal'];
+$BirthDay						=  $_POST['BirthDay'];
+$BirthMonth						=  $_POST['BirthMonth'];
+$BirthYear						=  $_POST['BirthYear'];
+$Street_Address					=  $_POST['Street_Address'];
+$Street_Address2				=  $_POST['Street_Address2'];
+$City							=  $_POST['City'];
+$State							=  $_POST['State'];
+$PostalCode						=  $_POST['PostalCode'];
+$Country						=  $_POST['Country'];
+$Area1Cont1						=  $_POST['Area1Cont1'];
+$Area2Cont1						=  $_POST['Area2Cont1'];
+$Area1Cont2						=  $_POST['Area1Cont2'];
+$Area2Cont2						=  $_POST['Area2Cont2'];
 
 
  
-
- // form validation: ensure that the form is correctly filled ...
- // by adding (array_push()) corresponding error unto $errors array
- if (empty($username)) { array_push($errors, "Username is required"); }
- if (empty($email)) { array_push($errors, "Email is required"); }
- if (empty($password_1)) { array_push($errors, "Password is required"); }
- if ($password_1 != $password_2) {
-  array_push($errors, "Passwords do not match");
- }
 
  // first check the database to make sure a user does not already exist with the same username and/or email
  $user_check_query = "SELECT * FROM users WHERE username='$username' OR email='$email' LIMIT 1";
@@ -271,11 +270,11 @@ function patient_registeration() {
  $user = mysqli_fetch_assoc($result);
  
  if ($user) { // if user exists
-   if ($user['username'] === $username) {
+   if ($user['username'] === $Username) {
      array_push($errors, "Username already exists");
    }
 
-   if ($user['email'] === $email) {
+   if ($user['email'] === $EmailID) {
      array_push($errors, "Email already exists");
    }
  }
@@ -288,28 +287,31 @@ function patient_registeration() {
 
 
    // Inserting data into users table
-   $query = "INSERT INTO users (username, email, user_type, password) VALUES('$username', '$email', 'patient', '$password')";
+   $query = "INSERT INTO users (username, email, user_type, password) VALUES('$Username', '$EmailID', 'patient', '$Password')";
    mysqli_query($conn, $query);
 
-   $query = "SELECT id FROM users WHERE username='$username'";
-    $id = mysqli_query($conn, $query);
+   $query = "SELECT * FROM users WHERE username='$Username'";
+    $res = mysqli_query($conn, $query);
+    $user = mysqli_fetch_assoc($res);
+    $id = $user['id'];
+
 
    // Inserting data into patients table
-   mysqli_query($conn,"INSERT INTO 
-    patient(idPatient, First_Name,Last_Name,Phone_number,BirthDate,Street_Address,Street_Address2,City,State,PostalCode,Country,Cholesterol,Emerg_FirstName,Emerg_LastName,Emerg_Relaton,Emerg_PhoneNumber1,Emerg2_PhoneNumber2,Emerg_PhoneNumber2,	HepatitisB,
-    ChickenPox,Measles,Medical_History,Height,Weight,Username,	Password, Gender, Occupation, Marital_Status, EmailID, Social_Security,	
-    Emerg2_Relation, Emerg2_FirstName,Emerg2_LastName, Emerg2_PhoneNumber1, BloodPressure, HeartDisease, Vaccination_History, 
-    OtherHealthIssues)
-    values('$id','$First_Name','$Last_Name',CONCAT('$AreaPhonepersonal','$Phone_number'),CONCAT('$BirthDay','$BirthMonth','$BirthYear'),	
-    '$Street_Address','$Street_Address2','$City','$State','$PostalCode','$Country','$Cholesterol','$Emerg_FirstName','$Emerg_LastName',
-    '$Emerg_Relaton',CONCAT('$Area1Cont1','$Emerg_PhoneNumber1'),CONCAT('$Area2Cont2','$Emerg2_PhoneNumber2'),CONCAT('$Area2Cont1','$Emerg_PhoneNumber2'),'$HepatitisB',	'$ChickenPox','$Measles',
-    '$Medical_History','$Height','$Weight','$username','$password','$Gender','$Occupation',	'$Marital_Status','$email',
-    '$Social_Security','$Emerg2_Relation','$Emerg2_FirstName','$Emerg2_LastName',CONCAT('$Area1Cont2','$Emerg2_PhoneNumber1'),'$BloodPressure',
-    '$HeartDisease','$Vaccination_History',	'$OtherHealthIssues')");
-
-    $_SESSION['user'] = $username;
+  $query = "INSERT INTO patient(idPatient, First_Name,Last_Name,Phone_number,BirthDate,Address,Cholesterol,Emerg_FirstName,Emerg_LastName,Emerg_Relaton,Emerg_PhoneNumber1,Emerg2_PhoneNumber2,Emerg_PhoneNumber2,	HepatitisB,
+  ChickenPox,Measles,Medical_History,Height,Weight,Username,	Password, Gender, Occupation, Marital_Status, EmailID, Social_Security,	
+  Emerg2_Relation, Emerg2_FirstName,Emerg2_LastName, Emerg2_PhoneNumber1, BloodPressure, HeartDisease, Vaccination_History, 
+  OtherHealthIssues)values('$id','$First_Name','$Last_Name',CONCAT('$AreaPhonepersonal','$Phone_number'),CONCAT('$BirthDay','$BirthMonth','$BirthYear'),	
+  CONCAT('$Street_Address','$Street_Address2','$City','$State','$PostalCode','$Country'),'$Cholesterol','$Emerg_FirstName','$Emerg_LastName',
+  '$Emerg_Relaton',CONCAT('$Area1Cont1','$Emerg_PhoneNumber1'),CONCAT('$Area2Cont2','$Emerg2_PhoneNumber2'),CONCAT('$Area2Cont1','$Emerg_PhoneNumber2'),'$HepatitisB',	'$ChickenPox','$Measles',
+  '$Medical_History','$Height','$Weight','$Username','$Password','$Gender','$Occupation',	'$Marital_Status','$EmailID',
+  '$Social_Security','$Emerg2_Relation','$Emerg2_FirstName','$Emerg2_LastName',CONCAT('$Area1Cont2','$Emerg2_PhoneNumber1'),'$BloodPressure',
+  '$HeartDisease','$Vaccination_History',	'$OtherHealthIssues')";
+   mysqli_query($conn,$query);
+  /**/
+    $_SESSION['user'] = $user;
     $_SESSION['success'] = "You are now logged in";
     header('location: dashboard.php');
+    
  }
 }
 
