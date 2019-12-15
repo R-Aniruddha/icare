@@ -56,9 +56,7 @@
 	 
 	 ?>
 
-<div class="main-content">
-
-    <form id="health-details-registration" action="health-details.php" method="post" style="padding:20px;">
+    <form id="patient-details" action="patient-details.php" method="post" style="padding:20px;">
 
         <fieldset class="col-md-8" style="margin: auto;">
 
@@ -266,7 +264,7 @@
                             
                             <div class="input-group">
                                 <span class="input-group-text">Relationship</span>
-                                <input type="text" class="form-control" required value="<?php echo $Emerg_Relaton ; ?>" name="Emerg_Relaton">
+                                <input type="text" class="form-control" required value="<?php echo $Emerg2_Relation ; ?>" name="Emerg2_Relation">
                             </div>
                             
                             <div class="input-group">
@@ -284,7 +282,7 @@
                 </div>
             </div>
             <?php if ($update == true): ?>
-                <button class="btn" type="submit" name="update" style="background: #556B2F;" >Update</button>
+                <button class="btn" type="submit" name="update-patient-details" style="background: #556B2F;" >Update</button>
             <?php else: ?>
                 <button class="btn" type="submit" name="save" >Save</button>
             <?php endif ?>
@@ -293,9 +291,7 @@
 
     </form>
 
-          </div>
-          </div>
-
+        
 
 <?php
  include('includes/footer.php');
