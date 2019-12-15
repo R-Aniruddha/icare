@@ -113,7 +113,53 @@ if (isset($_POST['update'])) {
 	header('location: doctor-details.php');
 }
 
+//Update patient Details
+if (isset($_POST['update-patient-details'])) {
 
+  $id = $_SESSION['user']['id'];
+  
+	$First_Name               =$_POST['First_Name'];
+    $Last_Name                =$_POST['Last_Name'];
+	$Phone_number             =$_POST['Phone_number'];
+    $BirthDate                =$_POST['BirthDate'];
+    $Address                  =$_POST['Address'];
+    //$Username                 =$_POST['Username'];
+    $DoctorId                 =$_POST['DoctorId'];
+    $EmailID                  =$_POST['EmailID'];
+    $Social_Security	      =$_POST['Social_Security'];
+    $Gender                   =$_POST['Gender'];
+    $Height                   =$_POST['Height'];
+    $Weight                   =$_POST['Weight'];
+    $Marital_Status           =$_POST['Marital_Status'];
+    $Occupation               =$_POST['Occupation'];
+    $Cholesterol              =$_POST['Cholesterol'];
+    $BloodPressure            =$_POST['BloodPressure'];
+    $HeartDisease             =$_POST['HeartDisease'];
+    $HepatitisB               =$_POST['HepatitisB'];
+    $ChickenPox               =$_POST['ChickenPox'];
+    $Measles                  =$_POST['Measles'];
+    $Medical_History          =$_POST['Medical_History'];
+    $Vaccination_History      =$_POST['Vaccination_History'];
+    $OtherHealthIssues        =$_POST['OtherHealthIssues'];
+    $Emerg_FirstName          =$_POST['Emerg_FirstName'];
+    $Emerg_LastName           =$_POST['Emerg_LastName'];
+    $Emerg_Relaton            =$_POST['Emerg_Relaton'];
+    $Emerg_PhoneNumber1       =$_POST['Emerg_PhoneNumber1'];
+    $Emerg_PhoneNumber2       =$_POST['Emerg_PhoneNumber2'];
+    $Emerg2_FirstName         =$_POST['Emerg2_FirstName'];
+    $Emerg2_LastName          =$_POST['Emerg2_LastName'];
+    $Emerg2_Relation          =$_POST['Emerg2_Relation'];
+    $Emerg2_PhoneNumber1      =$_POST['Emerg2_PhoneNumber1'];
+    $Emerg2_PhoneNumber2      =$_POST['Emerg2_PhoneNumber2'];
+  //Inserting data into users table
+  mysqli_query($conn, "UPDATE users SET FirstName='$First_Name', Lastname = '$Last_Name' ");
+
+  //Inserting data into patient table
+	mysqli_query($conn, "UPDATE patient SET First_Name='$First_Name', Last_Name = '$Last_Name', Phone_number= '$Phone_number', BirthDate='$BirthDate', Address = '$Address', DoctorId= '$DoctorId', EmailID = '$EmailID', Social_Security = '$Social_Security', Gender = '$Gender', Height = '$Height', Weight = '$Weight', Marital_Status = '$Marital_Status', Occupation= '$Occupation',Cholesterol='$Cholesterol',BloodPressure='$BloodPressure',HeartDisease='$HeartDisease',HepatitisB='$HepatitisB',ChickenPox='$ChickenPox',Measles='$Measles',Medical_History='$Medical_History',Vaccination_History='$Vaccination_History',OtherHealthIssues='$OtherHealthIssues',Emerg_FirstName='$Emerg_FirstName',Emerg_LastName='$Emerg_LastName',Emerg_Relaton='$Emerg_Relaton',Emerg_PhoneNumber1='$Emerg_PhoneNumber1',Emerg_PhoneNumber2='$Emerg_PhoneNumber2',Emerg2_FirstName='$Emerg2_FirstName',Emerg2_LastName='$Emerg2_LastName',Emerg2_Relation='$Emerg2_Relation',Emerg2_PhoneNumber1='$Emerg2_PhoneNumber1',Emerg2_PhoneNumber2='$Emerg2_PhoneNumber2'
+    WHERE idPatient=$id");
+	$_SESSION['message'] = "Patient Details Updated!"; 
+	header('location: patient-details.php');
+}
 
 //Patient Registration
 function patient_registeration() {
