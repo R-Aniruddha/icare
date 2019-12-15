@@ -150,14 +150,15 @@ if (isset($_POST['update-patient-details'])) {
     $Emerg2_Relation          =$_POST['Emerg2_Relation'];
     $Emerg2_PhoneNumber1      =$_POST['Emerg2_PhoneNumber1'];
     $Emerg2_PhoneNumber2      =$_POST['Emerg2_PhoneNumber2'];
-  //Inserting data into users table
-  mysqli_query($conn, "UPDATE users SET FirstName='$First_Name', Lastname = '$Last_Name' WHERE idPatient=$id");
 
-  //Inserting data into patient table
-	mysqli_query($conn, "UPDATE patient SET First_Name='$First_Name', Last_Name = '$Last_Name', Phone_number= '$Phone_number', BirthDate='$BirthDate', Address = '$Address', DoctorId= '$DoctorId', EmailID = '$EmailID', Social_Security = '$Social_Security', Gender = '$Gender', Height = '$Height', Weight = '$Weight', Marital_Status = '$Marital_Status', Occupation= '$Occupation',Cholesterol='$Cholesterol',BloodPressure='$BloodPressure',HeartDisease='$HeartDisease',HepatitisB='$HepatitisB',ChickenPox='$ChickenPox',Measles='$Measles',Medical_History='$Medical_History',Vaccination_History='$Vaccination_History',OtherHealthIssues='$OtherHealthIssues',Emerg_FirstName='$Emerg_FirstName',Emerg_LastName='$Emerg_LastName',Emerg_Relation='$Emerg_Relation',Emerg_PhoneNumber1='$Emerg_PhoneNumber1',Emerg_PhoneNumber2='$Emerg_PhoneNumber2',Emerg2_FirstName='$Emerg2_FirstName',Emerg2_LastName='$Emerg2_LastName',Emerg2_Relation='$Emerg2_Relation',Emerg2_PhoneNumber1='$Emerg2_PhoneNumber1',Emerg2_PhoneNumber2='$Emerg2_PhoneNumber2'
+    //Inserting data into users table
+    mysqli_query($conn, "UPDATE users SET FirstName='$First_Name', Lastname = '$Last_Name' WHERE idPatient=$id");
+
+    //Inserting data into patient table
+	  mysqli_query($conn, "UPDATE patient SET First_Name='$First_Name', Last_Name = '$Last_Name', Phone_number= '$Phone_number', BirthDate='$BirthDate', Address = '$Address', DoctorId= '$DoctorId', EmailID = '$EmailID', Social_Security = '$Social_Security', Gender = '$Gender', Height = '$Height', Weight = '$Weight', Marital_Status = '$Marital_Status', Occupation= '$Occupation',Cholesterol='$Cholesterol',BloodPressure='$BloodPressure',HeartDisease='$HeartDisease',HepatitisB='$HepatitisB',ChickenPox='$ChickenPox',Measles='$Measles',Medical_History='$Medical_History',Vaccination_History='$Vaccination_History',OtherHealthIssues='$OtherHealthIssues',Emerg_FirstName='$Emerg_FirstName',Emerg_LastName='$Emerg_LastName',Emerg_Relation='$Emerg_Relation',Emerg_PhoneNumber1='$Emerg_PhoneNumber1',Emerg_PhoneNumber2='$Emerg_PhoneNumber2',Emerg2_FirstName='$Emerg2_FirstName',Emerg2_LastName='$Emerg2_LastName',Emerg2_Relation='$Emerg2_Relation',Emerg2_PhoneNumber1='$Emerg2_PhoneNumber1',Emerg2_PhoneNumber2='$Emerg2_PhoneNumber2'
     WHERE idPatient=$id");
-	$_SESSION['message'] = "Patient Details Updated!"; 
-	header('location: patient-details.php');
+	  $_SESSION['message'] = "Patient Details Updated!"; 
+	  header('location: patient-details.php');
 }
 
 //Patient Registration
@@ -220,7 +221,6 @@ function patient_registeration() {
 
    //encrypt the password before saving in the database
    $Enc_Password = md5($Password);
-
 
    // Inserting data into users table
    $query = "INSERT INTO users (FirstName, LastName, Email, user_type, Password) VALUES('$FirstName', '$LastName', '$EmailID', 'patient', '$Enc_Password')";
@@ -341,7 +341,7 @@ function isLoggedIn()
 // return user array from their id
 function getUserById($id){
   global $conn;
-  $query = "SELECT * FROM users WHERE id=" . $id;
+  $query = "SELECT * FROM users WHERE id= '$id'";
   $result = mysqli_query($conn, $query);
 
   $user = mysqli_fetch_assoc($result);
