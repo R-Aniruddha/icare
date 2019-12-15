@@ -11,26 +11,28 @@ $errors = array();
 // connect to the database
 $conn = mysqli_connect('localhost', 'root', '', 'mydb');
 
-// REGISTER Patient
+// REGISTER Patient Button
 if (isset($_POST['register_btn'])) {
   patient_registeration();
 }
 
-// REGISTER Doctor
+// REGISTER Doctor Button
 if (isset($_POST['create_temp_doc_ac'])) {
   create_temp_ac();
 }
 
-// Login
+// Login Button
 if (isset($_POST['login_user'])) {
   login();
 }
 
+// Create Temporary Doctor Account
 function create_temp_ac(){
 
   global $conn, $errors;
 
-  $username = mysqli_real_escape_string($conn, $_POST['username']);
+  $firstname = mysqli_real_escape_string($conn, $_POST['firstname']);
+  $lastname = mysqli_real_escape_string($conn, $_POST['lastname']);
   $email = mysqli_real_escape_string($conn, $_POST['email']);
   $password_1 = mysqli_real_escape_string($conn, $_POST['password_1']);
   $password_2 = mysqli_real_escape_string($conn, $_POST['password_2']);
@@ -38,22 +40,20 @@ function create_temp_ac(){
   // form validation: ensure that the form is correctly filled ...
   // by adding (array_push()) corresponding error unto $errors array
 
-  if (empty($username)) { array_push($errors, "Username is required"); }
+  if (empty($firstname)) { array_push($errors, "First Name is required"); }
+  if (empty($lastname)) { array_push($errors, "Last Name is required"); }
   if (empty($email)) { array_push($errors, "Email is required"); }
   if (empty($password_1)) { array_push($errors, "Password is required"); }
   if ($password_1 != $password_2) {
 	  array_push($errors, "Passwords do not match");
   }
 
-  // first check the database to make sure a user does not already exist with the same username and/or email
-  $user_check_query = "SELECT * FROM users WHERE username='$username'";
+  // first check the database to make sure a user does not already exist with the same email
+  $user_check_query = "SELECT * FROM users WHERE email='$email'";
   $result = mysqli_query($conn, $user_check_query);
   $user = mysqli_fetch_assoc($result);
 
-  if ($user) { // if user exists
-    if ($user['username'] === $username) {
-      array_push($errors, "Username already exists");
-    }
+  if ($user) { // if email exists
     if ($user['email'] === $email) {
       array_push($errors, "email already exists");
     }
@@ -66,8 +66,8 @@ function create_temp_ac(){
   	$password = md5($password_1);
     
     //Insert data into user table
-    $query = "INSERT INTO users (username, email, user_type, password) 
-  			  VALUES('$username', '$email', 'doctor', '$password')";
+    $query = "INSERT INTO users (FirstName, LastName, Email, user_type, Password) 
+  			  VALUES('$firstname', '$lastname', '$email', 'doctor', '$password')";
   	mysqli_query($conn, $query);
 
     $query = "SELECT * FROM users WHERE username = '$username'";
@@ -77,7 +77,7 @@ function create_temp_ac(){
 
     $query = "INSERT INTO doctorsdetails
     (DoctorId, FirstName, LastName, Phone, Street, City, Country, Gender, DOB, Nationality, Speciality, Department, Qualifications, Availability)
-    VALUES('$id', '', '', '', '','', '', '', '', '', '', '', '', '') ";
+    VALUES('$id', '$firstname', '$lastname', '', '','', '', '', '', '', '', '', '', '') ";
     mysqli_query($conn, $query);
     $_SESSION['success'] = "Blank Data Inserted" ;
     header('location: create-doctor.php');
@@ -103,6 +103,10 @@ if (isset($_POST['update'])) {
   $Qualifications		=	$_POST['Qualifications'];
   $Availability		=	$_POST['Availability'];
 
+  //Inserting data into users table
+  mysqli_query($conn, "UPDATE users SET FirstName='$FirstName', Lastname = '$LastName' ");
+
+  //Inserting data into doctorsdetails table
 	mysqli_query($conn, "UPDATE doctorsdetails SET FirstName='$FirstName', Lastname = '$LastName', Phone= '$Phone', Street='$Street', City = '$City', Country= '$Country', Gender = '$Gender', DOB = '$DOB', Nationality = '$Nationality', Speciality = '$Speciality', Department = '$Department', Qualifications = '$Qualifications', Availability= '$Availability'
    WHERE DoctorId=$id");
 	$_SESSION['message'] = "Personal Details Updated!"; 
@@ -110,103 +114,6 @@ if (isset($_POST['update'])) {
 }
 
 
-/*
-function register() {
-   global $conn, $errors;
-
-  // receive all input values from the form
-  $username = mysqli_real_escape_string($conn, $_POST['username']);
-  $email = mysqli_real_escape_string($conn, $_POST['email']);
-  $password_1 = mysqli_real_escape_string($conn, $_POST['password_1']);
-  $password_2 = mysqli_real_escape_string($conn, $_POST['password_2']);
-
-  // form validation: ensure that the form is correctly filled ...
-  // by adding (array_push()) corresponding error unto $errors array
-  if (empty($username)) { array_push($errors, "Username is required"); }
-  if (empty($email)) { array_push($errors, "Email is required"); }
-  if (empty($password_1)) { array_push($errors, "Password is required"); }
-  if ($password_1 != $password_2) {
-	  array_push($errors, "Passwords do not match");
-  }
-
-  // first check the database to make sure a user does not already exist with the same username and/or email
-  $user_check_query = "SELECT * FROM users WHERE username='$username' OR email='$email' LIMIT 1";
-  $result = mysqli_query($conn, $user_check_query);
-  $user = mysqli_fetch_assoc($result);
-  
-  if ($user) { // if user exists
-    if ($user['username'] === $username) {
-      array_push($errors, "Username already exists");
-    }
-
-    if ($user['email'] === $email) {
-      array_push($errors, "email already exists");
-    }
-  }
-
-  // Finally, register user if there are no errors in the form
-  if (count($errors) == 0) {
-
-    //encrypt the password before saving in the database
-  	$password = md5($password_1);
-  	$query = "INSERT INTO users (username, email, user_type, password) 
-  			  VALUES('$username', '$email', 'patient', '$password')";
-  	mysqli_query($conn, $query);
-  	$_SESSION['user'] = $username;
-  	$_SESSION['success'] = "You are now logged in";
-  	header('location: dashboard.php');
-  }
-}
-*/
-
-//Doctor Registration (Delete)
-function register_doctor_ac() {
-  global $conn, $errors;
-
-  // receive all input values from the form
-  $FirstName    			=  $_POST['FirstName'];
-  $LastName    			=  $_POST['LastName'];
-  //$email = mysqli_real_escape_string($conn, $_POST['email']);
-  $Phone  			=  $_POST['Phone'];
-  $Street   		    =  $_POST['Street'];
-  $City   			=  $_POST['City'];
-  $Country 			=  $_POST['Country'];
-  //$Website			=  $_POST['Website'];
-  $SelectYourGender 	=  $_POST['Selectgender'];
-  $DateOfBirth		=  $_POST['DOB'];
-  $Nationality	 	=  $_POST['Nationality'];
-  $Speciality    		=  $_POST['Speciality'];
-  $Department			=	$_POST['Department'];
-  $Qualifications		=	$_POST['Qualifications'];
-  $Availability		=	$_POST['Availability']; 
- 
-
-
- // first check the database to make sure a user does not already exist with the same username and/or email
- $username = $_SESSION['user']['username'];
- $user_check_query = "SELECT * FROM users WHERE username='$username'";
- $result = mysqli_query($conn, $user_check_query);
- $user = mysqli_fetch_assoc($result);
-
-
- // Finally, register user if there are no errors in the form
- if (count($errors) == 0) {
-
-  $id = $user['id'];
-
-   //encrypt the password before saving in the database
-   //$password = md5($password_1);
-
-   $query = "insert into doctorsdetails
-   (DoctorId, FirstName, LastName, Phone, Street, City, Country, Gender, DOB, Nationality, Speciality, Department, Qualifications, Availability)
-   values('$id','$FirstName', '$LastName','$Phone','$Street','$City','$Country','$SelectYourGender','$DateOfBirth','$Nationality','$Speciality','$Department','$Qualifications','$Availability')";
-   mysqli_query($conn, $query);
-   $_SESSION['user'] = $username;
-   $_SESSION['success'] = "Details saved" ;
-   array_push($errors, "Details saved");
-   //header('location: dashboard.php');
- }
-}
 
 //Patient Registration
 function patient_registeration() {
@@ -216,64 +123,60 @@ function patient_registeration() {
   // receive all input values from the form
 
   $First_Name						=  $_POST['First_Name'];
-$Last_Name   		    		=  $_POST['Last_Name'];
-$Phone_number					=  $_POST['Phone_number'];
-$Cholesterol 					=  $_POST['Cholesterol'];
-$Emerg_FirstName 				=  $_POST['Emerg_FirstName'];
-$Emerg_LastName 				=  $_POST['Emerg_LastName'];
-$Emerg_Relaton 					=  $_POST['Emerg_Relaton'];
-$Emerg_PhoneNumber1 			=  $_POST['Emerg_PhoneNumber1'];
-$Emerg2_PhoneNumber2 			=  $_POST['Emerg2_PhoneNumber2'];
-$Emerg_PhoneNumber2 			=  $_POST['Emerg_PhoneNumber2'];
-$HepatitisB	 					=  $_POST['HepatitisB'];
-$ChickenPox 					=  $_POST['ChickenPox'];
-$Measles 						=  $_POST['Measles'];
-$Medical_History 				=  $_POST['Medical_History'];
-$Height 						=  $_POST['Height'];
-$Weight 						=  $_POST['Weight'];
-$Username 						=  $_POST['Username'];
-$Password 						=  $_POST['Password'];
-$Gender 						=  $_POST['Gender'];
-$Occupation 					=  $_POST['Occupation'];
-$Marital_Status 				=  $_POST['Marital_Status'];
-$EmailID						=  $_POST['EmailID'];
-$Social_Security 				=  $_POST['Social_Security'];
-$Emerg2_Relation 				=  $_POST['Emerg2_Relation'];
-$Emerg2_FirstName 				=  $_POST['Emerg2_FirstName'];
-$Emerg2_LastName                =  $_POST['Emerg2_LastName'];
-$Emerg2_PhoneNumber1 			=  $_POST['Emerg2_PhoneNumber1'];
-$BloodPressure	 				=  $_POST['BloodPressure'];
-$HeartDisease 					=  $_POST['HeartDisease'];
-$Vaccination_History 			=  $_POST['Vaccination_History'];
-$OtherHealthIssues 				=  $_POST['OtherHealthIssues'];
-$AreaPhonepersonal				=  $_POST['AreaPhonepersonal'];
-$BirthDay						=  $_POST['BirthDay'];
-$BirthMonth						=  $_POST['BirthMonth'];
-$BirthYear						=  $_POST['BirthYear'];
-$Street_Address					=  $_POST['Street_Address'];
-$Street_Address2				=  $_POST['Street_Address2'];
-$City							=  $_POST['City'];
-$State							=  $_POST['State'];
-$PostalCode						=  $_POST['PostalCode'];
-$Country						=  $_POST['Country'];
-$Area1Cont1						=  $_POST['Area1Cont1'];
-$Area2Cont1						=  $_POST['Area2Cont1'];
-$Area1Cont2						=  $_POST['Area1Cont2'];
-$Area2Cont2						=  $_POST['Area2Cont2'];
+  $Last_Name   		    		=  $_POST['Last_Name'];
+  $Phone_number					=  $_POST['Phone_number'];
+  $Cholesterol 					=  $_POST['Cholesterol'];
+  $Emerg_FirstName 				=  $_POST['Emerg_FirstName'];
+  $Emerg_LastName 				=  $_POST['Emerg_LastName'];
+  $Emerg_Relaton 					=  $_POST['Emerg_Relaton'];
+  $Emerg_PhoneNumber1 			=  $_POST['Emerg_PhoneNumber1'];
+  $Emerg2_PhoneNumber2 			=  $_POST['Emerg2_PhoneNumber2'];
+  $Emerg_PhoneNumber2 			=  $_POST['Emerg_PhoneNumber2'];
+  $HepatitisB	 					=  $_POST['HepatitisB'];
+  $ChickenPox 					=  $_POST['ChickenPox'];
+  $Measles 						=  $_POST['Measles'];
+  $Medical_History 				=  $_POST['Medical_History'];
+  $Height 						=  $_POST['Height'];
+  $Weight 						=  $_POST['Weight'];
+  $Username 						=  $_POST['Username'];
+  $Password 						=  $_POST['Password'];
+  $Gender 						=  $_POST['Gender'];
+  $Occupation 					=  $_POST['Occupation'];
+  $Marital_Status 				=  $_POST['Marital_Status'];
+  $EmailID						=  $_POST['EmailID'];
+  $Social_Security 				=  $_POST['Social_Security'];
+  $Emerg2_Relation 				=  $_POST['Emerg2_Relation'];
+  $Emerg2_FirstName 				=  $_POST['Emerg2_FirstName'];
+  $Emerg2_LastName                =  $_POST['Emerg2_LastName'];
+  $Emerg2_PhoneNumber1 			=  $_POST['Emerg2_PhoneNumber1'];
+  $BloodPressure	 				=  $_POST['BloodPressure'];
+  $HeartDisease 					=  $_POST['HeartDisease'];
+  $Vaccination_History 			=  $_POST['Vaccination_History'];
+  $OtherHealthIssues 				=  $_POST['OtherHealthIssues'];
+  $AreaPhonepersonal				=  $_POST['AreaPhonepersonal'];
+  $BirthDay						=  $_POST['BirthDay'];
+  $BirthMonth						=  $_POST['BirthMonth'];
+  $BirthYear						=  $_POST['BirthYear'];
+  $Street_Address					=  $_POST['Street_Address'];
+  $Street_Address2				=  $_POST['Street_Address2'];
+  $City							=  $_POST['City'];
+  $State							=  $_POST['State'];
+  $PostalCode						=  $_POST['PostalCode'];
+  $Country						=  $_POST['Country'];
+  $Area1Cont1						=  $_POST['Area1Cont1'];
+  $Area2Cont1						=  $_POST['Area2Cont1'];
+  $Area1Cont2						=  $_POST['Area1Cont2'];
+  $Area2Cont2						=  $_POST['Area2Cont2'];
 
 
  
 
  // first check the database to make sure a user does not already exist with the same username and/or email
- $user_check_query = "SELECT * FROM users WHERE username='$username' OR email='$email' LIMIT 1";
+ $user_check_query = "SELECT * FROM users WHERE Email='$email' ";
  $result = mysqli_query($conn, $user_check_query);
  $user = mysqli_fetch_assoc($result);
  
  if ($user) { // if user exists
-   if ($user['username'] === $Username) {
-     array_push($errors, "Username already exists");
-   }
-
    if ($user['email'] === $EmailID) {
      array_push($errors, "Email already exists");
    }
@@ -287,10 +190,10 @@ $Area2Cont2						=  $_POST['Area2Cont2'];
 
 
    // Inserting data into users table
-   $query = "INSERT INTO users (username, email, user_type, password) VALUES('$Username', '$EmailID', 'patient', '$Password')";
+   $query = "INSERT INTO users (FirstName, LastName, Email, user_type, Password) VALUES('$FirstName', '$LastName', '$EmailID', 'patient', '$Password')";
    mysqli_query($conn, $query);
 
-   $query = "SELECT * FROM users WHERE username='$Username'";
+   $query = "SELECT * FROM users WHERE Email='$EmailID'";
     $res = mysqli_query($conn, $query);
     $user = mysqli_fetch_assoc($res);
     $id = $user['id'];
@@ -319,11 +222,11 @@ $Area2Cont2						=  $_POST['Area2Cont2'];
 function login() {
   global $conn, $username, $errors;
 
-  $username = mysqli_real_escape_string($conn, $_POST['username']);
+  $email = mysqli_real_escape_string($conn, $_POST['email']);
   $password = mysqli_real_escape_string($conn, $_POST['password']);
 
-  if (empty($username)) {
-  	array_push($errors, "Username is required");
+  if (empty($email)) {
+  	array_push($errors, "Email is required");
   }
   if (empty($password)) {
   	array_push($errors, "Password is required");
@@ -333,7 +236,7 @@ function login() {
 
     $password = md5($password);
     
-  	$query = "SELECT * FROM users WHERE username='$username' AND password='$password'";
+  	$query = "SELECT * FROM users WHERE Email='$email' AND Password='$password'";
     $results = mysqli_query($conn, $query);
   
     if (mysqli_num_rows($results) == 1) { // user found
@@ -354,7 +257,16 @@ function login() {
 			} else if ($usertype == 'doctor'){
         $_SESSION['user'] = $logged_in_user;
         $_SESSION['success']  = "You are now logged in";
-        header('location: doctor-details.php');
+
+        $query = "SELECT * FROM doctorsdetails WHERE DoctorId='$userid' ";
+        $res = mysqli_query($conn, $query);
+        $logged_in_user = mysqli_fetch_assoc($res);
+        $phone = $logged_in_user['Phone'];
+        if($phone = "") { 
+          header('location: doctor-details.php');
+        } else {
+          header('location: doctor-dashboard.php');
+        }
       }
 		}else {
 			array_push($errors, "Wrong username/password combination");

@@ -20,7 +20,7 @@ if (isLoggedIn()) {
     $FirstName    			=  $n['FirstName'];
     $LastName    			=  $n['LastName'];
     $Phone  			=  $n['Phone'];
-    $Street   		    =  $n['Street'];
+    $Street   	 =  $n['Street'];
     $City   			=  $n['City'];
     $Country 			=  $n['Country'];
     $Gender 	=  $n['Gender'];
@@ -30,7 +30,6 @@ if (isLoggedIn()) {
     $Department			=	$n['Department'];
     $Qualifications		=	$n['Qualifications'];
     $Availability		=	$n['Availability'];
-    
   
 }
 

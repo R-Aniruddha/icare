@@ -17,11 +17,11 @@
 
                 <div class="input-group">
                     <label class="input-group-text">Username</label>
-                    <input type="text" class="form-control" name="username" value="<?php echo $username; ?>">
+                    <input type="text" class="form-control" name="username">
                 </div>
                 <div class="input-group">
                     <label class="input-group-text">Email</label>
-                    <input type="email" class="form-control" name="email" value="<?php echo $email; ?>">
+                    <input type="email" class="form-control" name="email">
                 </div>
                 <div class="input-group">
                     <label class="input-group-text">Password</label>

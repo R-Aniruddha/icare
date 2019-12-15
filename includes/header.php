@@ -30,7 +30,7 @@
                 } else {
                     include('includes/nav.php');
                 }
-            }else if( (($thisPage == "Admin Dashboard") || ($thisPage == "Dashboard") || ($thisPage == "Doctor Registration") || ($thisPage == "Doctor Details")) ) {
+            }else if( (($thisPage == "Admin Dashboard") || ($thisPage == "Doctor Dashboard") || ($thisPage == "Dashboard") || ($thisPage == "Doctor Registration") || ($thisPage == "Doctor Details") || ($thisPage == "Patient Details")) ) {
                 include('includes/nav.php');
             } else{
                 include('controller/functions.php');

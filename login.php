@@ -14,7 +14,7 @@
                     <?php include('controller/errors.php'); ?>
 
                 <div class="form-group">
-                    <input type="text" class="form-control" name="username" placeholder="Username" required="required">
+                    <input type="text" class="form-control" name="email" placeholder="Email" required="required">
                 </div>
                 <div class="form-group">
                     <input type="password" class="form-control" name="password" placeholder="Password" required="required">

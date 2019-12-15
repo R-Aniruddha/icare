@@ -20,7 +20,7 @@
         <h2>
         <?php  if (isset($_SESSION['user'])) : ?>
             <strong>
-                <?php echo $_SESSION['user']['username'];?> 
+                <?php echo $_SESSION['user']['FirstName'], $_SESSION['user']['LastName'];?> 
             </strong>
         <?php endif ?> - Dashboard</h2>   
         
