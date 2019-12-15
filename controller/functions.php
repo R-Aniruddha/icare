@@ -118,12 +118,11 @@ if (isset($_POST['update-patient-details'])) {
 
   $id = $_SESSION['user']['id'];
   
-	$First_Name               =$_POST['First_Name'];
+	  $First_Name               =$_POST['First_Name'];
     $Last_Name                =$_POST['Last_Name'];
-	$Phone_number             =$_POST['Phone_number'];
+	  $Phone_number             =$_POST['Phone_number'];
     $BirthDate                =$_POST['BirthDate'];
     $Address                  =$_POST['Address'];
-    //$Username                 =$_POST['Username'];
     $DoctorId                 =$_POST['DoctorId'];
     $EmailID                  =$_POST['EmailID'];
     $Social_Security	      =$_POST['Social_Security'];
@@ -143,7 +142,7 @@ if (isset($_POST['update-patient-details'])) {
     $OtherHealthIssues        =$_POST['OtherHealthIssues'];
     $Emerg_FirstName          =$_POST['Emerg_FirstName'];
     $Emerg_LastName           =$_POST['Emerg_LastName'];
-    $Emerg_Relaton            =$_POST['Emerg_Relaton'];
+    $Emerg_Relation            =$_POST['Emerg_Relation'];
     $Emerg_PhoneNumber1       =$_POST['Emerg_PhoneNumber1'];
     $Emerg_PhoneNumber2       =$_POST['Emerg_PhoneNumber2'];
     $Emerg2_FirstName         =$_POST['Emerg2_FirstName'];
@@ -152,10 +151,10 @@ if (isset($_POST['update-patient-details'])) {
     $Emerg2_PhoneNumber1      =$_POST['Emerg2_PhoneNumber1'];
     $Emerg2_PhoneNumber2      =$_POST['Emerg2_PhoneNumber2'];
   //Inserting data into users table
-  mysqli_query($conn, "UPDATE users SET FirstName='$First_Name', Lastname = '$Last_Name' ");
+  mysqli_query($conn, "UPDATE users SET FirstName='$First_Name', Lastname = '$Last_Name' WHERE idPatient=$id");
 
   //Inserting data into patient table
-	mysqli_query($conn, "UPDATE patient SET First_Name='$First_Name', Last_Name = '$Last_Name', Phone_number= '$Phone_number', BirthDate='$BirthDate', Address = '$Address', DoctorId= '$DoctorId', EmailID = '$EmailID', Social_Security = '$Social_Security', Gender = '$Gender', Height = '$Height', Weight = '$Weight', Marital_Status = '$Marital_Status', Occupation= '$Occupation',Cholesterol='$Cholesterol',BloodPressure='$BloodPressure',HeartDisease='$HeartDisease',HepatitisB='$HepatitisB',ChickenPox='$ChickenPox',Measles='$Measles',Medical_History='$Medical_History',Vaccination_History='$Vaccination_History',OtherHealthIssues='$OtherHealthIssues',Emerg_FirstName='$Emerg_FirstName',Emerg_LastName='$Emerg_LastName',Emerg_Relaton='$Emerg_Relaton',Emerg_PhoneNumber1='$Emerg_PhoneNumber1',Emerg_PhoneNumber2='$Emerg_PhoneNumber2',Emerg2_FirstName='$Emerg2_FirstName',Emerg2_LastName='$Emerg2_LastName',Emerg2_Relation='$Emerg2_Relation',Emerg2_PhoneNumber1='$Emerg2_PhoneNumber1',Emerg2_PhoneNumber2='$Emerg2_PhoneNumber2'
+	mysqli_query($conn, "UPDATE patient SET First_Name='$First_Name', Last_Name = '$Last_Name', Phone_number= '$Phone_number', BirthDate='$BirthDate', Address = '$Address', DoctorId= '$DoctorId', EmailID = '$EmailID', Social_Security = '$Social_Security', Gender = '$Gender', Height = '$Height', Weight = '$Weight', Marital_Status = '$Marital_Status', Occupation= '$Occupation',Cholesterol='$Cholesterol',BloodPressure='$BloodPressure',HeartDisease='$HeartDisease',HepatitisB='$HepatitisB',ChickenPox='$ChickenPox',Measles='$Measles',Medical_History='$Medical_History',Vaccination_History='$Vaccination_History',OtherHealthIssues='$OtherHealthIssues',Emerg_FirstName='$Emerg_FirstName',Emerg_LastName='$Emerg_LastName',Emerg_Relation='$Emerg_Relation',Emerg_PhoneNumber1='$Emerg_PhoneNumber1',Emerg_PhoneNumber2='$Emerg_PhoneNumber2',Emerg2_FirstName='$Emerg2_FirstName',Emerg2_LastName='$Emerg2_LastName',Emerg2_Relation='$Emerg2_Relation',Emerg2_PhoneNumber1='$Emerg2_PhoneNumber1',Emerg2_PhoneNumber2='$Emerg2_PhoneNumber2'
     WHERE idPatient=$id");
 	$_SESSION['message'] = "Patient Details Updated!"; 
 	header('location: patient-details.php');
@@ -233,8 +232,7 @@ function patient_registeration() {
   $id = $user['id'];
 
   // Inserting data into patients table
-  $query = "INSERT INTO patient (idPatient, First_Name, Last_Name, Phone_number, BirthDate, Address, Cholesterol, Emerg_FirstName, Emerg_LastName, Emerg_Relation, Emerg_PhoneNumber1, Emerg2_PhoneNumber2, Emerg_PhoneNumber2, HepatitisB, ChickenPox, Measles, Medical_History, Height, Weight, DoctorId, Gender, Occupation, Marital_Status, EmailID, Social_Security, Emerg2_Relation, Emerg2_FirstName, Emerg2_PhoneNumber1, BloodPressure, HeartDisease, Vaccination_History, OtherHealthIssues, Emerg2_LastName)
-  VALUES('$id','$FirstName', '$LastName', '$Phone_number', '$BirthDate', '$Address', '$Cholesterol', '$Emerg_FirstName', '$Emerg_LastName', '$Emerg_Relation', '$Emerg_PhoneNumber1', '$Emerg2_PhoneNumber2', '$Emerg_PhoneNumber2', '$HepatitisB', '$ChickenPox', '$Measles', '$Medical_History', '$Height', '$Weight', '$DoctorId', '$Gender', '$Occupation', '$Marital_Status', '$EmailID', '$Social_Security', '$Emerg2_Relation', '$Emerg2_FirstName', '$Emerg2_PhoneNumber1', '$BloodPressure', '$HeartDisease', '$Vaccination_History', '$OtherHealthIssues', '$Emerg2_LastName')" ;
+  $query = "INSERT INTO patient (idPatient, First_Name, Last_Name, Phone_number, BirthDate, Address, Cholesterol, Emerg_FirstName, Emerg_LastName, Emerg_Relation, Emerg_PhoneNumber1, Emerg2_PhoneNumber2, Emerg_PhoneNumber2, HepatitisB, ChickenPox, Measles, Medical_History, Height, Weight, DoctorId, Gender, Occupation, Marital_Status, EmailID, Social_Security, Emerg2_Relation, Emerg2_FirstName, Emerg2_PhoneNumber1, BloodPressure, HeartDisease, Vaccination_History, OtherHealthIssues, Emerg2_LastName) VALUES('$id','$FirstName', '$LastName', '$Phone_number', '$BirthDate', '$Address', '$Cholesterol', '$Emerg_FirstName', '$Emerg_LastName', '$Emerg_Relation', '$Emerg_PhoneNumber1', '$Emerg2_PhoneNumber2', '$Emerg_PhoneNumber2', '$HepatitisB', '$ChickenPox', '$Measles', '$Medical_History', '$Height', '$Weight', '$DoctorId', '$Gender', '$Occupation', '$Marital_Status', '$EmailID', '$Social_Security', '$Emerg2_Relation', '$Emerg2_FirstName', '$Emerg2_PhoneNumber1', '$BloodPressure', '$HeartDisease', '$Vaccination_History', '$OtherHealthIssues', '$Emerg2_LastName')" ;
   mysqli_query($conn, $query);
     
   

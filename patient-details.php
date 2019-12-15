@@ -42,7 +42,7 @@
     $OtherHealthIssues        =$n['OtherHealthIssues'];
     $Emerg_FirstName          =$n['Emerg_FirstName'];
     $Emerg_LastName           =$n['Emerg_LastName'];
-    $Emerg_Relaton            =$n['Emerg_Relaton'];
+    $Emerg_Relation            =$n['Emerg_Relation'];
     $Emerg_PhoneNumber1       =$n['Emerg_PhoneNumber1'];
     $Emerg_PhoneNumber2       =$n['Emerg_PhoneNumber2'];
     $Emerg2_FirstName         =$n['Emerg2_FirstName'];
@@ -234,7 +234,7 @@
                             
                             <div class="input-group">
                                 <span class="input-group-text">Relationship</span>
-                                <input type="text" class="form-control" required value="<?php echo $Emerg_Relaton ; ?>" name="Emerg_Relaton">
+                                <input type="text" class="form-control" required value="<?php echo $Emerg_Relation ; ?>" name="Emerg_Relation">
                             </div>
                             
                             <div class="input-group">
@@ -244,7 +244,7 @@
                             
                             <div class="input-group">
                                 <span class="input-group-text">PhoneNumber2</span>
-                                <input type="text" class="form-control" required value="<?php echo $Emerg_PhoneNumber2 ; ?>" name="Emerg_PhoneNumber2">
+                                <input type="text" class="form-control" value="<?php echo $Emerg_PhoneNumber2 ; ?>" name="Emerg_PhoneNumber2">
                             </div>
                         </div>
                     </div>
@@ -274,7 +274,7 @@
                             
                             <div class="input-group">
                                 <span class="input-group-text">PhoneNumber2</span>
-                                <input type="text" class="form-control" required value="<?php echo $Emerg2_PhoneNumber2 ; ?>" name="Emerg2_PhoneNumber2">
+                                <input type="text" class="form-control" value="<?php echo $Emerg2_PhoneNumber2 ; ?>" name="Emerg2_PhoneNumber2">
                             </div>
                         </div>
 
