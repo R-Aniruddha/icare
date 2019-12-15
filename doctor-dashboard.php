@@ -13,7 +13,6 @@
     $docid = $_SESSION['user']['id'];
     $docfname = $_SESSION['user']['FirstName'];
     $doclname = $_SESSION['user']['LastName'];
-    $results = mysqli_query($conn, "SELECT * FROM patient WHERE DoctorId = '$docid'"); 
     
 
 ?>
@@ -32,7 +31,10 @@
         <h3 class="text-center">Your Patients</h3>
 
         <div class="card-container row">
-            <?php while ($row = mysqli_fetch_assoc($results)) { ?>
+            <?php 
+                $results = mysqli_query($conn, "SELECT * FROM patient WHERE DoctorId = '$docid'"); 
+
+                while ($row = mysqli_fetch_assoc($results)) { ?>
 
                 <div class="card col-md-3" style="margin: 20px; background-color: #79a2ff;">
                     <img class="card-img-top" src="images/avatar1.png" alt="Patient Image" style="padding: 20px;">

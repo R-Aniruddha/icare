@@ -308,7 +308,8 @@ function isLoggedIn()
 		}else{
 			return false;
 		}
-	}
+  }
+  
 
 // return user array from their id
 function getUserById($id){

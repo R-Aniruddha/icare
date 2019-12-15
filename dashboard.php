@@ -10,6 +10,8 @@
     }
     include('includes/header.php');
 
+    $id = $_SESSION['user']['id'];
+
 
 ?>
         
@@ -74,11 +76,19 @@
                 <h3 class="text-center">Doctor's Comments</h3>
                 <div class="col-md-6" style="margin:auto; padding: 15px; background-color: #70befe;   border-radius: 25px;
                 ">
-                    <ul>
-                        <li>Patient is recovering very well. </li>
-                        <li>Needs more sleep </li>
-                        <li>Watch blood-pressure level</li>
-                    </ul>
+                    <pre>
+                            <?php 
+                                $results = mysqli_query($conn, "SELECT * FROM patient WHERE idPatient = '$id'"); 
+                                if($row = mysqli_fetch_assoc($results)) { 
+                                    if($row['DoctorComments'] = "") {
+                                        echo "No comments for the moment";
+                                    } else {
+                                        echo $row['DoctorComments'];
+                                    }
+                                }
+                            ?>
+
+                    </pre>
                 </div>
             </div>
         </div>
