@@ -1,7 +1,7 @@
 <nav id="myNavbar" class="navbar navbar-expand-lg navbar-light" role="navigation" >
         <!--navbar navbar-default navbar-fixed-top    -->
         <!-- Brand and toggle get grouped for better mobile display -->
-        <a class="navbar-brand d-flex flex-row" href="index.php">
+        <a class="navbar-brand d-flex flex-row" href="#">
             <!--<img src="images/Logo.jpeg" height="40" alt="ICare Logo">-->
              <h3 id="nav-title">𝓘𝓒𝓪𝓻𝓮</h3> 
         </a>
@@ -32,6 +32,20 @@
                                 <div class="dropdown-menu" aria-labelledby="navbarDropdown">
                                     <a class="dropdown-item" href="dashboard.php">Dashboard</a>
                                     <a class="dropdown-item" href="dashboard.php#doctor-comments">Doctor Comments</a>
+                                </div>
+                            </li>
+                    ' ?>
+                    <?php if (userType() == 2)
+                        echo '
+                            <li class=" nav-item dropdown
+                                if ($thisPage=="Doctor Dashboard") 
+                                echo " active"; ?>
+                                <a class="nav-link dropdown-toggle" href="doctor-dashboard.php" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                Dashboard
+                                </a>
+                                <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+                                    <a class="dropdown-item" href="doctor-dashboard.php">Dashboard</a>
+                                    <a class="dropdown-item" href="doctor-dashboard.php#doctor-comments">Doctor Comments</a>
                                 </div>
                             </li>
                     ' ?>

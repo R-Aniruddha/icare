@@ -21,13 +21,13 @@
         
         <!-- logged in user information -->
 
-        <h2>
+        <h2> Welcome Dr.
         <?php  if (isset($_SESSION['user'])) : ?>
             <strong>
                 <?php echo "$docfname $doclname";?> 
             </strong>
-        <?php endif ?> - Dashboard</h2>   
-        
+        <?php endif ?> </h2>   
+        <br>
         <h3 class="text-center">Your Patients</h3>
 
         <div class="card-container row">

@@ -12,7 +12,6 @@
    if (isLoggedIn()) {
   
     $id = $_SESSION['user']['id'];
-    $update = true;
 	$record = mysqli_query($conn, "SELECT * FROM patient WHERE idPatient=$id");
 	$n = mysqli_fetch_array($record);
 	   
@@ -281,11 +280,9 @@
                     </div>
                 </div>
             </div>
-            <?php if ($update == true): ?>
-                <button class="btn" type="submit" name="update-patient-details" style="background: #556B2F;" >Update</button>
-            <?php else: ?>
-                <button class="btn" type="submit" name="save" >Save</button>
-            <?php endif ?>
+                
+            <button class="btn" type="submit" name="update-patient-details" style="background: #556B2F; margin:auto;" >Update</button>
+            
         </fieldset>
 
 

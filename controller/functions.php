@@ -232,15 +232,14 @@ function patient_registeration() {
   $id = $user['id'];
 
   // Inserting data into patients table
-  $query = "INSERT INTO patient (idPatient, First_Name, Last_Name, Phone_number, BirthDate, Address, Cholesterol, Emerg_FirstName, Emerg_LastName, Emerg_Relation, Emerg_PhoneNumber1, Emerg2_PhoneNumber2, Emerg_PhoneNumber2, HepatitisB, ChickenPox, Measles, Medical_History, Height, Weight, DoctorId, Gender, Occupation, Marital_Status, EmailID, Social_Security, Emerg2_Relation, Emerg2_FirstName, Emerg2_PhoneNumber1, BloodPressure, HeartDisease, Vaccination_History, OtherHealthIssues, Emerg2_LastName) VALUES('$id','$FirstName', '$LastName', '$Phone_number', '$BirthDate', '$Address', '$Cholesterol', '$Emerg_FirstName', '$Emerg_LastName', '$Emerg_Relation', '$Emerg_PhoneNumber1', '$Emerg2_PhoneNumber2', '$Emerg_PhoneNumber2', '$HepatitisB', '$ChickenPox', '$Measles', '$Medical_History', '$Height', '$Weight', '$DoctorId', '$Gender', '$Occupation', '$Marital_Status', '$EmailID', '$Social_Security', '$Emerg2_Relation', '$Emerg2_FirstName', '$Emerg2_PhoneNumber1', '$BloodPressure', '$HeartDisease', '$Vaccination_History', '$OtherHealthIssues', '$Emerg2_LastName')" ;
-  mysqli_query($conn, $query);
+  $query = "INSERT INTO patient (idPatient, First_Name, Last_Name, Phone_number, BirthDate, Address, Cholesterol, Emerg_FirstName, Emerg_LastName, Emerg_Relation, Emerg_PhoneNumber1, Emerg2_PhoneNumber2, Emerg_PhoneNumber2, HepatitisB, ChickenPox, Measles, Medical_History, Height, Weight, DoctorId, Gender, Occupation, Marital_Status, EmailID, Social_Security, Emerg2_Relation, Emerg2_FirstName, Emerg2_PhoneNumber1, BloodPressure, HeartDisease, Vaccination_History, OtherHealthIssues, Emerg2_LastName, DoctorComments)
+  VALUES('$id','$FirstName', '$LastName', '$Phone_number', '$BirthDate', '$Address', '$Cholesterol', '$Emerg_FirstName', '$Emerg_LastName', '$Emerg_Relation', '$Emerg_PhoneNumber1', '$Emerg2_PhoneNumber2', '$Emerg_PhoneNumber2', '$HepatitisB', '$ChickenPox', '$Measles', '$Medical_History', '$Height', '$Weight', '$DoctorId', '$Gender', '$Occupation', '$Marital_Status', '$EmailID', '$Social_Security', '$Emerg2_Relation', '$Emerg2_FirstName', '$Emerg2_PhoneNumber1', '$BloodPressure', '$HeartDisease', '$Vaccination_History', '$OtherHealthIssues', '$Emerg2_LastName', 'No comments at the moment')" ;
+  mysqli_query($conn, $query) or die('MySQL Error: ' . mysqli_error($conn));
     
   
-
-  /**/
-    $_SESSION['user'] = $user;
-    $_SESSION['success'] = "You are now registered and logged in";
-    //header('location: dashboard.php');
+  $_SESSION['user'] = $user;
+  $_SESSION['success'] = "You are now registered and logged in";
+  header('location: dashboard.php');
     
  }
 }

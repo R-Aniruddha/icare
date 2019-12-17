@@ -76,19 +76,15 @@
                 <h3 class="text-center">Doctor's Comments</h3>
                 <div class="col-md-6" style="margin:auto; padding: 15px; background-color: #70befe;   border-radius: 25px;
                 ">
-                    <pre>
+                    <p>
                             <?php 
                                 $results = mysqli_query($conn, "SELECT * FROM patient WHERE idPatient = '$id'"); 
                                 if($row = mysqli_fetch_assoc($results)) { 
-                                    if($row['DoctorComments'] = "") {
-                                        echo "No comments for the moment";
-                                    } else {
-                                        echo $row['DoctorComments'];
-                                    }
+                                    echo $row['DoctorComments']; 
                                 }
                             ?>
 
-                    </pre>
+                    </p>
                 </div>
             </div>
         </div>

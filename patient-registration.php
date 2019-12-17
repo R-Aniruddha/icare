@@ -26,7 +26,7 @@
             
             <div class="input-group">
                 <span class="input-group-text">Email ID</span>
-                <input type="text" class="form-control" required value="" name="EmailID">
+                <input type="email" class="form-control" required value="" name="EmailID">
             </div>
             <div class="input-group">
                 <span class="input-group-text">Password</span>
@@ -53,8 +53,12 @@
                     <option selected>Select Doctor </option>
                     <?php 
                         $records = mysqli_query($conn, "SELECT * FROM doctorsdetails WHERE Availability='Yes'");
-                        while ($row = mysqli_fetch_assoc($records)) { ?>
-                            <option value="$row['DoctorId'];"><?php echo $row['FirstName'] ," ", $row['LastName']; ?></option>
+                        while ($row = mysqli_fetch_assoc($records)) {
+                            $docid = $row['DoctorId'];
+                            $fname = $row['FirstName'];
+                            $lname = $row['LastName'];
+                    ?>
+                            <option value="<?php echo $docid; ?>"><?php echo $fname ," ", $lname; ?></option>
                     <?php    
                         }
                     ?>
