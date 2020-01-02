@@ -37,18 +37,13 @@
                     ' ?>
                     <?php if (userType() == 2)
                         echo '
-                            <li class=" nav-item dropdown
-                                if ($thisPage=="Doctor Dashboard") 
-                                echo " active"; ?>
-                                <a class="nav-link dropdown-toggle" href="doctor-dashboard.php" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                                Dashboard
-                                </a>
-                                <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-                                    <a class="dropdown-item" href="doctor-dashboard.php">Dashboard</a>
-                                    <a class="dropdown-item" href="doctor-dashboard.php#doctor-comments">Doctor Comments</a>
-                                </div>
-                            </li>
-                    ' ?>
+                        <li class="nav-item   
+                            if ($thisPage=="Doctor Dashboard") 
+                            echo "active"; ">
+                            <a class="nav-link" href="doctor-dashboard.php">Dashboard</a>
+                        </li>
+                        ' 
+                     ?>
                     <?php if (userType() == 2)
                         echo '
                         <li class="nav-item   
@@ -71,6 +66,11 @@
 
                     <?php if (isAdmin())
                         echo '
+                        <li class="nav-item  
+                            if ($thisPage=="Admin Dashboard") 
+						        echo "active"; ">
+                            <a class="nav-link" href="admin-dashboard.php">Dashboard</a>
+                        </li>
                         <li class="nav-item  
                             if ($thisPage=="Create Doctor") 
 						        echo "active"; ">
@@ -99,9 +99,8 @@
                     </li>
 
                     
-
-
                 </ul>
+                <button class="btn btn-outline-success" style="margin-right: 20px;"><a href="my-account.php" style="color:green"> My Account</a></button>
                 <button class="btn btn-outline-danger" type="submit"><a href="index.php?logout='1'" style="color:red">Logout</a></button>
             </div>
 	
