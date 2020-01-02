@@ -109,7 +109,9 @@ if (isLoggedIn()) {
             </select>
           </div>
 
-          <button class="btn" type="submit" name="update" style="background: #556B2F;" >Update</button>
+          <div style="text-align:center;">
+            <button class="btn btn-success" type="submit" name="update" >Update</button>
+          </div>
 
       </fieldset>
         

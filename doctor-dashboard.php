@@ -41,7 +41,7 @@
                     <div class="card-body">
                         <h5 class="card-title"><?php echo $row['First_Name'] ," ", $row['Last_Name']; ?></h5>
                         <p class="card-text"><?php echo $row['DoctorComments']?></p>
-                        <a href="#" class="btn btn-info btn-sm">View Patient Dashboard</a>
+                        <a href="view-patient-dashboard.php?id=<?php echo $row['idPatient']?>" class="btn btn-info btn-sm">View Patient Dashboard</a>
                     </div>
                 </div>
 

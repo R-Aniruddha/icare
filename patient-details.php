@@ -54,13 +54,13 @@
 
 	 
 	 ?>
+    <div class="main-content">
 
-    <form id="patient-details" action="patient-details.php" method="post" style="padding:20px;">
+        <form id="patient-details" action="patient-details.php" method="post" style="padding:20px;">
 
         <fieldset class="col-md-8" style="margin: auto;">
 
-            <div class="main-content">
-
+            <div class="">
 
                 <h2 style="margin-bottom: 20px;"> Patient Personal Details </h2>
 
@@ -89,12 +89,12 @@
                     <span class="input-group-text">Address</span>
                     <input type="text" class="form-control" required value="<?php echo $Address ; ?>" name="Address">
                 </div>
-   <!--
+                <!--
                 <div class="input-group">
                     <span class="input-group-text">Username</span>
                     <input type="text" class="form-control" required value="<?php echo $Username ; ?>" name="Username">
                 </div>
--->
+                -->
                 <div class="input-group">
                     <span class="input-group-text">DoctorId</span>
                     <input type="text" class="form-control" required value="<?php echo $DoctorId ; ?>" name="DoctorId">
@@ -280,14 +280,16 @@
                     </div>
                 </div>
             </div>
-                
-            <button class="btn" type="submit" name="update-patient-details" style="background: #556B2F; margin:auto;" >Update</button>
-            
+            <div style="text-align:center; margin-top:20px;">    
+                <button class="btn btn-success" type="submit" name="update-patient-details" style="" >Update</button>
+            </div>
         </fieldset>
 
 
     </form>
 
+</div>
+</div>
         
 
 <?php

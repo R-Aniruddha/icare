@@ -113,10 +113,22 @@ if (isset($_POST['update'])) {
 	header('location: doctor-details.php');
 }
 
+//Update Doctor Comments
+if (isset($_POST['update-comments'])) {
+  $id = $_POST['patient_id'];
+  $Doctor_Comments = $_POST['DoctorComments'];
+  
+  mysqli_query($conn, "UPDATE patient SET DoctorComments = '$Doctor_Comments' WHERE idPatient=$id");
+  //$_SESSION['message'] = "Doctor's Comments Updated!"; 
+  header('location: doctor-dashboard.php');
+
+
+}
+
 //Update patient Details
 if (isset($_POST['update-patient-details'])) {
 
-  $id = $_SESSION['user']['id'];
+    $id = $_SESSION['user']['id'];
   
 	  $First_Name               =$_POST['First_Name'];
     $Last_Name                =$_POST['Last_Name'];
