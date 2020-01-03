@@ -26,18 +26,15 @@
           <form id="user-account" method="post" action="my-account.php" style="padding: 20px;">
             
             <fieldset class="col-md-8" style="margin: auto;">
-
-                <?php include('controller/errors.php'); ?>
                     
-                    <h2>Modify - Account Details</h2>
+                <h2>Modify - Account Details</h2>
+                
+                <?php include('controller/errors.php'); ?>
+
 
                 <div class="input-group">
-                    <label class="input-group-text">First Name</label>
-                    <input type="text" class="form-control" value="<?php echo $FirstName ; ?>" name="FirstName">
-                </div>
-                <div class="input-group">
-                    <label class="input-group-text">Last Name</label>
-                    <input type="text" class="form-control" value="<?php echo $LastName ; ?>" name="LastName">
+                    <label class="input-group-text">Full Name</label>
+                    <input type="text" readonly class="form-control" value="<?php echo $FirstName, $LastName ; ?>" name="FirstName">
                 </div>
                 <div class="input-group">
                     <label class="input-group-text">Email</label>

@@ -21,6 +21,71 @@ if (isset($_POST['create_temp_doc_ac'])) {
   create_temp_ac();
 }
 
+// Create Room
+if (isset($_POST['create_room'])) {
+
+  global $conn, $errors;
+
+  $RoomNo = mysqli_real_escape_string($conn, $_POST['RoomNo']);
+  $Location = mysqli_real_escape_string($conn, $_POST['Location']);
+  $Occupied = mysqli_real_escape_string($conn, $_POST['Occupied']);
+  $HeartRate = mysqli_real_escape_string($conn, $_POST['Heartrate']);
+  $Sleep = mysqli_real_escape_string($conn, $_POST['Sleepsensor']);
+  $BloodPressure = mysqli_real_escape_string($conn, $_POST['Bloodpressure']);
+
+  $user_check_query = "SELECT * FROM sensor WHERE RoomNo='$RoomNo'";
+  $result = mysqli_query($conn, $user_check_query);
+  $room = mysqli_fetch_assoc($result);
+
+  if ($room) { // if email exists
+    if ($room['RoomNo'] == $RoomNo) {
+      array_push($errors, "Room Number already exists");
+    }
+  }
+
+  if (count($errors) == 0) {
+
+    $query = "INSERT INTO room (RoomNo, Location, Occupied) VALUES('$RoomNo', '$Location', '$Occupied')";
+    mysqli_query($conn, $query) or die('MySQL Error: ' . mysqli_error($conn));
+
+    if($HeartRate == "Yes") {
+      $query = "INSERT INTO sensor (SensorName, RoomNo) 
+            VALUES('Heartrate', '$RoomNo')";
+      mysqli_query($conn, $query);
+      $query = "SELECT * FROM sensor WHERE RoomNo='$RoomNo' AND SensorName='Heartrate' ";
+      $result = mysqli_query($conn, $query) or die('MySQL Error: ' . mysqli_error($conn));
+      $temp= mysqli_fetch_assoc($result);
+      $HeartRateID = $temp['SensorID'];
+      mysqli_query($conn, "UPDATE room SET HeartRateSensor='$HeartRate', HeartRateSensorID = '$HeartRateID' WHERE RoomNo='$RoomNo' ") or die('MySQL Error: ' . mysqli_error($conn));
+
+    }
+    if($Sleep== "Yes") {
+      $query = "INSERT INTO sensor (SensorName, RoomNo) 
+            VALUES('Sleep', '$RoomNo')";
+      mysqli_query($conn, $query) or die('MySQL Error: ' . mysqli_error($conn));
+      $query = "SELECT * FROM sensor WHERE RoomNo='$RoomNo' AND SensorName='Sleep'";
+      $result = mysqli_query($conn, $query);
+      $temp= mysqli_fetch_assoc($result);
+      $SleepID = $temp['SensorID'];
+      mysqli_query($conn, "UPDATE room SET SleepSensor='$Sleep', SleepSensorID = '$SleepID' WHERE RoomNo='$RoomNo' ") or die('MySQL Error: ' . mysqli_error($conn));
+    }
+    if($BloodPressure == "Yes") {
+      $query = "INSERT INTO sensor (SensorName, RoomNo) 
+            VALUES('BloodPressure', '$RoomNo')";
+      mysqli_query($conn, $query);
+      $query = "SELECT * FROM sensor WHERE RoomNo='$RoomNo' AND SensorName='BloodPressure'";
+      $result = mysqli_query($conn, $query);
+      $temp= mysqli_fetch_assoc($result);
+      $BloodPressureID = $temp['SensorID'];
+      mysqli_query($conn, "UPDATE room SET BloodPressureSensor='$BloodPressure', BloodPressureSensorID = '$BloodPressureID' WHERE RoomNo='$RoomNo' ") or die('MySQL Error: ' . mysqli_error($conn));
+    }
+
+    
+
+
+  }
+
+}
 // Login Button
 if (isset($_POST['login_user'])) {
   login();
@@ -78,7 +143,7 @@ function create_temp_ac(){
     $query = "INSERT INTO doctorsdetails
     (DoctorId, FirstName, LastName, Phone, Street, City, Country, Gender, DOB, Nationality, Speciality, Department, Qualifications, Availability)
     VALUES('$id', '$firstname', '$lastname', '', '','', '', '', '', '', '', '', '', '') ";
-    mysqli_query($conn, $query);
+    mysqli_query($conn, $query) or die('MySQL Error: ' . mysqli_error($conn));
     $_SESSION['success'] = "Blank Data Inserted" ;
     header('location: create-doctor.php');
   }
@@ -104,11 +169,11 @@ if (isset($_POST['update'])) {
   $Availability		=	$_POST['Availability'];
 
   //Inserting data into users table
-  mysqli_query($conn, "UPDATE users SET FirstName='$FirstName', Lastname = '$LastName' WHERE id='$id' ");
+  mysqli_query($conn, "UPDATE users SET FirstName='$FirstName', Lastname = '$LastName' WHERE id='$id' ") or die('MySQL Error: ' . mysqli_error($conn));
 
   //Inserting data into doctorsdetails table
 	mysqli_query($conn, "UPDATE doctorsdetails SET FirstName='$FirstName', Lastname = '$LastName', Phone= '$Phone', Street='$Street', City = '$City', Country= '$Country', Gender = '$Gender', DOB = '$DOB', Nationality = '$Nationality', Speciality = '$Speciality', Department = '$Department', Qualifications = '$Qualifications', Availability= '$Availability'
-   WHERE DoctorId='$id'");
+   WHERE DoctorId='$id'") or die('MySQL Error: ' . mysqli_error($conn));
 	$_SESSION['message'] = "Personal Details Updated!"; 
 	header('location: doctor-details.php');
 }
@@ -254,6 +319,40 @@ function patient_registeration() {
   header('location: dashboard.php');
     
  }
+}
+
+//Update Account Details
+if (isset($_POST['modify-account-details'])) {
+
+  $email = mysqli_real_escape_string($conn, $_POST['Email']);
+  $password_1 = mysqli_real_escape_string($conn, $_POST['Password_1']);
+  $password_2 = mysqli_real_escape_string($conn, $_POST['Password_2']);
+
+
+  $id = $_SESSION['user']['id'];
+  $user_check_query = "SELECT * FROM users WHERE id='$id'";
+  $result = mysqli_query($conn, $user_check_query);
+  $user = mysqli_fetch_assoc($result);
+
+  if ($user) { // if email exists
+    if ($user['Email'] == $email) {
+      array_push($errors, "Email already exists");
+    }
+  }
+  if ($user) { // if email exists
+    if ($password_1 != $password_2) {
+      array_push($errors, "Passwords do not match");
+    }
+  }
+
+  if (count($errors) == 0) {
+    //encrypt the password before saving in the database
+  	$password = md5($password_1);
+    
+    //Update data into user table
+    $query = "UPDATE users SET Email = '$email', Password = '$password' WHERE id='$id' "; 
+    mysqli_query($conn, $query);
+  }
 }
 
 //Login

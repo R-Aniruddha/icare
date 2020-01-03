@@ -22,7 +22,7 @@
 
                 while ($row = mysqli_fetch_assoc($results)) { ?>
 
-                <div class="card col-md-3" style="margin: auto; background-color: #79a2ff;">
+                <div class="card col-md-3.5" style="margin: auto; ">
                     <img class="card-img-top" src="images/avatar1.png" alt="User Image" style="padding: 20px;">
                     <div class="card-body">
                         <h5 class="card-title">Dr. <?php echo $row['FirstName'] ," ", $row['LastName']; ?></h5>
@@ -44,7 +44,7 @@
 
                 while ($row = mysqli_fetch_assoc($results)) { ?>
 
-                <div class="card col-md-3" style="margin: 20px; background-color: #79a2ff; padding:5px; ">
+                <div class="card col-md-3.5" style="margin: auto; padding:5px; ">
                     <img class="card-img-top" src="images/avatar1.png" alt="User Image" style="padding: 20px;">
                     <div class="card-body">
                         <h5 class="card-title"><?php echo $row['FirstName'] ," ", $row['LastName']; ?></h5>

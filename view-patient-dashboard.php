@@ -8,10 +8,6 @@
         $_SESSION['msg'] = "You must log in first";      
         header('location: login.php');  
     }
-    if(userType() != 2) {
-        $_SESSION['msg'] = "You do not have access to this webpage";      
-        header('location: login.php');
-    }
 
     include('includes/header.php');
 

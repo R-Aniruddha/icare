@@ -76,6 +76,11 @@
 						        echo "active"; ">
                             <a class="nav-link" href="create-doctor.php">Create Doctor Account</a>
                         </li>
+                        <li class="nav-item  
+                            if ($thisPage=="Create Room") 
+						        echo "active"; ">
+                            <a class="nav-link" href="create-room.php">Create Room</a>
+                        </li>
                         ' 
                     ?>
 
