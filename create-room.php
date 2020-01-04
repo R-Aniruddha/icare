@@ -1,6 +1,12 @@
 <?php
     $thisPage="Create Room";
     include('includes/header.php');
+
+    if (!isAdmin()) {
+        $_SESSION['msg'] = "You do not have access to this page";
+        header('location: login.php');
+      }
+
 ?>
         
     <div class="main-content">
@@ -29,7 +35,23 @@
                         <option value="No">No</option>
                     </select>
                 </div>
-                <fieldset style="margin-left:;">
+                <div class="input-group">
+                    <select class="custom-select" name="PatientID" required>
+                        <option selected value="0">Assign Patient</option>
+                        <?php 
+                            $records = mysqli_query($conn, "SELECT * FROM patient WHERE RoomNo = 0");
+                            while ($row = mysqli_fetch_assoc($records)) {
+                                $patientid = $row['idPatient'];
+                                $fname = $row['First_Name'];
+                                $lname = $row['Last_Name'];
+                        ?>
+                                <option value="<?php echo $patientid; ?>"><?php echo $fname ," ", $lname; ?></option>
+                        <?php    
+                            }
+                        ?>
+                    </select>
+                </div>
+                <fieldset>
                     <h4>Sensors</h4>
                     <div class="input-group">
                         <select class="custom-select" required name="Heartrate" required>

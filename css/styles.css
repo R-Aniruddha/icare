@@ -61,7 +61,10 @@ border-left: thin solid #000000;
 .card {
     background-color: #78c7ff ;
 }
-
+.card-container {
+    margin: 20px auto;
+    border: 1px solid #01375d;
+}
 
 /* About US Page */
 

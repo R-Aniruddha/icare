@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Dec 15, 2019 at 11:07 PM
+-- Generation Time: Jan 04, 2020 at 12:06 PM
 -- Server version: 10.3.16-MariaDB
 -- PHP Version: 7.3.7
 
@@ -53,7 +53,7 @@ CREATE TABLE `doctorsdetails` (
 INSERT INTO `doctorsdetails` (`DoctorId`, `FirstName`, `LastName`, `Phone`, `Street`, `City`, `Country`, `Website`, `Gender`, `DOB`, `Nationality`, `Speciality`, `Department`, `Qualifications`, `Availability`) VALUES
 (6, 'Martin', 'John', '987654321', '1 Rue', 'London', 'England', '', 'Male', '2019-12-10', 'English', 'Cardiologist', 'Orthopedics', 'MBBS', 'Yes'),
 (18, 'George', 'Ezra', '1234657980', '14 Chatlet', 'Paris', 'France', '', 'Other', '2017-12-31', 'French', 'General', 'Regular', 'Bachelors', 'Yes'),
-(37, 'Lawrence', 'King', '', '', '', '', '', '', '', '', '', '', '', '');
+(37, 'Lawrence', 'King', '987654321', '6, Rue Vaugirad', 'Paris', 'France', '', 'Male', '1986-07-21', 'French', 'General Practioner', 'Medicine', 'MBBS', 'Yes');
 
 -- --------------------------------------------------------
 
@@ -95,30 +95,46 @@ CREATE TABLE `patient` (
   `Vaccination_History` varchar(100) NOT NULL,
   `OtherHealthIssues` varchar(500) NOT NULL,
   `Emerg2_LastName` varchar(30) NOT NULL,
-  `DoctorComments` text DEFAULT NULL
+  `DoctorComments` text DEFAULT NULL,
+  `RoomNo` int(20) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 --
 -- Dumping data for table `patient`
 --
 
-INSERT INTO `patient` (`idPatient`, `First_Name`, `Last_Name`, `Phone_number`, `BirthDate`, `Address`, `Cholesterol`, `Emerg_FirstName`, `Emerg_LastName`, `Emerg_Relation`, `Emerg_PhoneNumber1`, `Emerg2_PhoneNumber2`, `Emerg_PhoneNumber2`, `HepatitisB`, `ChickenPox`, `Measles`, `Medical_History`, `Height`, `Weight`, `DoctorId`, `Gender`, `Occupation`, `Marital_Status`, `EmailID`, `Social_Security`, `Emerg2_Relation`, `Emerg2_FirstName`, `Emerg2_PhoneNumber1`, `BloodPressure`, `HeartDisease`, `Vaccination_History`, `OtherHealthIssues`, `Emerg2_LastName`, `DoctorComments`) VALUES
-(2, 'Frank', 'Peterson', '91', '2000-01-01', '10', 'Yes', 'John', 'Kennedy', 'Friend', '123456798', '', '', 'Yes', 'IMMUNE', 'NOT IMMUNE', 'Liver disease', '199', '99', 6, 'Male', 'Unemployed', 'Other', 'frank@gmail.com', '1234567890', 'Brother', 'Mark', '987987987', 'Yes', 'No', 'Small pox', 'Kidney Failure', 'Henry', ''),
-(3, 'vishal', 'patel', '33', 'October', '1 rue des poissonniers', 'wcvcwv', 'qqqq', 'sss', 'ssssss', '5556522255', '5265558522', '54545454545', 'No', 'NOT IMMUNE', 'NOT IMMUNE', 'fdgfxbxcb cv cv ', '178', '70', 18, 'Male', 'Unemployed', 'Married', 'vishalpatel2788@gmail.com', '2222455214', 'xcxzcxzvzx', 'ddddd', '7845855545', 'High', 'No', 'General', 'Liver problem', 'Fred', ''),
-(30, 'Final', 'Test', '2133453245', '30July2001', '1rueeras123Barbados', 's', 'F', 'A', 'frnd', '764061654', '', '', 'No', 'IMMUNE', 'IMMUNE', 'asdf', '211', '100', 6, 'Male', 'Unemployed', 'Single', 'finaltest@email.com', '12314325', 'Bro', 'J', '714354353', 'n', '+', 'heart', 'na', 'L', 'Some Doctor Comments');
+INSERT INTO `patient` (`idPatient`, `First_Name`, `Last_Name`, `Phone_number`, `BirthDate`, `Address`, `Cholesterol`, `Emerg_FirstName`, `Emerg_LastName`, `Emerg_Relation`, `Emerg_PhoneNumber1`, `Emerg2_PhoneNumber2`, `Emerg_PhoneNumber2`, `HepatitisB`, `ChickenPox`, `Measles`, `Medical_History`, `Height`, `Weight`, `DoctorId`, `Gender`, `Occupation`, `Marital_Status`, `EmailID`, `Social_Security`, `Emerg2_Relation`, `Emerg2_FirstName`, `Emerg2_PhoneNumber1`, `BloodPressure`, `HeartDisease`, `Vaccination_History`, `OtherHealthIssues`, `Emerg2_LastName`, `DoctorComments`, `RoomNo`) VALUES
+(2, 'Frank', 'Peterson', '91', '2000-01-03', '10', 'Yes', 'John', 'Kennedy', 'Friend', '123456798', '', '', 'Yes', 'IMMUNE', 'NOT IMMUNE', 'Liver disease', '199', '99', 6, 'Male', 'Unemployed', 'Other', 'frank@gmail.com', '1234567890', 'Brother', 'Mark', '987987987', 'Yes', 'No', 'Small pox', 'Kidney Failure', 'Henry', 'No comments at the moment', 0),
+(3, 'Vishal', 'Patel', '33', 'October', '1 rue des poissonniers', 'wcvcwv', 'qqqq', 'sss', 'ssssss', '5556522255', '5265558522', '54545454545', 'No', 'NOT IMMUNE', 'NOT IMMUNE', 'fdgfxbxcb cv cv ', '178', '70', 18, 'Male', 'Unemployed', 'Married', 'vishalpatel2788@gmail.com', '2222455214', 'xcxzcxzvzx', 'ddddd', '7845855545', 'High', 'No', 'General', 'Liver problem', 'Fred', 'Recovery is proceeding slowly\r\nLot of sleep required.\r\nBlood pressure needs to be carefully monitored', 0),
+(56, 'John', 'Snow', '9988776655', '2011-11-11', '10 Rue Butte Aux Cailles', 'Yes', 'Arya', 'Stark', 'Sister', '9273498275', '8873612007', '8627349106', 'Yes', 'IMMUNE', 'IMMUNE', 'Sugar', '190', '82', 18, 'Male', 'Employed', 'Single', 'johnsnow@email.com', '12314325', 'Sister', 'Sansa', '0764061654', 'No', 'Yes', 'ChickenPox, Small Pox, Measles', 'Kidney', 'Stark', 'Patient will make full recovery soon.\r\nRequires a few more days of rest.\r\n', 0);
 
 -- --------------------------------------------------------
 
 --
--- Table structure for table `roomdetails`
+-- Table structure for table `room`
 --
 
-CREATE TABLE `roomdetails` (
-  `idRoomDetails` int(11) NOT NULL,
-  `Name` varchar(45) DEFAULT NULL,
-  `Address` varchar(45) DEFAULT NULL,
-  `SensorId` varchar(45) DEFAULT NULL
+CREATE TABLE `room` (
+  `RoomID` int(11) NOT NULL,
+  `RoomNo` int(20) DEFAULT NULL,
+  `Location` varchar(45) DEFAULT NULL,
+  `Occupied` varchar(3) NOT NULL,
+  `HeartRateSensor` varchar(3) DEFAULT NULL,
+  `HeartRateSensorID` int(11) NOT NULL,
+  `BloodPressureSensor` varchar(3) NOT NULL,
+  `BloodPressureSensorID` int(11) NOT NULL,
+  `SleepSensor` varchar(3) NOT NULL,
+  `SleepSensorID` int(11) NOT NULL,
+  `PatientID` int(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+--
+-- Dumping data for table `room`
+--
+
+INSERT INTO `room` (`RoomID`, `RoomNo`, `Location`, `Occupied`, `HeartRateSensor`, `HeartRateSensorID`, `BloodPressureSensor`, `BloodPressureSensorID`, `SleepSensor`, `SleepSensorID`, `PatientID`) VALUES
+(4, 112, 'Saint John\'s Hospital, 1st Floor', 'No', 'Yes', 2, 'Yes', 3, '', 0, 0),
+(5, 203, 'Saint John\'s Hospital, 2nd Floor', 'No', 'Yes', 4, 'Yes', 6, 'Yes', 5, 0);
 
 -- --------------------------------------------------------
 
@@ -127,10 +143,21 @@ CREATE TABLE `roomdetails` (
 --
 
 CREATE TABLE `sensor` (
-  `idSensor` int(11) NOT NULL,
+  `SensorID` int(11) NOT NULL,
   `SensorName` varchar(45) DEFAULT NULL,
-  `SensorDescription` varchar(45) DEFAULT NULL
+  `RoomNo` int(20) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+--
+-- Dumping data for table `sensor`
+--
+
+INSERT INTO `sensor` (`SensorID`, `SensorName`, `RoomNo`) VALUES
+(2, 'Heartrate', 112),
+(3, 'BloodPressure', 112),
+(4, 'Heartrate', 203),
+(5, 'Sleep', 203),
+(6, 'BloodPressure', 203);
 
 -- --------------------------------------------------------
 
@@ -170,11 +197,11 @@ CREATE TABLE `users` (
 INSERT INTO `users` (`id`, `FirstName`, `LastName`, `Email`, `user_type`, `Password`) VALUES
 (1, 'Aniruddha', 'R', 'aniruddha04@gmail.com', 'admin', '5f4dcc3b5aa765d61d8327deb882cf99'),
 (2, 'Frank', 'Peterson', 'frank@gmail.com', 'patient', '1a1dc91c907325c69271ddf0c944bc72'),
-(3, 'vishal', 'patel', 'vishalpatel2788@gmail.com', 'patient', '1a1dc91c907325c69271ddf0c944bc72'),
-(6, 'Martin', 'John', 'martinjohn@email.com', 'doctor', '9a09b4dfda82e3e665e31092d1c3ec8d'),
-(18, 'George', 'Erza', 'george@email.com', 'doctor', '202cb962ac59075b964b07152d234b70'),
-(30, 'Final', 'Test', 'finaltest@email.com', 'patient', '1a1dc91c907325c69271ddf0c944bc72'),
-(37, 'Lawrence', 'King', 'lawrence@email.com', 'doctor', '1a1dc91c907325c69271ddf0c944bc72');
+(3, 'Vishal', 'Patel', 'vishalpatel2788@gmail.com', 'patient', '1a1dc91c907325c69271ddf0c944bc72'),
+(6, 'Martin', 'John', 'martinjohn@email.com', 'doctor', '1a1dc91c907325c69271ddf0c944bc72'),
+(18, 'George', 'Erza', 'george@email.com', 'doctor', '1a1dc91c907325c69271ddf0c944bc72'),
+(37, 'Lawrence', 'King', 'lawrence@email.com', 'doctor', '1a1dc91c907325c69271ddf0c944bc72'),
+(56, 'John', 'Snow', 'johnsnow@email.com', 'patient', '1a1dc91c907325c69271ddf0c944bc72');
 
 --
 -- Indexes for dumped tables
@@ -193,16 +220,16 @@ ALTER TABLE `patient`
   ADD PRIMARY KEY (`idPatient`);
 
 --
--- Indexes for table `roomdetails`
+-- Indexes for table `room`
 --
-ALTER TABLE `roomdetails`
-  ADD PRIMARY KEY (`idRoomDetails`);
+ALTER TABLE `room`
+  ADD PRIMARY KEY (`RoomID`);
 
 --
 -- Indexes for table `sensor`
 --
 ALTER TABLE `sensor`
-  ADD PRIMARY KEY (`idSensor`);
+  ADD PRIMARY KEY (`SensorID`);
 
 --
 -- Indexes for table `sensordata`
@@ -221,10 +248,22 @@ ALTER TABLE `users`
 --
 
 --
+-- AUTO_INCREMENT for table `room`
+--
+ALTER TABLE `room`
+  MODIFY `RoomID` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
+
+--
+-- AUTO_INCREMENT for table `sensor`
+--
+ALTER TABLE `sensor`
+  MODIFY `SensorID` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
+
+--
 -- AUTO_INCREMENT for table `users`
 --
 ALTER TABLE `users`
-  MODIFY `id` int(10) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=51;
+  MODIFY `id` int(10) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=57;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;

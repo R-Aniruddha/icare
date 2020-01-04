@@ -32,14 +32,20 @@ if (isset($_POST['create_room'])) {
   $HeartRate = mysqli_real_escape_string($conn, $_POST['Heartrate']);
   $Sleep = mysqli_real_escape_string($conn, $_POST['Sleepsensor']);
   $BloodPressure = mysqli_real_escape_string($conn, $_POST['Bloodpressure']);
+  $PatientID = mysqli_real_escape_string($conn, $_POST['PatientID']);
+
+  
 
   $user_check_query = "SELECT * FROM sensor WHERE RoomNo='$RoomNo'";
   $result = mysqli_query($conn, $user_check_query);
   $room = mysqli_fetch_assoc($result);
 
-  if ($room) { // if email exists
+  if ($room) { // if room exists
     if ($room['RoomNo'] == $RoomNo) {
       array_push($errors, "Room Number already exists");
+    }
+    if ($room['RoomNo'] == 0) {
+      array_push($errors, "Room Number 0 not allowed");
     }
   }
 
@@ -80,8 +86,11 @@ if (isset($_POST['create_room'])) {
       mysqli_query($conn, "UPDATE room SET BloodPressureSensor='$BloodPressure', BloodPressureSensorID = '$BloodPressureID' WHERE RoomNo='$RoomNo' ") or die('MySQL Error: ' . mysqli_error($conn));
     }
 
+    //Insert into patient table the roomno
+    if($RoomNo != 0) {
+      mysqli_query($conn, "UPDATE patient SET RoomNo='$RoomNo' WHERE idPatient='$PatientID' ") or die('MySQL Error: ' . mysqli_error($conn));
+    }
     
-
 
   }
 
@@ -185,8 +194,11 @@ if (isset($_POST['update-comments'])) {
   
   mysqli_query($conn, "UPDATE patient SET DoctorComments = '$Doctor_Comments' WHERE idPatient=$id");
   //$_SESSION['message'] = "Doctor's Comments Updated!"; 
-  header('location: doctor-dashboard.php');
-
+  if(isAdmin()){
+    header('location: admin-dashboard.php');
+  } else {
+    header('location: doctor-dashboard.php');
+  }
 
 }
 
