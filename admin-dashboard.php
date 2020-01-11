@@ -51,8 +51,8 @@
                     <img class="card-img-top" src="images/avatar1.png" alt="Patient Image" style="padding: 20px;">
                     <div class="card-body">
                         <h5 class="card-title"><?php echo $row['First_Name'] ," ", $row['Last_Name']; ?></h5>
-                        <h6><?php if($row['RoomNo'] !=0 )echo $row['RoomNo'] ?> </h6>
-                        <h6><?php if($row['RoomNo'] == 0 )echo "Room Not Assigned" ?> </h6>
+                        <h6><strong><?php if($row['RoomNo'] !=0 )echo "Room Number: ",$row['RoomNo'] ?> </strong> </h6>
+                        <h6><strong><?php if($row['RoomNo'] == 0 )echo "Room Not Assigned" ?> </strong></h6>
                         <p class="card-text"><?php echo $str ,"..."?></p>
                         <a href="view-patient-dashboard.php?id=<?php echo $row['idPatient']?>" class="btn btn-info btn-sm">View Patient Dashboard</a>
                     </div>

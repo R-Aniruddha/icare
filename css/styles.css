@@ -75,12 +75,13 @@ border-left: thin solid #000000;
 /* Contact US Page */
 
 #contact-form{
-    padding: 50px;
+    margin-top: 20px;
+    padding: 10px;
 }
 
 /* Patient Registration Page */
 
-#patient-registration-form ul {
+.form ul {
     list-style: none;
 }
 
@@ -97,7 +98,7 @@ border-left: thin solid #000000;
 /* Blog sidebar */ 
 .sidebar-header {
 	font-size:1.4em;
-	border-bottom:3px solid #d8e4ef;
+	border-bottom:3px solid #398ddb;
 	padding:10px 0 10px 2px;
 	opacity:0.8;
 }
@@ -140,3 +141,6 @@ border-left: thin solid #000000;
 	padding-left:23px;
 }
 
+@media (min-width: 768px) .col-md-6 {
+    max-width: 75%;
+}

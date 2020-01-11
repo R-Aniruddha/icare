@@ -43,7 +43,7 @@
                 </ul>
 
 		  </div>
-            <div class="col-sm-8 columns align-self-start contact-page">
+            <div class="col-sm-8 columns contact-page" style="margin-top: -120px;">
 			
                 <h2 style="float:left;">Contact Us</h2>
                 <img src="images/contact-mail-img.png" height="50px" style="margin:5px 10px;"/>
