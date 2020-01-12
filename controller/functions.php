@@ -503,5 +503,19 @@ function userType() {
   }
 }
 
+//contact-us
+if (isset($_POST['contact_us'])) {
+ global $conn, $errors;
+    
+  $name         = $_POST['name'];
+  $subject      = $_POST['subject'];
+  $emailid      = $_POST['emailid'];
+  $message      = $_POST['message'];
+    
+$query = "INSERT INTO contactus (name,subject,emailid,message) VALUES('$name','$subject','$emailid','$message')";
+   $sql= mysqli_query($conn, $query);
+
+}
+
 
 ?>
