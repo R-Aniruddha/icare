@@ -1,41 +1,53 @@
 $(document).ready(function() {
-			
-    //if submit button is clicked
-    $('#submit-button').click(function () {        
+  $("#myCarousel .carousel-item").first().addClass("active");
+  $("#myCarousel2 .carousel-item").first().addClass("active");
 
-        //Get the data from all the fields
-        var name = $('input[name=name]');
-        var email = $('input[name=email]');
-        var phone = $('input[name=phone]');
-        var comment = $('textarea[name=message]');
+  $("#myCarousel").on("slide.bs.carousel", function(e) {
+    //alert("Button clicked");
+    var $e = $(e.relatedTarget);
+    var idx = $e.index();
+    var itemsPerSlide = 3;
+    var totalItems = $("#myCarousel .carousel-item").length;
+    //alert(totalItems);
 
-        //Simple validation to make sure user entered something
-        //If error found, add hightlight class to the text field
-        if (name.val()=='') {
-            name.addClass('hightlight');
-            return false;
-        } else name.removeClass('hightlight');
+    if (idx >= totalItems - (itemsPerSlide - 1)) {
+      var it = itemsPerSlide - (totalItems - idx);
+      for (var i = 0; i < it; i++) {
+        // append slides to end
+        if (e.direction == "left") {
+          $("#myCarousel .carousel-item")
+            .eq(i)
+            .appendTo("#myCarousel .carousel-inner");
+            //alert("Appended");
+        } else {
+          $("#myCarousel .carousel-item")
+            .eq(0)
+            .appendTo($(this).find("#myCarousel .carousel-inner"));
+        }
+      }
+    }
+  });
+  $("#myCarousel2").on("slide.bs.carousel", function(e) {
+    var $e = $(e.relatedTarget);
+    var idx = $e.index();
+    var itemsPerSlide = 3;
+    var totalItems = $("#myCarousel2 .carousel-item").length;
 
-        if (email.val()=='') {
-            email.addClass('hightlight');
-            return false;
-        } else email.removeClass('hightlight');
-
-        if (comment.val()=='') {
-            comment.addClass('hightlight');
-            return false;
-        } else comment.removeClass('hightlight');
-
-        //organize the data properly
-        var data = 'name=' + name.val() + '&email=' + email.val() + '&phone_number='
-        + phone.val() + '&message='  + encodeURIComponent(comment.val());
-
-        //disabled all the text fields
-        $('.text').attr('disabled','true');
-
-        //show the loading sign
-        $('.loading').show();
-
-        return false;
-    }); 
-}); 
+    if (idx >= totalItems - (itemsPerSlide - 1)) {
+      var it = itemsPerSlide - (totalItems - idx);
+      for (var i = 0; i < it; i++) {
+        // append slides to end
+        if (e.direction == "left") {
+          $("#myCarousel2 .carousel-item")
+            .eq(i)
+            .appendTo("#myCarousel2 .carousel-inner");
+            //alert("Appended");
+        } else {
+          $("#myCarousel2 .carousel-item")
+            .eq(0)
+            .appendTo($(this).find("#myCarousel2 .carousel-inner"));
+        }
+      }
+    }
+  });
+});

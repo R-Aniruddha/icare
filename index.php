@@ -16,21 +16,21 @@
                 <!-- wrapper for slides -->
                 <div class="carousel-inner" >
                     <div class="carousel-item active">
-                        <img class="d-block" src="images/image-6.jpg" alt="Smart Hospital" />
+                        <img class="d-block w-100" src="images/image-6.jpg" alt="Smart Hospital" />
                         <div class="carousel-caption">
                             <h1>Remote Health Monitoring System</h1>
                         </div>
                     </div>
                      <div class="carousel-item">
-                        <img class="d-block" src="images/image-3.jpg" alt="" />
+                        <img class="d-block w-100" src="images/image-3.jpg" alt="" />
                     </div>
                      <div class="carousel-item">
-                        <img class="d-block" src="images/image-4.jpg" alt="" />
+                        <img class="d-block w-100" src="images/image-4.jpg" alt="" />
                         <div class="carousel-caption">
                         </div>
                     </div>
                     <div class="carousel-item">
-                        <img class="d-block" src="images/image-5.png" alt="" />
+                        <img class="d-block w-100" src="images/image-5.png" alt="" />
                         <div class="carousel-caption">
                         </div>
                     </div>

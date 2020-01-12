@@ -129,7 +129,7 @@
                     echo "
                     <div class='input-group col-md-6 offset-md-1' >
                         <h4 style='margin: 0 auto 10px auto;'>Room Details</h4>
-                        <div>
+                        <div class='input-group ml-5'>
                             <ul>
                                 <li>First Assign Room to Patient</li>
                             <ul>

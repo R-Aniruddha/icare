@@ -50,9 +50,8 @@
      
     </div> 
 
-    <script src="js/jquery-3.4.1.min.js"></script>
-    
-    <script src="js/bootstrap.min.js"></script>
+    <script src='https://code.jquery.com/jquery-1.12.4.min.js'></script>
+    <script src='https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.0.0/js/bootstrap.min.js'></script>
     <!--
     <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
 
