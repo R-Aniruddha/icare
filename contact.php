@@ -7,6 +7,8 @@
 	<!-- BEGIN MAIN CONTENT -->
 
     <div class="main-content">
+        <form id="contact-form" method="post" action="contact.php">
+        <fieldset>
         <div class="row">
             <div class="col-sm-8 columns align-self-start">
                 <div>
@@ -57,48 +59,35 @@
                 </div>
 
                 <!-- form -->
-                <form id="contact-form">
-                    <div class="form-group">
-                        <label for="FirstName">Name</label>
-                        <div class="row">
-                            <div class="col-sm-6">
-                              <input type="text" class="form-control" id="FirstName" placeholder="First name">
-                            </div>
-                            <div class="col-sm-6">
-                              <input type="text" class="form-control" id="LastName" placeholder="Last name">
-                            </div>
-                        </div>
+                <div class="form-group">
+                        <label>Name</label>
+                        <input class="form-control" type="text" class="form-control" name="name" placeholder="name">
                     </div>
                     <div class="form-group">
-                        <label for="PhoneInput">Phone Number</label>
-                        <input type="phone" class="form-control" id="PhoneInput" placeholder="+(33) 00 000 00">
+                        <label>subject</label>
+                        <input class="form-control" name="subject" placeholder="subject">
                     </div>
                     <div class="form-group">
                         <label for="EmailInput">Email address</label>
-                        <input type="email" class="form-control" id="EmailInput" aria-describedby="emailHelp" placeholder="Example@email.com">
-                        <small id="emailHelp" class="form-text text-muted">We'll never share your email with anyone else.</small>
+                        <input type="email" class="form-control" name="emailid" aria-describedby="emailHelp" placeholder="Example@email.com">
                     </div>
                     <div class="form-group">
                         <label for="MessageInput">Enter Message Here</label>
-                        <textarea class="form-control" id="MessageInput" rows="5"></textarea>
+                        <textarea class="form-control" name="message" rows="5"></textarea>
                     </div>
-                    
-                    <div class="form-check">
-                        <input type="checkbox" class="form-check-input" id="SubscriptionCheck">
-                        <label class="form-check-label" for="SubscriptionCheck">Click to Subscribe to our Emails and Offers</label>
-                    </div>
+
                     <br>
-                    <button type="submit" class="btn btn-primary">Send</button>
-                </form>
+                    <button type="submit" class="btn btn-primary" name="contact_us">Send</button>
+
+
+                </div>
+
+
 
             </div>
-
-            
-            
+        </fieldset>
+    </form>
 </div>
-        </div>
-    </div>
 <?php
 	include('includes/footer.php');
 ?>
-	
