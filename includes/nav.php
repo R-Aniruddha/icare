@@ -6,7 +6,7 @@
              <h3 id="nav-title">𝓘𝓒𝓪𝓻𝓮</h3> 
         </a>
     
-        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarCollapse" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
             <span class="navbar-toggler-icon"></span>
         </button>
         
@@ -105,8 +105,10 @@
 
                     
                 </ul>
-                <button class="btn btn-outline-success" style="margin-right: 20px;"><a href="my-account.php" style="color:green"> My Account</a></button>
-                <button class="btn btn-outline-danger" type="submit"><a href="index.php?logout='1'" style="color:red">Logout</a></button>
+                <div>
+                        <button class="btn btn-outline-success" style="margin-right: 20px;"><a href="my-account.php" style="color:green"> My Account</a></button>
+                        <button class="btn btn-outline-danger" type="submit"><a href="index.php?logout='1'" style="color:red">Logout</a></button>
+                <div>
             </div>
 	
         </nav>

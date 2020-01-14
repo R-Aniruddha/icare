@@ -1,6 +1,6 @@
     <footer id="myfooter" class="page-footer text-center border-top" style="padding: 20px 0 10px 0;">
         <div class="row" style="padding: 0 80px;">
-            <div class="col-sm-5 text-left">
+            <div class="col-md-5 text-left">
                 <h4>Our Aim</h4>
                 <p>
                     To revolutionize the health industry <br>
@@ -10,7 +10,7 @@
 
                 </p>
             </div>
-            <div class="col-sm-2">
+            <div class="col-md-2">
                 <h4>Useful Links</h4>
                 <ul style="list-style:none; padding:0;">
                     <li><a href="about.php"> About Us </a> </li>
@@ -19,7 +19,7 @@
 
                 </ul>
             </div>
-            <div class="col-sm-4 offset-sm-1 text-left">
+            <div class="col-md-4 offset-sm-1 text-left">
                 <h4>Address:</h4>
                 <p>
                     28 Rue Notre Dame des Champs, 75006 Paris <br>

@@ -16,7 +16,7 @@
 
         <h3 class="text-center">Doctors</h3>
 
-        <div class="container-fluid">
+        <div class="container-fluid" style="margin-bottom:20px;">
             <div id="myCarousel" class="carousel slide" data-ride="carousel" data-interval="false">
                 <div class="carousel-inner row w-100 mx-auto">
                     <?php 
@@ -90,7 +90,7 @@
 
         </div>          
   	
-<div class="row" style="padding: 30px 0;">
+    <div class="row" style="padding: 30px 0;">
         <form id="contact-us-messages" class="col-md-12" action="admin-dashboard.php" method="post" >
             <h3 class="text-center">Contact-us Messages</h3>
             <div class="col-md-12 " style="margin:auto; padding: 15px; background-color: #70befe;   border-radius: 25px;">
@@ -107,7 +107,7 @@
                     </thead>
                     <?php
                     
-                    $sql = "SELECT id, name, subject, emailid, message FROM contact ";
+                    $sql = "SELECT id, name, subject, emailid, message FROM contact WHERE recepient='admin'";
                     $result = $conn->query($sql);
                     if ($result->num_rows > 0) {
                         // output data of each row

@@ -195,7 +195,7 @@
                         </div>
                         
                         <div class="input-group">
-                            <span class="input-group-text">last Name</span>
+                            <span class="input-group-text">Last Name</span>
                             <input type="text" class="form-control" required value="" name="Emerg_LastName">
                         </div>
                         
@@ -205,15 +205,21 @@
                         </div>
                         
                         <div class="input-group">
-                            <span class="input-group-text">PhoneNumber1</span>
+                            <span class="input-group-text">Phone Number 1</span>
                             <input type="text" class="form-control" required value="" name="Emerg_PhoneNumber1">
                         </div>
                         
                         <div class="input-group">
-                            <span class="input-group-text">PhoneNumber2</span>
+                            <span class="input-group-text">Phone Number 2</span>
                             <input type="text" class="form-control" value="" name="Emerg_PhoneNumber2">
                         </div>
                     </div>       
+                    
+                </div>
+            </div>
+            <div class="container px-lg-5">
+                <div class="row mx-lg-n5">
+                           
                     <div class="col py-3 px-lg-5 border bg-light">
                     
                         <h3 style="margin-bottom: 20px;"> Contact 2: </h3>
@@ -223,7 +229,7 @@
                         </div>
                         
                         <div class="input-group">
-                            <span class="input-group-text">last Name</span>
+                            <span class="input-group-text">Last Name</span>
                             <input type="text" class="form-control" required value="" name="Emerg2_LastName">
                         </div>
                         
@@ -233,12 +239,12 @@
                         </div>
                         
                         <div class="input-group">
-                            <span class="input-group-text">PhoneNumber1</span>
+                            <span class="input-group-text">Phone Number 1</span>
                             <input type="text" class="form-control" required value="" name="Emerg2_PhoneNumber1">
                         </div>
                         
                         <div class="input-group">
-                            <span class="input-group-text">PhoneNumber2</span>
+                            <span class="input-group-text">Phone Number 2</span>
                             <input type="text" class="form-control" value="" name="Emerg2_PhoneNumber2">
                         </div>
                     </div>

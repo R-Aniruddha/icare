@@ -153,7 +153,7 @@ function create_temp_ac(){
 
     $query = "INSERT INTO doctorsdetails
     (DoctorId, FirstName, LastName, Phone, Street, City, Country, Gender, DOB, Nationality, Speciality, Department, Qualifications, Availability)
-    VALUES('$id', '$firstname', '$lastname', '', '','', '', '', '', '', '', '', '', '') ";
+    VALUES('$id', '$firstname', '$lastname', '', '','', '', '', '', '', '', '', '', 'No') ";
     mysqli_query($conn, $query) or die('MySQL Error: ' . mysqli_error($conn));
     $_SESSION['success'] = "Blank Data Inserted" ;
     header('location: create-doctor.php');
@@ -500,6 +500,8 @@ function userType() {
 		return 2;
 	}else if(isset($_SESSION['user']) && $_SESSION['user']['user_type'] == 'patient' ) {
     return 3;
+  }else if(isset($_SESSION['user']) && $_SESSION['user']['user_type'] == 'guardian' ) {
+    return 4;
   }
 }
 
@@ -509,10 +511,15 @@ if (isset($_POST['contact_us'])) {
     
   $name         = $_POST['name'];
   $subject      = $_POST['subject'];
+  $recepient         = $_POST['Recepient'];
   $emailid      = $_POST['emailid'];
   $message      = $_POST['message'];
-    
-$query = "INSERT INTO contact (name, subject, emailid, message) VALUES('$name','$subject','$emailid','$message')";
+  
+  if(isset($recepient)){
+    $query = "INSERT INTO contact (name, subject, emailid, message, recepient) VALUES('$name','$subject','$emailid','$message', '$recepient')";
+  } else {
+    $query = "INSERT INTO contact (name, subject, emailid, message) VALUES('$name','$subject','$emailid','$message')";
+  }
    $sql= mysqli_query($conn, $query);
 
 }

@@ -20,6 +20,14 @@
     color:gray;
 }
 
+/* Overwrite default navbar toggle range*/
+@media (min-width: 1044px){
+    .navbar-expand-lg .navbar-nav .nav-link {
+    padding-right: 0.5rem;
+    padding-left: 0.5rem;
+    }
+}
+
 p {
     font-size: 18px;
     line-height: 1.8;
@@ -171,6 +179,11 @@ border-left: thin solid #000000;
 	border-bottom:3px solid #398ddb;
 	padding:10px 0 10px 2px;
 	opacity:0.8;
+}
+@media (min-width: 768px) {
+    .contact-page{
+        /*margin-top: -120px*/
+    }
 }
 
 

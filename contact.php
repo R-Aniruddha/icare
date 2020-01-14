@@ -10,17 +10,17 @@
         <form id="contact-form" method="post" action="contact.php">
         <fieldset>
         <div class="row">
-            <div class="col-sm-8 columns align-self-start">
-                <div>
+            <div class="col-md-8 col-sm-12 align-self-start">
                     <h2>Find Us Here</h2>
                     <div>
                         If you would like to meet us in person and if you would like to cooperate with us, you can find us at the address below.
                     </div>	
-                    <iframe class="maps-iframe" src="https://www.google.com/maps/embed?pb=!1m14!1m8!1m3!1d24990.77652870845!2d2.2819006046529973!3d48.823270627250544!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0xe0d3eb2ad501cb27!2sISEP!5e0!3m2!1sen!2sfr!4v1573554461872!5m2!1sen!2sfr" width="600" height="450" frameborder="0" style="border:0;" allowfullscreen=""></iframe>
-                
-                </div>
+                    <iframe class="maps-iframe" 
+                    src="https://www.google.com/maps/embed?pb=!1m14!1m8!1m3!1d24990.77652870845!2d2.2819006046529973!3d48.823270627250544!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0xe0d3eb2ad501cb27!2sISEP!5e0!3m2!1sen!2sfr!4v1573554461872!5m2!1sen!2sfr" 
+                    width="100%" height="600px" frameborder="0" style="border:0;" allowfullscreen=""></iframe>
+               
             </div>
-            <div class="col-sm-4">
+            <div class="col-md-4 col-sm-12">
                 <div class="sidebar-header">Collaboration</div>
                 <div>
                     <p>
@@ -45,7 +45,7 @@
                 </ul>
 
 		  </div>
-            <div class="col-sm-8 columns contact-page" style="margin-top: -120px;">
+            <div class="col-md-8 col-sm-12 contact-page" style="">
 			
                 <h2 style="float:left;">Contact Us</h2>
                 <img src="images/contact-mail-img.png" height="50px" style="margin:5px 10px;"/>
@@ -59,14 +59,23 @@
                 </div>
 
                 <!-- form -->
-                <div class="form-group">
-                        <label>Name</label>
-                        <input class="form-control" type="text" class="form-control" name="name" placeholder="name">
+                <form class="" style="margin-top:15px; border:1px solid black">
+                    <div class="form-group">
+                        <label>Full Name</label>
+                        <input class="form-control" type="text" class="form-control" name="name" placeholder="Full Name">
                     </div>
                     <div class="form-group">
-                        <label>subject</label>
-                        <input class="form-control" name="subject" placeholder="subject">
+                        <label>Subject</label>
+                        <input class="form-control" name="subject" placeholder="Subject">
                     </div>
+                    <?php if(userType()==2 || userType()==4) echo ' 
+                    <div class="input-group">
+                        <select class="custom-select" name="Recepient" required>
+                            <option value="admin">Admin</option>
+                            <option value="doctor">Doctor</option>
+                        </select>
+                    </div>
+                    ' ?>
                     <div class="form-group">
                         <label for="EmailInput">Email address</label>
                         <input type="email" class="form-control" name="emailid" aria-describedby="emailHelp" placeholder="Example@email.com">
@@ -80,7 +89,7 @@
                     <button type="submit" class="btn btn-primary" name="contact_us">Send</button>
 
 
-                </div>
+                </form>
 
 
 
