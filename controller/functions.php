@@ -21,6 +21,66 @@ if (isset($_POST['create_temp_doc_ac'])) {
   create_temp_ac();
 }
 
+//Create guardian account
+if (isset($_POST['create_guardian_ac'])) {
+
+  global $conn, $errors;
+
+  $firstname = mysqli_real_escape_string($conn, $_POST['FirstName']);
+  $lastname = mysqli_real_escape_string($conn, $_POST['LastName']);
+  $email = mysqli_real_escape_string($conn, $_POST['Email']);
+  $password_1 = mysqli_real_escape_string($conn, $_POST['Password_1']);
+  $password_2 = mysqli_real_escape_string($conn, $_POST['Password_2']);
+
+  // form validation: ensure that the form is correctly filled ...
+  // by adding (array_push()) corresponding error unto $errors array
+
+  if (empty($firstname)) { array_push($errors, "First Name is required"); }
+  if (empty($lastname)) { array_push($errors, "Last Name is required"); }
+  if (empty($email)) { array_push($errors, "Email is required"); }
+  if (empty($password_1)) { array_push($errors, "Password is required"); }
+  if ($password_1 != $password_2) {
+	  array_push($errors, "Passwords do not match");
+  }
+
+  // first check the database to make sure a user does not already exist with the same email
+  $user_check_query = "SELECT * FROM users WHERE Email='$email'";
+  $result = mysqli_query($conn, $user_check_query);
+  $user = mysqli_fetch_assoc($result);
+
+  if ($user) { // if email exists
+    if ($user['Email'] == $email) {
+      array_push($errors, "Email already exists");
+    }
+  }
+
+  // Finally, register user if there are no errors in the form
+  if (count($errors) == 0) {
+
+    //encrypt the password before saving in the database
+  	$password = md5($password_1);
+    
+    //Insert data into user table
+    $query = "INSERT INTO users (FirstName, LastName, Email, user_type, Password) 
+  			  VALUES('$firstname', '$lastname', '$email', 'guardian', '$password')";
+    mysqli_query($conn, $query);
+    
+    $query = "SELECT id FROM users WHERE Email='$email'";
+    $result = mysqli_query($conn, $user_check_query);
+    $temp = mysqli_fetch_assoc($result);
+    $id = $temp['id'];
+
+    $PatientID = $_SESSION['user']['id'];
+
+
+    mysqli_query($conn, "INSERT INTO guardian (GuardianId,  Phone, Street, City , Country, Gender, DOB, PatientID)
+      VALUES('$id','', '','', '', '','', '$PatientID')
+    ");
+
+
+    }
+}
+
 // Create Room
 if (isset($_POST['create_room'])) {
 
@@ -197,7 +257,31 @@ if (isset($_POST['update-comments'])) {
   mysqli_query($conn, "UPDATE patient SET DoctorComments = '$Doctor_Comments' WHERE idPatient=$id");
   //$_SESSION['message'] = "Doctor's Comments Updated!"; 
   
+}
 
+//Update Guardian Details
+if (isset($_POST['update-guardian-details'])) {
+
+  $id = $_SESSION['user']['id'];
+  
+	//$FirstName    			=  $_POST['FirstName'];
+  //$LastName    			=  $_POST['LastName'];
+  $Phone  			=  $_POST['Phone'];
+  $Street   		    =  $_POST['Street'];
+  $City   			=  $_POST['City'];
+  $Country 			=  $_POST['Country'];
+  $Gender 	=  $_POST['Gender'];
+  $DOB		=  $_POST['DOB'];
+  
+
+  //Inserting data into users table
+ // mysqli_query($conn, "UPDATE users SET FirstName='$FirstName', Lastname = '$LastName' WHERE id='$id' ") or die('MySQL Error: ' . mysqli_error($conn));
+
+  //Updating Guardian details table
+	mysqli_query($conn, "UPDATE guardian SET Phone= '$Phone', Street='$Street', City = '$City', Country= '$Country', Gender = '$Gender', DOB = '$DOB'
+   WHERE GuardianId='$id'") or die('MySQL Error: ' . mysqli_error($conn));
+	$_SESSION['message'] = "Personal Details Updated!"; 
+	header('location: guardian-details.php');
 }
 
 //Update Room
@@ -366,16 +450,18 @@ if (isset($_POST['modify-account-details'])) {
 
 
   $id = $_SESSION['user']['id'];
-  $user_check_query = "SELECT * FROM users WHERE id='$id'";
+
+
+  $user_check_query = "SELECT * FROM users WHERE Email='$email' AND NOT id='$id' ";
   $result = mysqli_query($conn, $user_check_query);
   $user = mysqli_fetch_assoc($result);
 
-  if ($user) { // if email exists
-    if ($user['Email'] == $email) {
+  if ($user) { //Check if email exists and ignores users old email id
+    if ($user['Email'] == $email) { 
       array_push($errors, "Email already exists");
     }
   }
-  if ($user) { // if email exists
+  if ($user) { // Check if passwords match
     if ($password_1 != $password_2) {
       array_push($errors, "Passwords do not match");
     }
@@ -419,18 +505,15 @@ function login() {
       $usertype = $logged_in_user['user_type'];
       $userid = $logged_in_user['id'];
 
+      $_SESSION['user'] = $logged_in_user;
 			if ($usertype == 'admin') {
-        $_SESSION['user'] = $logged_in_user;
         $_SESSION['success']  = "You are now logged in";
         header('location: admin-dashboard.php');		  
 			}else if ($usertype == 'patient') {
-				$_SESSION['user'] = $logged_in_user;
 				$_SESSION['success']  = "You are now logged in";
 				header('location: dashboard.php');
 			} else if ($usertype == 'doctor'){
-        $_SESSION['user'] = $logged_in_user;
         $_SESSION['success']  = "You are now logged in";
-
         $query = "SELECT * FROM doctorsdetails WHERE DoctorId='$userid' ";
         $res = mysqli_query($conn, $query);
         $logged_in_user = mysqli_fetch_assoc($res);
@@ -439,6 +522,18 @@ function login() {
           header('location: doctor-details.php');
         } else {
           header('location: doctor-dashboard.php');
+        }
+      } else if ($usertype == 'guardian'){
+        $_SESSION['success']  = "You are now logged in";
+        $query = "SELECT * FROM guardian WHERE GuardianId='$userid' ";
+        $res = mysqli_query($conn, $query);
+        $logged_in_user = mysqli_fetch_assoc($res);
+        $PatientID = $logged_in_user['PatientID'];
+        $phone = $logged_in_user['Phone'];
+        if($phone == "") { 
+          header('location: guardian-details.php');
+        } else {
+          header("location: view-patient-dashboard.php?id='$PatientID'");
         }
       }
 		}else {

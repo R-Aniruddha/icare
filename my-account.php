@@ -1,5 +1,6 @@
 <?php
     $thisPage="My Account";
+    include_once("controller/functions.php");
     include('includes/header.php');
     
     if (!isLoggedIn()) {
@@ -34,7 +35,7 @@
 
                 <div class="input-group">
                     <label class="input-group-text">Full Name</label>
-                    <input type="text" readonly class="form-control" value="<?php echo $FirstName, $LastName ; ?>" name="FirstName">
+                    <input type="text" readonly class="form-control" value="<?php echo $FirstName,' ' , $LastName ; ?>" name="FullName">
                 </div>
                 <div class="input-group">
                     <label class="input-group-text">Email</label>

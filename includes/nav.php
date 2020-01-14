@@ -34,6 +34,17 @@
                                     <a class="dropdown-item" href="dashboard.php#doctor-comments">Doctor Comments</a>
                                 </div>
                             </li>
+                            <li class="nav-item  
+                                if ($thisPage=="Patient Details") 
+                                    echo "active"; ">
+                                <a class="nav-link" href="patient-details.php">Personal Details</a>
+                            </li>
+                            <li class="nav-item   
+                                if ($thisPage=="Create Guardian Account") 
+                                echo "active"; ">
+                                <a class="nav-link" href="create-guardian.php">Create Guardian Account</a>
+                            </li>
+                            
                     ' ?>
                     <?php if (userType() == 2)
                         echo '
@@ -42,26 +53,31 @@
                             echo "active"; ">
                             <a class="nav-link" href="doctor-dashboard.php">Dashboard</a>
                         </li>
-                        ' 
-                     ?>
-                    <?php if (userType() == 2)
-                        echo '
                         <li class="nav-item   
-                            if ($thisPage=="Doctor Details") 
+                            if ($thisPage=="Personal Details") 
 						    echo "active"; ">
                             <a class="nav-link" href="doctor-details.php">Doctor Details</a>
                         </li>
                         ' 
                     ?>
+                    <?php if (userType() == 4){
 
-                    <?php if (userType() == 3)
+                        $id = $_SESSION['user']['id'];
+                        $record = mysqli_query($conn, "SELECT PatientID FROM guardian WHERE GuardianId=$id");
+                        $n = mysqli_fetch_array($record);
+                        $pid  	=  $n['PatientID'];
                         echo '
-                        <li class="nav-item  
-                            if ($thisPage=="Patient Details") 
-						        echo "active"; ">
-                            <a class="nav-link" href="patient-details.php">Patient Details</a>
+                        <li class="nav-item   
+                            if ($thisPage=="View Patient Dashboard") 
+                            echo "active"; ">
+                            <a class="nav-link" href="view-patient-dashboard.php?id='.$pid.'">Patient Dashboard</a>
                         </li>
-                        ' 
+                        <li class="nav-item   
+                            if ($thisPage=="Personal Details") 
+                            echo "active"; ">
+                            <a class="nav-link" href="guardian-details.php">Personal Details</a>
+                        </li>
+                        ' ; }
                     ?>
 
                     <?php if (isAdmin())

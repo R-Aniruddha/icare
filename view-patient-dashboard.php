@@ -103,11 +103,18 @@
             <h3 style="margin:10px auto;">Room</h3>
             <form class="col-md-12 row" action="view-patient-dashboard.php?id=<?php echo $patient_id?>" method="post" style="margin:auto; padding: 20px; background-color: #70befe;   border-radius: 25px;">
                 <div class="input-group col-md-5" >
-                    <h4 style="margin: 0 auto 10px auto;">Select Room</h4>
+                    <?php if(userType()==4) {
+                        echo '
+                            <h4 style="margin: 0 auto 10px auto;">Patient Room</h4>
+                        ';} else {
+                        echo '
+                            <h4 style="margin: 0 auto 10px auto;">Select Room</h4>
+                        '; }
+                    ?>
                     <div class="input-group">
                         <input type="hidden" name="patient_id" readonly value="<?php echo $patient_id ; ?>">
-                        <select class="custom-select" name="room_no" required>
-                            <option <?php if($RoomNo == 0)echo "selected"; ?> value="0">Assign Room</option>
+                        <select class="custom-select" name="room_no" <?php if(userType()==4){ echo 'disabled';}  ?> required>
+                            <option <?php if($RoomNo == 0){echo "selected";}?> value="0">Assign Room</option>
                             <option selected><?php echo $RoomNo; ?></option>
                             <!-- if($RoomNo == $roomno)echo "selected";  -->
                             <?php 
@@ -122,12 +129,14 @@
                             ?>
                         </select>
                         <br>
-                        <div style="margin: 0 5px;">
-                            <button class="btn btn-success" type="submit" name="update-room" >Select</button>
-                        </div>
+                        <?php if(userType()==3) echo '
+                            <div style="margin: 0 5px;">
+                                <button class="btn btn-success" type="submit" name="update-room" >Select</button>
+                            </div>
+                        '?>
                     </div>
                 </div>
-                <?php if($RoomNo==0) {
+                <?php if(($RoomNo==0) && (userType()!=4)) {
                     echo "
                     <div class='input-group col-md-6 offset-md-1' >
                         <h4 style='margin: 0 auto 10px auto;'>Room Details</h4>
