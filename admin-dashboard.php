@@ -92,7 +92,7 @@
   	
     <div class="row" style="padding: 30px 0;">
         <form id="contact-us-messages" class="col-md-12" action="admin-dashboard.php" method="post" >
-            <h3 class="text-center">Contact-us Messages</h3>
+            <h3 class="text-center">Messages</h3>
             <div class="col-md-12 " style="margin:auto; padding: 15px; background-color: #70befe;   border-radius: 25px;">
                 <table class="table ">
                     <thead>
@@ -134,7 +134,7 @@
                                 ";
                         }
                         echo "</table>";
-                    } else { echo "0 results"; }
+                    } else { echo "<tr><td colspan='6' style='text-align:center;'>No Messages</tr></td>"; }
                     $conn->close();
                     ?>
                 </table>
