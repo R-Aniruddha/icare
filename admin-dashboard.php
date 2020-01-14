@@ -90,6 +90,38 @@
 
         </div>          
   	
+<div class="row" style="padding: 30px 0;">
+        <div id="contact-us-messages" class="col-md-12" name="contact-us-comments">
+            <h3 class="text-center">Contact-us Messages</h3>
+            <div class="col-md-12 " style="margin:auto; padding: 15px; background-color: #70befe;   border-radius: 25px;">
+                <table class="table ">
+                    <thead>
+                        <tr>
+                            <th scope="col">name</th>
+                            <th scope="col">subject</th>
+                            <th scope="col">emailid</th>
+                            <th scope="col">message</th>
+                        </tr>
+                    </thead>
+                    <?php
+                    
+                    $sql = "SELECT name, subject, emailid, message FROM contactus ";
+                    $result = $conn->query($sql);
+                    if ($result->num_rows > 0) {
+                        // output data of each row
+                        while($row = $result->fetch_assoc()) {
+                            echo "<tr><td >" . $row["name"]. "</td><td>" . $row["subject"] . "</td><td>"
+                                . $row["emailid"]. "</td><td>" . $row["message"]."</td></tr>";
+                        }
+                        echo "</table>";
+                    } else { echo "0 results"; }
+                    $conn->close();
+                    ?>
+                </table>
+
+            </div>
+        </div>
+    </div>
 
     
     </div>
