@@ -512,10 +512,18 @@ if (isset($_POST['contact_us'])) {
   $emailid      = $_POST['emailid'];
   $message      = $_POST['message'];
     
-$query = "INSERT INTO contactus (name,subject,emailid,message) VALUES('$name','$subject','$emailid','$message')";
+$query = "INSERT INTO contact (name, subject, emailid, message) VALUES('$name','$subject','$emailid','$message')";
    $sql= mysqli_query($conn, $query);
 
 }
 
-
+if (isset($_POST['delete-message'])) {
+  global $conn, $errors;
+     
+   $id = $_POST['messageID'];
+     
+ $query = "DELETE FROM contact WHERE id = '$id'";
+    $sql= mysqli_query($conn, $query)  or die('MySQL Error: ' . mysqli_error($conn));
+}
+ 
 ?>

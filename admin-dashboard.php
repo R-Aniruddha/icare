@@ -91,27 +91,47 @@
         </div>          
   	
 <div class="row" style="padding: 30px 0;">
-        <div id="contact-us-messages" class="col-md-12" name="contact-us-comments">
+        <form id="contact-us-messages" class="col-md-12" action="admin-dashboard.php" method="post" >
             <h3 class="text-center">Contact-us Messages</h3>
             <div class="col-md-12 " style="margin:auto; padding: 15px; background-color: #70befe;   border-radius: 25px;">
                 <table class="table ">
                     <thead>
                         <tr>
-                            <th scope="col">name</th>
-                            <th scope="col">subject</th>
-                            <th scope="col">emailid</th>
-                            <th scope="col">message</th>
+                            <th scope="col">Name</th>
+                            <th scope="col">Subject</th>
+                            <th scope="col">Email ID</th>
+                            <th scope="col">Message</th>
+                            <th> </th><th> </th>
+
                         </tr>
                     </thead>
                     <?php
                     
-                    $sql = "SELECT name, subject, emailid, message FROM contactus ";
+                    $sql = "SELECT id, name, subject, emailid, message FROM contact ";
                     $result = $conn->query($sql);
                     if ($result->num_rows > 0) {
                         // output data of each row
                         while($row = $result->fetch_assoc()) {
-                            echo "<tr><td >" . $row["name"]. "</td><td>" . $row["subject"] . "</td><td>"
-                                . $row["emailid"]. "</td><td>" . $row["message"]."</td></tr>";
+                            $messageID = $row["id"];
+                            echo "
+                                <tr>
+                                    <input type='hidden' name='messageID' readonly value='". $messageID. "'>
+                                    <td >" . $row["name"]. "</td>
+                                    <td>" . $row["subject"] . "</td>
+                                    <td>" . $row["emailid"]. "</td>
+                                    <td>" . $row["message"]."</td>
+                                    <td> 
+                                        <a href='mailto:" . $row["emailid"]. "' class='btn btn-primary btn-sm' style='margin:auto;'>
+                                        Reply
+                                        </a> 
+                                    </td>
+                                    <td> 
+                                        <button class='btn btn-secondary btn-sm' type='submit' name='delete-message' >Delete</button>
+                                    
+                                        </a> 
+                                    </td>  
+                                </tr>
+                                ";
                         }
                         echo "</table>";
                     } else { echo "0 results"; }
@@ -120,7 +140,7 @@
                 </table>
 
             </div>
-        </div>
+        </form>
     </div>
 
     
