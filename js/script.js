@@ -17,8 +17,8 @@ $(document).ready(function() {
       document.getElementsByClassName("carousel-control-prev")[1].style.display = "none";
     }
     if(num3<4) {
-      document.getElementsByClassName("carousel-control-next")[1].style.display = "none";
-      document.getElementsByClassName("carousel-control-prev")[1].style.display = "none";
+      document.getElementsByClassName("carousel-control-next")[2].style.display = "none";
+      document.getElementsByClassName("carousel-control-prev")[2].style.display = "none";
     }
 
   $("#myCarousel").on("slide.bs.carousel", function(e) {
