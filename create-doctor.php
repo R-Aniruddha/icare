@@ -1,5 +1,6 @@
 <?php
     $thisPage="Create Doctor";
+    include_once("controller/functions.php");
     include('includes/header.php');
 ?>
         

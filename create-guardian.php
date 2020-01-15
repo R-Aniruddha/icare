@@ -1,5 +1,6 @@
 <?php
     $thisPage="Create Guardian Account";
+    include_once("controller/functions.php");
     include('includes/header.php');
 ?>
         
