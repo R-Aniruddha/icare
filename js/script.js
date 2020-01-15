@@ -21,7 +21,6 @@ $(document).ready(function() {
       document.getElementsByClassName("carousel-control-prev")[1].style.display = "none";
     }
 
-
   $("#myCarousel").on("slide.bs.carousel", function(e) {
     //alert("Button clicked");
     var $e = $(e.relatedTarget);
