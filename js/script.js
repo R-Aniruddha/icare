@@ -6,7 +6,7 @@ $(document).ready(function() {
 
   var num1 = $("#myCarousel .carousel-item").length;
   var num2 = $("#myCarousel2 .carousel-item").length;
-  var num2 = $("#myCarousel3 .carousel-item").length;
+  var num3 = $("#myCarousel3 .carousel-item").length;
 
     if(num1<4) {
       document.getElementsByClassName("carousel-control-next")[0].style.display = "none";
