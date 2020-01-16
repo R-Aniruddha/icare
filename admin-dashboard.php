@@ -21,19 +21,65 @@
                 <div class="carousel-inner row w-100 mx-auto">
                     <?php 
                         $results = mysqli_query($conn, "SELECT * FROM users WHERE user_type = 'doctor'"); 
-                    while ($row = mysqli_fetch_assoc($results)) { ?>
+                    while ($row = mysqli_fetch_assoc($results)) { 
+                            $id = $row['id'];
+                        ?>
                         <div class="carousel-item col-md-4">
                             <div class="card">
                                 <img class="card-img-top" src="images/avatar1.png" alt="User Image" style="padding: 20px;">
                                 <div class="card-body">
                                     <h5 class="card-title">Dr. <?php echo $row['FirstName'] ," ", $row['LastName']; ?></h5>
-                                    <!-- <p class="card-text"><?php echo $row['DoctorComments']?></p> -->
-                                    <a href="doctor-details.php?id=<?php echo $row['id']?>" class="btn btn-info btn-sm">View Doctor Details</a>
+                                    <p>
+                                        <?php
+                                            $result = mysqli_query($conn, "SELECT * FROM patient WHERE DoctorId = '$id'"); 
+                                            $num = 0;
+                                            while($row1 = mysqli_fetch_assoc($result)) {$num++;}
+                                            echo 'Number of Patients: ', $num ;
+                                        ?>
+                                    </p>
+                                    <button type="button" class="btn btn-primary" data-toggle="modal" 
+                                        data-name="<?php echo 'Dr. ', $row['FirstName'] ,' ', $row['LastName']; ?>" 
+                                        data-email="<?php echo $row['Email']?>"
+                                        data-id="<?php echo $row['id']?>"
+                                        data-target="#doctorModal">
+                                        View Account
+                                    </button>
                                 </div>
                             </div>
                         </div>
+
                     <?php } ?>
                 </div>
+                
+                <!-- Modal -->
+                <div class="modal fade" id="doctorModal" tabindex="-1" role="dialog" aria-labelledby="ModalLabel" aria-hidden="true">
+                    <div class="modal-dialog" role="document">
+                        <div class="modal-content">
+                            <div class="modal-header">
+                                <h5 class="modal-title" id="doctorModalLabel">Dr.</h5>
+                                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                <span aria-hidden="true">&times;</span>
+                                </button>
+                            </div>
+                            <form method="post" action="admin-dashboard.php">
+                                <div class="modal-body">
+                                    <ul style="list-style:none;">
+                                    </ul>
+                                    <div class="doctor-data"></div>
+
+                                    <input type="hidden" name="userId" >
+                                </div>
+                                <div class="modal-footer">
+                                    <button type="submit" name="delete-user" class="btn btn-danger">Delete User</button>
+                                    <button type="button" class="btn btn-secondary"  data-dismiss="modal">Close</button>
+                                </div>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+                
+                
+
                 <!--Controls-->
                 <a class="carousel-control-prev" href="#myCarousel" role="button" data-slide="prev">
                     <span class="carousel-control-prev-icon" aria-hidden="true"></span>
@@ -68,25 +114,49 @@
                                     <h5 class="card-title"><?php echo $row['First_Name'] ," ", $row['Last_Name']; ?></h5>
                                     <h6><strong><?php if($row['RoomNo'] !=0 )echo "Room Number: ",$row['RoomNo'] ?> </strong> </h6>
                                     <h6><strong><?php if($row['RoomNo'] == 0 )echo "Room Not Assigned" ?> </strong></h6>
-                                    <p class="card-text"><?php echo $str ,"..."?></p>
-                                    <a href="view-patient-dashboard.php?id=<?php echo $row['idPatient']?>" class="btn btn-info btn-sm" style="margin:auto;">
-                                        View Patient Dashboard
-                                    </a>
+                                    <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#patientmodal"
+                                    data-name="<?php echo  $row['First_Name'] ,' ', $row['Last_Name']; ?>" 
+                                    data-email="<?php echo $row['EmailID']?>"
+                                    data-id="<?php echo $row['idPatient'] ?>" >
+                                    View Account</button>
                                 </div>
                             </div>
                         </div>
 
                     <?php } ?>
                 </div>
-                <a class="carousel-control-prev" href="#myCarousel2" role="button" data-slide="prev">
-                    <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-                    <span class="sr-only">Previous</span>
+                <div id="patientmodal" class="modal fade" role="dialog">
+                    <div class="modal-dialog">
+                        <!-- Modal content-->
+                        <div class="modal-content">
+                            <form method="post" action="admin-dashboard.php">
+
+                                <div class="modal-header">
+                                    <h4 class="modal-title">Modal Header</h4>
+
+                                        <button type="button" class="close" data-dismiss="modal">&times;</button>
+                                    </div>
+                                    <div class="modal-body">
+                                        <div class="fetched-data"></div>
+                                        <input type="hidden" name="userId" >
+                                    </div>
+                                    <div class="modal-footer">
+                                        <button type="submit" name="delete-user" class="btn btn-danger">Delete User</button>
+                                        <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+                                    </div>
+                                </div>
+                            </form>
+                        </div>
+                    </div>
+                    <a class="carousel-control-prev" href="#myCarousel2" role="button" data-slide="prev">
+                        <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                        <span class="sr-only">Previous</span>
+                        </a>
+                        <a class="carousel-control-next" href="#myCarousel2" role="button" data-slide="next" style="">
+                        <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                        <span class="sr-only">Next</span>
                     </a>
-                    <a class="carousel-control-next" href="#myCarousel2" role="button" data-slide="next" style="">
-                    <span class="carousel-control-next-icon" aria-hidden="true"></span>
-                    <span class="sr-only">Next</span>
-                </a>
-            </div>
+                </div>
 
         </div>          
                         
@@ -112,8 +182,8 @@
                                 <div class="card-body">
                                     <h5 class="card-title"><?php echo $row['FirstName'] ," ", $row['LastName']; ?></h5>
                                     <h6><strong>Guardian of: <?php echo $row2['First_Name'] ," ", $row2['Last_Name'];  ?>  </strong> </h6>
-                                    <a href="#" class="btn btn-info btn-sm" style="margin:auto;">
-                                        View Guardian Account
+                                    <a href="#" class="btn btn-primary btn-sm" style="margin:auto;">
+                                        View Account
                                     </a>
                                 </div>
                             </div>

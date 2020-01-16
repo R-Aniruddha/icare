@@ -1,4 +1,65 @@
 $(document).ready(function() {
+
+  $('#patientmodal').on('show.bs.modal', function (e) {
+      var rowid = $(e.relatedTarget).data('id');
+      $.ajax({
+          type : 'post',
+          url : 'fetch_record.php', //Here you will fetch records 
+          data :  'rowid='+ rowid,  //Pass $id
+          success : function(data){
+            $('.fetched-data').html(data);//Show fetched data from database
+          }
+      });
+    });
+
+    $('#doctorModal').on('show.bs.modal', function (e) {
+      var rowid = $(e.relatedTarget).data('id');
+      $.ajax({
+          type : 'post',
+          url : 'fetch_record.php', //Here you will fetch records 
+          data :  'rowid='+ rowid,  //Pass $id
+          success : function(data){
+            $('.doctor-data').html(data);//Show fetched data from database
+          }
+      });
+    });
+
+
+
+  $('#doctorModal').on('show.bs.modal', function (event) {
+    var button = $(event.relatedTarget) // Button that triggered the modal
+    var name = button.data('name') // Extract info from data-* attributes
+    var email = button.data('email')
+    var id = button.data('id')
+    // If necessary, you could initiate an AJAX request here (and then do the updating in a callback).
+    // Update the modal's content. We'll use jQuery here, but you could use a data binding library or other methods instead.
+    var modal = $(this)
+    modal.find('.modal-title').text(''+ name)
+    modal.find('.modal-body ul').text('Email: ' +email )
+    modal.find('.modal-body input').val(id)
+
+    //modal.find('.modal-body input').val(recipient)
+  })
+
+  $('#patientmodal').on('show.bs.modal', function (event) {
+    var button = $(event.relatedTarget) // Button that triggered the modal
+    var name = button.data('name') // Extract info from data-* attributes
+    var email = button.data('email')
+    var id = button.data('id')
+    // If necessary, you could initiate an AJAX request here (and then do the updating in a callback).
+    // Update the modal's content. We'll use jQuery here, but you could use a data binding library or other methods instead.
+    var modal = $(this)
+    modal.find('.modal-title').text(''+ name)
+    modal.find('.modal-body ul').text('Email: ' +email )
+    modal.find('.modal-body input').val(id)
+
+    //modal.find('.modal-body input').val(recipient)
+  })
+
+
+
+
+  //Carousel Code
   $("#myCarousel .carousel-item").first().addClass("active");
   $("#myCarousel2 .carousel-item").first().addClass("active");
   $("#myCarousel3 .carousel-item").first().addClass("active");

@@ -112,7 +112,7 @@ if (isset($_POST['create_room'])) {
   if (count($errors) == 0) {
 
     //Inserting into room table
-    $query = "INSERT INTO room (RoomNo, Location, Occupied, 'PatientID') VALUES('$RoomNo', '$Location', '$Occupied', '$PatientID')";
+    $query = "INSERT INTO room (RoomNo, Location, Occupied, PatientID) VALUES('$RoomNo', '$Location', '$Occupied', '$PatientID')";
     mysqli_query($conn, $query) or die('MySQL Error: ' . mysqli_error($conn));
 
     //Insert Sensors into sensor table only if that sensor is picked for the room
@@ -448,9 +448,7 @@ if (isset($_POST['modify-account-details'])) {
   $password_1 = mysqli_real_escape_string($conn, $_POST['Password_1']);
   $password_2 = mysqli_real_escape_string($conn, $_POST['Password_2']);
 
-
   $id = $_SESSION['user']['id'];
-
 
   $user_check_query = "SELECT * FROM users WHERE Email='$email' AND NOT id='$id' ";
   $result = mysqli_query($conn, $user_check_query);
@@ -476,6 +474,51 @@ if (isset($_POST['modify-account-details'])) {
     mysqli_query($conn, $query);
   }
 }
+
+//Update Account Details
+if (isset($_POST['delete-user'])) {
+  global $conn, $errors;
+     
+  $id = $_POST['userId'];
+  
+  if(isset($id)) {
+    $query = "SELECT * FROM users WHERE id = '$id'";
+    $sql= mysqli_query($conn, $query)  or die('MySQL Error: ' . mysqli_error($conn));
+    $temp = mysqli_fetch_assoc($sql);
+    $userType = $temp['user_type'];
+
+    $query = "DELETE FROM users WHERE id = '$id'";
+    $sql= mysqli_query($conn, $query)  or die('MySQL Error: ' . mysqli_error($conn));
+
+    if($userType == "doctor") {
+      $query = "DELETE FROM doctorsdetails WHERE doctorId = '$id'";
+      $sql= mysqli_query($conn, $query)  or die('MySQL Error: ' . mysqli_error($conn));
+
+    } else if($userType == "patient") {
+      //Remove patient id from Room and set to not occupied
+      $query = "UPDATE room SET PatientID = 0, Occupied = 'No' WHERE PatientID='$id'";
+      mysqli_query($conn, $query) or die('MySQL Error: ' . mysqli_error($conn));
+
+      $query = "DELETE FROM patient WHERE idPatient = '$id'";
+      $sql= mysqli_query($conn, $query)  or die('MySQL Error: ' . mysqli_error($conn));
+
+      //Remove guardians of that patient
+      $query = "SELECT * FROM guardian WHERE PatientID = '$id'";
+      $sql= mysqli_query($conn, $query);
+      while ($row = mysqli_fetch_assoc($sql)) {
+        $guardianId = $row['GuardianId'];
+        mysqli_query($conn, "DELETE FROM guardian WHERE GuardianId = '$guardianId'");
+        mysqli_query($conn, "DELETE FROM users WHERE id = '$guardianId'");
+
+      }
+    } else if($userType == "guardian") {
+      $query = "DELETE FROM guardian WHERE GuardianId = '$id'";
+      $sql= mysqli_query($conn, $query)  or die('MySQL Error: ' . mysqli_error($conn));
+    }
+    
+  }
+}
+
 
 //Login
 function login() {
@@ -606,7 +649,9 @@ if (isset($_POST['contact_us'])) {
     
   $name         = $_POST['name'];
   $subject      = $_POST['subject'];
-  $recepient         = $_POST['Recepient'];
+  if(isset($_POST['Recepient'])) {
+    $recepient         = $_POST['Recepient'];
+  }
   $emailid      = $_POST['emailid'];
   $message      = $_POST['message'];
   

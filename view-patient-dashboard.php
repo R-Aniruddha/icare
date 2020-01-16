@@ -129,7 +129,7 @@
                             ?>
                         </select>
                         <br>
-                        <?php if(userType()==3) echo '
+                        <?php if(userType()==2) echo '
                             <div style="margin: 0 5px;">
                                 <button class="btn btn-success" type="submit" name="update-room" >Select</button>
                             </div>
