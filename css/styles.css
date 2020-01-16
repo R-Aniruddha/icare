@@ -76,8 +76,11 @@ border-left: thin solid #000000;
 }
 
 .carousel-control-prev-icon, .carousel-control-next-icon {
-    
     padding: 16px;
+}
+.carousel-control-prev, .carousel-control-next {
+    height:50%;
+    margin:auto;
 }
 @media (min-width: 768px) {
     /* show 3 items */
