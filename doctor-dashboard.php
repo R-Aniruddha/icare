@@ -84,7 +84,7 @@
                         </thead>
                         <?php
                         
-                        $sql = "SELECT id, name, subject, emailid, message FROM contact WHERE recepient='doctor'";
+                        $sql = "SELECT * FROM contact WHERE recepient='doctor' AND recepientId='$docid'";
                         $result = $conn->query($sql);
                         if ($result->num_rows > 0) {
                             // output data of each row
