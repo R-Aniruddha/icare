@@ -56,7 +56,7 @@
                         <li class="nav-item   
                             if ($thisPage=="Personal Details") 
 						    echo "active"; ">
-                            <a class="nav-link" href="doctor-details.php">Doctor Details</a>
+                            <a class="nav-link" href="doctor-details.php">Personal Details</a>
                         </li>
                         ' 
                     ?>

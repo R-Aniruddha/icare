@@ -9,7 +9,7 @@
         
         <form id="create-guardian-form" method="post" action="create-guardian.php" style="padding: 20px;">
             
-            <fieldset class="col-md-8" style="margin: auto;">
+            <fieldset class="col-md-8 bg-light py-3 px-lg-4" style="margin: auto; border-radius:10px;">
 
                 <?php include('controller/errors.php'); ?>
                     

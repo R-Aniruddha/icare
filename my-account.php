@@ -26,7 +26,7 @@
 
           <form id="user-account" method="post" action="my-account.php" style="padding: 20px;">
             
-            <fieldset class="col-md-8" style="margin: auto;">
+            <fieldset class="col-md-8 bg-light py-3 px-lg-4" style="margin: auto; border-radius:10px;">
                     
                 <h2>Modify - Account Details</h2>
                 

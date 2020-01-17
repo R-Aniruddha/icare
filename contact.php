@@ -9,7 +9,6 @@
         $lname = $_SESSION['user']['LastName'];
         $email = $_SESSION['user']['Email'];
 
-
     }
 ?>
 
@@ -91,6 +90,7 @@
                                 <option value="doctor">Doctor</option>
                             </select>
                         </div>
+                        <input type="hidden" name="userid" value="', $id , '">
                         ' ?>
                         <?php if(userType()==3 || userType()==4){ echo ' 
                             <div class="form-group">

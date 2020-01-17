@@ -60,7 +60,7 @@
 
         <fieldset class="col-md-8" style="margin: auto;">
 
-            <div class="border bg-light py-3 px-lg-5" style="border-radius:10px; margin-bottom:10px;">
+            <div class="border bg-light py-3 px-lg-4" style="border-radius:10px; margin-bottom:10px;">
 
                 <h3 style="margin-bottom: 20px;">Personal Details </h3>
 
@@ -155,7 +155,7 @@
                     </select>
                 </div>
             </div>
-            <div class="border bg-light py-3 px-lg-5" style="border-radius:10px; margin-bottom:10px;">
+            <div class="border bg-light py-3 px-lg-4" style="border-radius:10px; margin-bottom:10px;">
                 <h3 style="margin-bottom: 20px;"> General Medical History </h3>
 
                 <div class="input-group">
@@ -222,7 +222,7 @@
                 </div>
                 
             </div>
-            <div class="col py-3 px-lg-5 border bg-light" style="border-radius:10px; margin-bottom:10px;">
+            <div class="col py-3 px-lg-4 border bg-light" style="border-radius:10px; margin-bottom:10px;">
                     <h3 style="margin-bottom: 20px;"> Emergency Contact 1: </h3>
                     <div class="input-group">
                         <span class="input-group-text">First Name</span>
@@ -250,7 +250,7 @@
                     </div>
             </div>
 
-            <div class="col py-3 px-lg-5 border bg-light" style="border-radius:10px;">
+            <div class="col py-3 px-lg-4 border bg-light" style="border-radius:10px;">
                 
                 <h3 style="margin-bottom: 20px;">Emergency Contact 2: </h3>
                 <div class="input-group">

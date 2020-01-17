@@ -650,6 +650,7 @@ function userType() {
 if (isset($_POST['contact_us'])) {
  global $conn, $errors;
     
+  $userid      = $_POST['userid'];
   $name         = $_POST['name'];
   $subject      = $_POST['subject'];
   if(isset($_POST['Recepient'])) {
@@ -659,7 +660,22 @@ if (isset($_POST['contact_us'])) {
   $message      = $_POST['message'];
   
   if(isset($recepient)){
-    $query = "INSERT INTO contact (name, subject, emailid, message, recepient) VALUES('$name','$subject','$emailid','$message', '$recepient')";
+    $sql= mysqli_query($conn, "SELECT * from users WHERE id='$userid'");
+    $check = mysqli_fetch_assoc($sql);
+    if($check['user_type']== 'patient'){
+      $sql= mysqli_query($conn, "SELECT * from patient WHERE idPatient='$userid'");
+      $row = mysqli_fetch_assoc($sql);
+      $recepientId = $row['DoctorId'];
+    } else if($check['user_type']== 'guardian'){
+      $sql= mysqli_query($conn, "SELECT * from guardian WHERE GuardianId='$userid'");
+      $row = mysqli_fetch_assoc($sql);
+      $patientId = $row['PatientID'];
+      $sql= mysqli_query($conn, "SELECT * from patient WHERE idPatient='$patientId'");
+      $row = mysqli_fetch_assoc($sql);
+      $recepientId = $row['DoctorId'];
+    }
+      $query = "INSERT INTO contact (name, subject, emailid, message, recepient, recepientId) VALUES('$name','$subject','$emailid','$message', '$recepient', '$recepientId')";
+
   } else {
     $query = "INSERT INTO contact (name, subject, emailid, message) VALUES('$name','$subject','$emailid','$message')";
   }

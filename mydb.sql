@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Jan 17, 2020 at 06:42 PM
+-- Generation Time: Jan 17, 2020 at 07:24 PM
 -- Server version: 10.3.16-MariaDB
 -- PHP Version: 7.3.7
 
@@ -34,17 +34,20 @@ CREATE TABLE `contact` (
   `subject` varchar(100) NOT NULL,
   `emailid` varchar(40) NOT NULL,
   `message` varchar(1000) NOT NULL,
-  `recepient` varchar(6) NOT NULL DEFAULT 'admin'
+  `recepient` varchar(6) NOT NULL DEFAULT 'admin',
+  `recepientId` int(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
 -- Dumping data for table `contact`
 --
 
-INSERT INTO `contact` (`id`, `name`, `subject`, `emailid`, `message`, `recepient`) VALUES
-(1, 'John Wick', 'Query', 'johnwick@gmail.com', 'I would like to know the process of installing this system at my home', 'admin'),
-(4, 'test', 'tetst', 'test@email.com', 'Delete Test', 'admin'),
-(7, 'Frank Senior', 'Account', 'franksr@email.com', 'Dear Administrator,\r\nMy wife has trouble accessing her account. Please look into it.\r\nHer email is bertha@gmail.com.\r\nThank you', 'admin');
+INSERT INTO `contact` (`id`, `name`, `subject`, `emailid`, `message`, `recepient`, `recepientId`) VALUES
+(1, 'John Wick', 'Query', 'johnwick@gmail.com', 'I would like to know the process of installing this system at my home', 'admin', 0),
+(4, 'test', 'tetst', 'test@email.com', 'Delete Test', 'admin', 0),
+(7, 'Frank Senior', 'Account', 'franksr@email.com', 'Dear Administrator,\r\nMy wife has trouble accessing her account. Please look into it.\r\nHer email is bertha@gmail.com.\r\nThank you', 'admin', 0),
+(8, 'Vishal Patel', 'Recovery Progress', 'vishalpatel2788@gmail.com', 'Dear Dr. George,\r\nWould it be possible to get some further medication as I am often feeling faint.', 'doctor', 18),
+(9, 'Frank Senior', 'Thank you', 'franksr@email.com', 'Dear Martin,\r\nOur whole family would like to thank you for helping our son get back on his feat.\r\nWe appreciate all you have done.\r\nSincerely,\r\nFrank Sr', 'doctor', 6);
 
 -- --------------------------------------------------------
 
@@ -332,7 +335,7 @@ ALTER TABLE `users`
 -- AUTO_INCREMENT for table `contact`
 --
 ALTER TABLE `contact`
-  MODIFY `id` int(10) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=8;
+  MODIFY `id` int(10) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=10;
 
 --
 -- AUTO_INCREMENT for table `room`

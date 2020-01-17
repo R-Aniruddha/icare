@@ -36,11 +36,9 @@ if (isLoggedIn()) {
   <div class="main-content">
   
 
-    <form id="doctor-details-registration" action="doctor-details.php" method="post" 
-      style="padding: 20px;"
-    >
+    <form id="doctor-details-registration" action="doctor-details.php" method="post" style="padding: 20px;">
 
-      <fieldset class="col-md-8" style="margin: auto;">
+      <fieldset class="col-md-8 bg-light py-3 px-lg-4" style="margin: auto; border-radius:10px;">
           <h2 style="margin-bottom: 20px;"> Personal Details </h2>
 
           <div class="input-group">
