@@ -112,7 +112,7 @@ if (isset($_POST['create_room'])) {
   if (count($errors) == 0) {
 
     //Inserting into room table
-    $query = "INSERT INTO room (RoomNo, Location, Occupied, PatientID) VALUES('$RoomNo', '$Location', '$Occupied', '$PatientID')";
+    $query = "INSERT INTO room (RoomNo, Location, Occupied, PatientID, HeartRateSensor, BloodPressureSensor, SleepSensor) VALUES('$RoomNo', '$Location', '$Occupied', '$PatientID','No' ,'No' ,'No')";
     mysqli_query($conn, $query) or die('MySQL Error: ' . mysqli_error($conn));
 
     //Insert Sensors into sensor table only if that sensor is picked for the room
