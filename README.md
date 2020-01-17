@@ -9,4 +9,4 @@ Steps:
 4. 
   a) Start your local server and go to localhost/phpmyadmin 
   b) Create a database named 'mydb' and then import the sql dump file 'mydb.sql' 
-5) Open browser and navigate to htdocs/IcareWebsite to view website
+5. Open browser and navigate to htdocs/IcareWebsite to view website
