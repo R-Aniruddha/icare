@@ -60,9 +60,9 @@
 
         <fieldset class="col-md-8" style="margin: auto;">
 
-            <div class="">
+            <div class="border bg-light py-3 px-lg-5" style="border-radius:10px; margin-bottom:10px;">
 
-                <h2 style="margin-bottom: 20px;"> Patient Personal Details </h2>
+                <h3 style="margin-bottom: 20px;">Personal Details </h3>
 
 
                 <div class="input-group">
@@ -89,15 +89,21 @@
                     <span class="input-group-text">Address</span>
                     <input type="text" class="form-control" required value="<?php echo $Address ; ?>" name="Address">
                 </div>
-                <!--
                 <div class="input-group">
-                    <span class="input-group-text">Username</span>
-                    <input type="text" class="form-control" required value="<?php echo $Username ; ?>" name="Username">
-                </div>
-                -->
-                <div class="input-group">
-                    <span class="input-group-text">DoctorId</span>
-                    <input type="text" class="form-control" required value="<?php echo $DoctorId ; ?>" name="DoctorId">
+                    <select class="custom-select" name="DoctorId" required>
+                        <option>Select Doctor </option>
+                        <?php 
+                            $records = mysqli_query($conn, "SELECT * FROM doctorsdetails WHERE Availability='Yes'");
+                            while ($row = mysqli_fetch_assoc($records)) {
+                                $docid = $row['DoctorId'];
+                                $fname = $row['FirstName'];
+                                $lname = $row['LastName'];
+                        ?>
+                                <option <?php if($DoctorId == $docid) echo 'selected'; ?> value="<?php echo $docid; ?>"><?php echo $fname ," ", $lname; ?></option>
+                        <?php    
+                            }
+                        ?>
+                    </select>
                 </div>
 
                 <div class="input-group">
@@ -148,8 +154,9 @@
                         <option <?php if($Occupation == "Retired")echo "selected" ?> value="Retired">Retired</option>
                     </select>
                 </div>
-
-                <h2 style="margin-bottom: 20px;"> General Medical History </h2>
+            </div>
+            <div class="border bg-light py-3 px-lg-5" style="border-radius:10px; margin-bottom:10px;">
+                <h3 style="margin-bottom: 20px;"> General Medical History </h3>
 
                 <div class="input-group">
                     <span class="input-group-text">Cholesterol</span>
@@ -215,70 +222,63 @@
                 </div>
                 
             </div>
-            <h2 style="margin-bottom: 20px;text-align: center"> In Case of Emergency </h2>
-            <div class="container px-lg-5">
-                <div class="row mx-lg-n5">
-                    <div class="col py-3 px-lg-5 border bg-light">
-                        <div class="main-content">
-                            <h3 style="margin-bottom: 20px;"> Contact 1: </h3>
-                            <div class="input-group">
-                                <span class="input-group-text">First Name</span>
-                                <input type="text" class="form-control" required value="<?php echo $Emerg_FirstName ; ?>" name="Emerg_FirstName">
-                            </div>
-                            
-                            <div class="input-group">
-                                <span class="input-group-text">last Name</span>
-                                <input type="text" class="form-control" required value="<?php echo $Emerg_LastName ; ?>" name="Emerg_LastName">
-                            </div>
-                            
-                            <div class="input-group">
-                                <span class="input-group-text">Relationship</span>
-                                <input type="text" class="form-control" required value="<?php echo $Emerg_Relation ; ?>" name="Emerg_Relation">
-                            </div>
-                            
-                            <div class="input-group">
-                                <span class="input-group-text">PhoneNumber1</span>
-                                <input type="text" class="form-control" required value="<?php echo $Emerg_PhoneNumber1 ; ?>" name="Emerg_PhoneNumber1">
-                            </div>
-                            
-                            <div class="input-group">
-                                <span class="input-group-text">PhoneNumber2</span>
-                                <input type="text" class="form-control" value="<?php echo $Emerg_PhoneNumber2 ; ?>" name="Emerg_PhoneNumber2">
-                            </div>
-                        </div>
+            <div class="col py-3 px-lg-5 border bg-light" style="border-radius:10px; margin-bottom:10px;">
+                    <h3 style="margin-bottom: 20px;"> Emergency Contact 1: </h3>
+                    <div class="input-group">
+                        <span class="input-group-text">First Name</span>
+                        <input type="text" class="form-control" required value="<?php echo $Emerg_FirstName ; ?>" name="Emerg_FirstName">
                     </div>
-                    <div class="col py-3 px-lg-5 border bg-light">
-                        
-                        <div class="main-content">
-                            <h3 style="margin-bottom: 20px;"> Contact 2: </h3>
-                            <div class="input-group">
-                                <span class="input-group-text">First Name</span>
-                                <input type="text" class="form-control" required value="<?php echo $Emerg2_FirstName ; ?>" name="Emerg2_FirstName">
-                            </div>
-                            
-                            <div class="input-group">
-                                <span class="input-group-text">last Name</span>
-                                <input type="text" class="form-control" required value="<?php echo $Emerg2_LastName ; ?>" name="Emerg2_LastName">
-                            </div>
-                            
-                            <div class="input-group">
-                                <span class="input-group-text">Relationship</span>
-                                <input type="text" class="form-control" required value="<?php echo $Emerg2_Relation ; ?>" name="Emerg2_Relation">
-                            </div>
-                            
-                            <div class="input-group">
-                                <span class="input-group-text">PhoneNumber1</span>
-                                <input type="text" class="form-control" required value="<?php echo $Emerg2_PhoneNumber1 ; ?>" name="Emerg2_PhoneNumber1">
-                            </div>
-                            
-                            <div class="input-group">
-                                <span class="input-group-text">PhoneNumber2</span>
-                                <input type="text" class="form-control" value="<?php echo $Emerg2_PhoneNumber2 ; ?>" name="Emerg2_PhoneNumber2">
-                            </div>
-                        </div>
+                    
+                    <div class="input-group">
+                        <span class="input-group-text">last Name</span>
+                        <input type="text" class="form-control" required value="<?php echo $Emerg_LastName ; ?>" name="Emerg_LastName">
+                    </div>
+                    
+                    <div class="input-group">
+                        <span class="input-group-text">Relationship</span>
+                        <input type="text" class="form-control" required value="<?php echo $Emerg_Relation ; ?>" name="Emerg_Relation">
+                    </div>
+                    
+                    <div class="input-group">
+                        <span class="input-group-text">PhoneNumber1</span>
+                        <input type="text" class="form-control" required value="<?php echo $Emerg_PhoneNumber1 ; ?>" name="Emerg_PhoneNumber1">
+                    </div>
+                    
+                    <div class="input-group">
+                        <span class="input-group-text">PhoneNumber2</span>
+                        <input type="text" class="form-control" value="<?php echo $Emerg_PhoneNumber2 ; ?>" name="Emerg_PhoneNumber2">
+                    </div>
+            </div>
 
-                    </div>
+            <div class="col py-3 px-lg-5 border bg-light" style="border-radius:10px;">
+                
+                <h3 style="margin-bottom: 20px;">Emergency Contact 2: </h3>
+                <div class="input-group">
+                    <span class="input-group-text">First Name</span>
+                    <input type="text" class="form-control" required value="<?php echo $Emerg2_FirstName ; ?>" name="Emerg2_FirstName">
                 </div>
+                
+                <div class="input-group">
+                    <span class="input-group-text">last Name</span>
+                    <input type="text" class="form-control" required value="<?php echo $Emerg2_LastName ; ?>" name="Emerg2_LastName">
+                </div>
+                
+                <div class="input-group">
+                    <span class="input-group-text">Relationship</span>
+                    <input type="text" class="form-control" required value="<?php echo $Emerg2_Relation ; ?>" name="Emerg2_Relation">
+                </div>
+                
+                <div class="input-group">
+                    <span class="input-group-text">PhoneNumber1</span>
+                    <input type="text" class="form-control" required value="<?php echo $Emerg2_PhoneNumber1 ; ?>" name="Emerg2_PhoneNumber1">
+                </div>
+                
+                <div class="input-group">
+                    <span class="input-group-text">PhoneNumber2</span>
+                    <input type="text" class="form-control" value="<?php echo $Emerg2_PhoneNumber2 ; ?>" name="Emerg2_PhoneNumber2">
+                </div>
+                
+
             </div>
             <div style="text-align:center; margin-top:20px;">    
                 <button class="btn btn-success" type="submit" name="update-patient-details" style="" >Update</button>

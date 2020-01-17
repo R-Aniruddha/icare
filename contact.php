@@ -2,6 +2,15 @@
     $thisPage="Contact";
 	$subMenu="Other";
     include('includes/header.php');
+
+    if (isLoggedIn()) {
+        $id = $_SESSION['user']['id'];
+        $fname = $_SESSION['user']['FirstName'];
+        $lname = $_SESSION['user']['LastName'];
+        $email = $_SESSION['user']['Email'];
+
+
+    }
 ?>
 
 	<!-- BEGIN MAIN CONTENT -->
@@ -50,47 +59,59 @@
                 <h2 style="float:left;">Contact Us</h2>
                 <img src="images/contact-mail-img.png" height="50px" style="margin:5px 10px;"/>
                 <br>
-                <div style="clear:both;">
+                <div>
                     In order to make the website better, we may need your help.
-                    If you have any suggestions for our website, or if you need to contact us, please leave us a message below.
+                    If you have any suggestions for our website, or if you need to contact us, please send us a message below.
                 </div>
-                <div class="done">
-                    <b>Thank you !</b> We have received your message. 
-                </div>
+   
 
                 <!-- form -->
-                <form class="" style="margin-top:15px; border:1px solid black">
-                    <div class="form-group">
-                        <label>Full Name</label>
-                        <input class="form-control" type="text" class="form-control" name="name" placeholder="Full Name">
-                    </div>
-                    <div class="form-group">
-                        <label>Subject</label>
-                        <input class="form-control" name="subject" placeholder="Subject">
-                    </div>
-                    <?php if(userType()==2 || userType()==4) echo ' 
-                    <div class="input-group">
-                        <select class="custom-select" name="Recepient" required>
-                            <option value="admin">Admin</option>
-                            <option value="doctor">Doctor</option>
-                        </select>
-                    </div>
-                    ' ?>
-                    <div class="form-group">
-                        <label for="EmailInput">Email address</label>
-                        <input type="email" class="form-control" name="emailid" aria-describedby="emailHelp" placeholder="Example@email.com">
-                    </div>
-                    <div class="form-group">
-                        <label for="MessageInput">Enter Message Here</label>
-                        <textarea class="form-control" name="message" rows="5"></textarea>
-                    </div>
+                <div style="margin-top:25px; border:1px inset #f0f8ec6b; padding:15px; border-radius:13px; background-color:#f0f8ec6b;">
+                    <form >
+                        <?php if(userType()==3 || userType()==4){ echo ' 
+                            <div class="form-group">
+                                <label>Full Name</label>
+                                <input class="form-control" type="text" readonly class="form-control" name="name" value="',$fname,' ', $lname , '">
+                            </div>
+                        '; } else echo '
+                            <div class="form-group">
+                                <label>Full Name</label>
+                                <input class="form-control" type="text" class="form-control" name="name" placeholder="Full Name">
+                            </div>
+                        ' ?>
+                        <div class="form-group">
+                            <label>Subject</label>
+                            <input class="form-control" name="subject" placeholder="Subject">
+                        </div>
+                        <?php if(userType()==3 || userType()==4) echo ' 
+                        <div class="form-group">
+                            <label>Recepient</label>
+                            <select class="custom-select" name="Recepient" required>
+                                <option value="admin">Admin</option>
+                                <option value="doctor">Doctor</option>
+                            </select>
+                        </div>
+                        ' ?>
+                        <?php if(userType()==3 || userType()==4){ echo ' 
+                            <div class="form-group">
+                                <label for="EmailInput">Email address</label>
+                                <input type="email" class="form-control" name="emailid" aria-describedby="emailHelp" value="', $email,'" readonly>
+                            </div>
+                        '; } else echo '
+                            <div class="form-group">
+                                <label for="EmailInput">Email address</label>
+                                <input type="email" class="form-control" name="emailid" aria-describedby="emailHelp" placeholder="Example@email.com">
+                            </div>
+                        ' ?>
+                        <div class="form-group">
+                            <label for="MessageInput">Enter Message Here</label>
+                            <textarea class="form-control" name="message" rows="5"></textarea>
+                        </div>
 
-                    <br>
-                    <button type="submit" class="btn btn-primary" name="contact_us">Send</button>
+                        <button type="submit" class="btn btn-primary" name="contact_us">Send</button>
 
-
-                </form>
-
+                    </form>
+                </div>
 
 
             </div>

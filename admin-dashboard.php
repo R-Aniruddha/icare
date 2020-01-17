@@ -238,7 +238,7 @@
 
         </div>
 
-        <div class="row" style="padding: 30px 0;">
+        <div class="main-content row" style="">
             <form id="contact-us-messages" class="col-md-12" action="admin-dashboard.php" method="post" >
                 <h3 class="text-center">Messages</h3>
                 <div class="col-md-12 " style="margin:auto; padding: 15px; background-color: #70befe;   border-radius: 25px;">
@@ -296,7 +296,6 @@
           
         
             
-    </div>
         
 </div>
 

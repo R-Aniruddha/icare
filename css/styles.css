@@ -171,8 +171,10 @@ border-left: thin solid #000000;
     padding:20px;
 }
 
-#doctor-details-registration .input-group, #create-doctor-form .input-group, #user-account .input-group , #create-room-form .input-group {
-    margin: 10px auto;
+#doctor-details-registration .input-group, #create-doctor-form .input-group, 
+#user-account .input-group , #create-room-form .input-group 
+#patient-details .input-group, #registration .input-group{
+    margin: 6px auto;
 }
 
 

@@ -14,8 +14,8 @@
         
         
         <form id="create-room-form" method="post" action="create-room.php" style="padding: 20px;">
-            
-            <fieldset class="col-md-8" style="margin: auto;">
+
+            <fieldset class="col-md-8 bg-light py-3 px-lg-5" style="margin: auto; border-radius:10px;">
 
                 <?php include('controller/errors.php'); ?>
                     
