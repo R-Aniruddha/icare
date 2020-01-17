@@ -21,7 +21,7 @@ if($_POST['rowid']) {
 
         echo '<ul style="list-style:none;">';
         echo '<li>Doctor: ', $firstName,' ', $lastName ,'</li>';
-        echo '<li>Room No: ', $roomNo , '</li>';
+        echo '<li>Room No: ', $roomNo , '</li> <br>';
         $count = 1;
 
         $results = mysqli_query($conn, "SELECT * FROM guardian WHERE PatientID = '$id'"); 
@@ -40,9 +40,14 @@ if($_POST['rowid']) {
         
         echo '</ul>';
 
-        //Doctor
+    //Doctor
     } else if($check['user_type'] == 'doctor') {
         echo '<ul style="list-style:none;">';
+        $res = mysqli_query($conn, "SELECT * FROM doctorsdetails WHERE DoctorId='$id'"); 
+        $temp = mysqli_fetch_assoc($res);
+        echo '<li>Department: ' , $temp['Department'] , '</li>';
+        echo '<li>Specialization: ' , $temp['Speciality'] , '</li> <br>';
+        
         $count=1;
         $result = mysqli_query($conn, "SELECT * FROM patient WHERE DoctorId = '$id'"); 
 
@@ -51,6 +56,19 @@ if($_POST['rowid']) {
             $lname = $row['Last_Name'];
             echo '<li> Patient ',$count, ': ', $fname, ' ', $lname, '</li>';
             $count++;
+        }
+        echo '</ul>';
+    } else if($check['user_type'] == 'guardian') {
+        echo '<ul style="list-style:none;">';
+        $result = mysqli_query($conn, "SELECT * FROM guardian WHERE GuardianId = '$id'"); 
+        $row = mysqli_fetch_assoc($result);
+        $patientId = $row['PatientID'];
+
+        $res = mysqli_query($conn, "SELECT * FROM users WHERE id = '$patientId'"); 
+        while($row1 = mysqli_fetch_assoc($res)) {
+            $fname = $row1['FirstName'];
+            $lname = $row1['LastName'];
+            echo '<li> Guardian of: ', $fname, ' ', $lname, '</li>';
         }
         echo '</ul>';
     }

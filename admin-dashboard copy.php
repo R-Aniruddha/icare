@@ -56,7 +56,7 @@
                     <div class="modal-dialog" role="document">
                         <div class="modal-content">
                             <div class="modal-header">
-                                <h5 class="modal-title" id="doctorModalLabel">Dr.</h5>
+                                <h5 class="modal-title" id="doctorModalLabel"></h5>
                                 <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                                 <span aria-hidden="true">&times;</span>
                                 </button>
@@ -78,8 +78,6 @@
                     </div>
                 </div>
                 
-                
-
                 <!--Controls-->
                 <a class="carousel-control-prev" href="#myCarousel" role="button" data-slide="prev">
                     <span class="carousel-control-prev-icon" aria-hidden="true"></span>
@@ -125,7 +123,7 @@
 
                     <?php } ?>
                 </div>
-                <div id="patientmodal" class="modal fade" role="dialog">
+                <div id="patientmodal" class="modal fade" tabindex="-1" role="dialog">
                     <div class="modal-dialog">
                         <!-- Modal content-->
                         <div class="modal-content">
@@ -137,7 +135,7 @@
                                         <button type="button" class="close" data-dismiss="modal">&times;</button>
                                     </div>
                                     <div class="modal-body">
-                                        <ul> </ul>
+                                        <ul></ul>
                                         <div class="patient-data"></div>
                                         <input type="hidden" name="userId" >
                                     </div>
@@ -149,23 +147,23 @@
                             </form>
                         </div>
                     </div>
-                    <a class="carousel-control-prev" href="#myCarousel2" role="button" data-slide="prev">
-                        <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-                        <span class="sr-only">Previous</span>
-                        </a>
-                        <a class="carousel-control-next" href="#myCarousel2" role="button" data-slide="next" style="">
-                        <span class="carousel-control-next-icon" aria-hidden="true"></span>
-                        <span class="sr-only">Next</span>
-                    </a>
-                </div>
-
+                </div>  
+                <a class="carousel-control-prev" href="#myCarousel2" role="button" data-slide="prev">
+                    <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                    <span class="sr-only">Previous</span>
+                </a>
+                <a class="carousel-control-next" href="#myCarousel2" role="button" data-slide="next" style="">
+                    <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                    <span class="sr-only">Next</span>
+                </a>
+                        
         </div>          
                         
         <h3 class="text-center">Guardians</h3>
 
         <div class="container-fluid" style="">
             <div id="myCarousel3" class="carousel slide" data-ride="carousel" data-interval="false">
-
+                
                 <div class="carousel-inner row mx-auto w-100">
                     <?php 
                     $results = mysqli_query($conn, "SELECT * FROM users WHERE user_type = 'guardian'") or die('MySQL Error: ' . mysqli_error($conn)); 
@@ -191,6 +189,7 @@
                                         View Account
                                     </button>
                                 </div>
+                                
                             </div>
                         </div>
 
@@ -220,20 +219,15 @@
                             </form>
                         </div>
                     </div>
-                    <!--Controls-->
-                    <a class="carousel-control-prev" href="#myCarousel3" role="button" data-slide="prev">
-                        <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-                        <span class="sr-only">Previous</span>
-                    </a>
-                    <a class="carousel-control-next" href="#myCarousel3" role="button" data-slide="next" style="">
-                        <span class="carousel-control-next-icon" aria-hidden="true"></span>
-                        <span class="sr-only">Next</span>
-                    </a>
-                <!--/.Controls-->
-                </div>
-
-                
-                
+                </div>   
+                <a class="carousel-control-prev" href="#myCarousel3" role="button" data-slide="prev">
+                    <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                    <span class="sr-only">Previous</span>
+                </a>
+                <a class="carousel-control-next" href="#myCarousel3" role="button" data-slide="next" style="">
+                    <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                    <span class="sr-only">Next</span>
+                </a>
             </div>
 
         </div>

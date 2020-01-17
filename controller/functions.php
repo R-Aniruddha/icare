@@ -493,6 +493,9 @@ if (isset($_POST['delete-user'])) {
     if($userType == "doctor") {
       $query = "DELETE FROM doctorsdetails WHERE doctorId = '$id'";
       $sql= mysqli_query($conn, $query)  or die('MySQL Error: ' . mysqli_error($conn));
+      //Set Doctor id to 0 for their patients
+      $query = "UPDATE patient SET DoctorId = '0'  WHERE DoctorId = '$id'";
+      $sql= mysqli_query($conn, $query)  or die('MySQL Error: ' . mysqli_error($conn));
 
     } else if($userType == "patient") {
       //Remove patient id from Room and set to not occupied
