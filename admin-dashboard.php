@@ -42,7 +42,7 @@
                                         data-email="<?php echo $row['Email']?>"
                                         data-id="<?php echo $row['id']?>"
                                         data-target="#doctorModal">
-                                        View Account
+                                        Account Details
                                     </button>
                                 </div>
                             </div>
@@ -118,7 +118,7 @@
                                     data-name="<?php echo  $row['First_Name'] ,' ', $row['Last_Name']; ?>" 
                                     data-email="<?php echo $row['EmailID']?>"
                                     data-id="<?php echo $row['idPatient'] ?>" >
-                                    View Account</button>
+                                    Account Details</button>
                                 </div>
                             </div>
                         </div>
@@ -188,7 +188,7 @@
                                         data-email="<?php echo $row['Email']?>"
                                         data-id="<?php echo $id; ?>"
                                         data-target="#guardianmodal">
-                                        View Account
+                                        Account Details
                                     </button>
                                 </div>
                             </div>

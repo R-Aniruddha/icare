@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Jan 14, 2020 at 12:52 PM
+-- Generation Time: Jan 17, 2020 at 06:42 PM
 -- Server version: 10.3.16-MariaDB
 -- PHP Version: 7.3.7
 
@@ -42,7 +42,9 @@ CREATE TABLE `contact` (
 --
 
 INSERT INTO `contact` (`id`, `name`, `subject`, `emailid`, `message`, `recepient`) VALUES
-(1, 'John Wick', 'Query', 'johnwick@gmail.com', 'I would like to know the process of installing this system at my home', 'admin');
+(1, 'John Wick', 'Query', 'johnwick@gmail.com', 'I would like to know the process of installing this system at my home', 'admin'),
+(4, 'test', 'tetst', 'test@email.com', 'Delete Test', 'admin'),
+(7, 'Frank Senior', 'Account', 'franksr@email.com', 'Dear Administrator,\r\nMy wife has trouble accessing her account. Please look into it.\r\nHer email is bertha@gmail.com.\r\nThank you', 'admin');
 
 -- --------------------------------------------------------
 
@@ -76,6 +78,33 @@ INSERT INTO `doctorsdetails` (`DoctorId`, `FirstName`, `LastName`, `Phone`, `Str
 (18, 'George', 'Ezra', '1234657980', '14 Chatlet', 'Paris', 'France', 'Male', '2017-12-31', 'French', 'General', 'Regular', 'Master in Medicine', 'Yes'),
 (37, 'Lawrence', 'King', '987654321', '6, Rue Vaugirad', 'Paris', 'France', 'Male', '1986-07-21', 'French', 'General Practioner', 'Medicine', 'MBBS', 'Yes'),
 (57, 'Ross', 'Geller', '', '', '', '', '', '', '', '', '', '', '');
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `guardian`
+--
+
+CREATE TABLE `guardian` (
+  `GuardianId` int(11) NOT NULL,
+  `Phone` varchar(100) NOT NULL,
+  `Street` varchar(100) NOT NULL,
+  `City` varchar(100) NOT NULL,
+  `Country` varchar(50) NOT NULL,
+  `Gender` varchar(100) NOT NULL,
+  `DOB` varchar(100) NOT NULL,
+  `PatientID` int(11) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+--
+-- Dumping data for table `guardian`
+--
+
+INSERT INTO `guardian` (`GuardianId`, `Phone`, `Street`, `City`, `Country`, `Gender`, `DOB`, `PatientID`) VALUES
+(61, '9587424780', '35 Rue du Chevalier de la Barre - 75018', 'Paris', 'France', 'Male', '1987-11-30', 2),
+(101, '', '', '', '', '', '', 100),
+(102, '', '', '', '', '', '', 100),
+(104, '4468465825', '207 Rue du Faubourg Saint-Denis, 75010', 'Paris', 'France', 'Male', '1988-02-22', 2);
 
 -- --------------------------------------------------------
 
@@ -126,10 +155,11 @@ CREATE TABLE `patient` (
 --
 
 INSERT INTO `patient` (`idPatient`, `First_Name`, `Last_Name`, `Phone_number`, `BirthDate`, `Address`, `Cholesterol`, `Emerg_FirstName`, `Emerg_LastName`, `Emerg_Relation`, `Emerg_PhoneNumber1`, `Emerg2_PhoneNumber2`, `Emerg_PhoneNumber2`, `HepatitisB`, `ChickenPox`, `Measles`, `Medical_History`, `Height`, `Weight`, `DoctorId`, `Gender`, `Occupation`, `Marital_Status`, `EmailID`, `Social_Security`, `Emerg2_Relation`, `Emerg2_FirstName`, `Emerg2_PhoneNumber1`, `BloodPressure`, `HeartDisease`, `Vaccination_History`, `OtherHealthIssues`, `Emerg2_LastName`, `DoctorComments`, `RoomNo`) VALUES
-(2, 'Frank', 'Peterson', '91', '2000-01-03', '10', 'Yes', 'John', 'Kennedy', 'Friend', '123456798', '', '', 'Yes', 'IMMUNE', 'NOT IMMUNE', 'Liver disease', '199', '99', 6, 'Male', 'Unemployed', 'Other', 'frank@gmail.com', '1234567890', 'Brother', 'Mark', '987987987', 'Yes', 'No', 'Small pox', 'Kidney Failure', 'Henry', 'No comments at the moment', 0),
+(2, 'Frank', 'Peterson', '91', '2000-01-03', '10', 'Yes', 'John', 'Kennedy', 'Friend', '123456798', '', '', 'Yes', 'IMMUNE', 'NOT IMMUNE', 'Liver disease', '199', '99', 6, 'Male', 'Unemployed', 'Other', 'frank@gmail.com', '1234567890', 'Brother', 'Mark', '987987987', 'Yes', 'No', 'Small pox', 'Kidney Failure', 'Henry', 'No comments at the moment', 302),
 (3, 'Vishal', 'Patel', '33', 'October', '1 rue des poissonniers', 'wcvcwv', 'qqqq', 'sss', 'ssssss', '5556522255', '5265558522', '54545454545', 'No', 'NOT IMMUNE', 'NOT IMMUNE', 'fdgfxbxcb cv cv ', '178', '70', 18, 'Male', 'Unemployed', 'Married', 'vishalpatel2788@gmail.com', '2222455214', 'xcxzcxzvzx', 'ddddd', '7845855545', 'High', 'No', 'General', 'Liver problem', 'Fred', 'Recovery is proceeding slowly\r\nLot of sleep required\r\nBlood pressure needs to be carefully monitored', 210),
 (56, 'John', 'Snow', '9988776655', '2011-11-11', '10 Rue Butte Aux Cailles', 'Yes', 'Arya', 'Stark', 'Sister', '9273498275', '8873612007', '8627349106', 'Yes', 'IMMUNE', 'IMMUNE', 'Sugar', '190', '82', 18, 'Male', 'Employed', 'Single', 'johnsnow@email.com', '12314325', 'Sister', 'Sansa', '0764061654', 'No', 'Yes', 'ChickenPox, Small Pox, Measles', 'Kidney', 'Stark', 'Patient will make full recovery soon.\r\nRequires a few more days of rest.\r\n', 0),
-(58, 'Joey', 'Tribianni', '9988776652', '1990-06-20', '20 Rue du Faubourg Saint-Denis, 75010 Paris', 'No', 'Ross', 'Geller', 'Friend', '9865413895', '', '', 'No', 'IMMUNE', 'NOT IMMUNE', 'Amnesia', '196', '85', 6, 'Male', 'Employed', 'Single', 'joey@email.com', '13424325', 'Friend', 'Phoebe', '9786300015', 'Yes', 'No', 'ChickenPox, Small Pox', 'Liver', 'Buffet', 'No comments at the moment', 112);
+(58, 'Joey', 'Tribianni', '9988776652', '1990-06-20', '20 Rue du Faubourg Saint-Denis, 75010 Paris', 'No', 'Ross', 'Geller', 'Friend', '9865413895', '', '', 'No', 'IMMUNE', 'NOT IMMUNE', 'Amnesia', '196', '85', 6, 'Male', 'Employed', 'Single', 'joey@email.com', '13424325', 'Friend', 'Phoebe', '9786300015', 'Yes', 'No', 'ChickenPox, Small Pox', 'Liver', 'Buffet', 'No comments at the moment', 112),
+(100, 'Test1', 'T', '9988776652', '1990-06-20', '20 Rue du Faubourg Saint-Denis, 75010 Paris', 'No', 'Ross', 'Geller', 'Friend', '9865413895', '', '', 'No', 'IMMUNE', 'NOT IMMUNE', 'Amnesia', '196', '85', 6, 'Male', 'Employed', 'Single', 'test@email.com', '13424325', 'Friend', 'Phoebe', '9786300015', 'Yes', 'No', 'ChickenPox, Small Pox', 'Liver', 'Buffet', 'No comments at the moment', 203);
 
 -- --------------------------------------------------------
 
@@ -157,8 +187,10 @@ CREATE TABLE `room` (
 
 INSERT INTO `room` (`RoomID`, `RoomNo`, `Location`, `Occupied`, `HeartRateSensor`, `HeartRateSensorID`, `BloodPressureSensor`, `BloodPressureSensorID`, `SleepSensor`, `SleepSensorID`, `PatientID`) VALUES
 (4, 112, 'Saint John\'s Hospital, 1st Floor', 'Yes', 'Yes', 2, 'Yes', 3, 'No', 0, 58),
-(5, 203, 'Saint John\'s Hospital, 2nd Floor', 'No', 'Yes', 4, 'Yes', 6, 'Yes', 5, 0),
-(6, 210, 'Saint John\'s Hospital, 2nd Floor', 'Yes', 'Yes', 7, 'Yes', 9, 'Yes', 8, 3);
+(5, 203, 'Saint John\'s Hospital, 2nd Floor', 'Yes', 'Yes', 4, 'Yes', 6, 'Yes', 5, 100),
+(6, 210, 'Saint John\'s Hospital, 2nd Floor', 'Yes', 'Yes', 7, 'Yes', 9, 'Yes', 8, 3),
+(7, 302, 'Saint John\'s Hospital, Foor 3', 'Yes', 'Yes', 10, 'No', 0, 'No', 0, 2),
+(8, 101, 'Saint John\'s Hospital, 1st Floor', 'No', 'Yes', 11, 'Yes', 12, 'No', 0, 0);
 
 -- --------------------------------------------------------
 
@@ -184,7 +216,10 @@ INSERT INTO `sensor` (`SensorID`, `SensorName`, `RoomNo`) VALUES
 (6, 'BloodPressure', 203),
 (7, 'Heartrate', 210),
 (8, 'Sleep', 210),
-(9, 'BloodPressure', 210);
+(9, 'BloodPressure', 210),
+(10, 'Heartrate', 302),
+(11, 'Heartrate', 101),
+(12, 'BloodPressure', 101);
 
 -- --------------------------------------------------------
 
@@ -230,7 +265,12 @@ INSERT INTO `users` (`id`, `FirstName`, `LastName`, `Email`, `user_type`, `Passw
 (37, 'Lawrence', 'King', 'lawrence@email.com', 'doctor', '1a1dc91c907325c69271ddf0c944bc72'),
 (56, 'John', 'Snow', 'johnsnow@email.com', 'patient', '1a1dc91c907325c69271ddf0c944bc72'),
 (57, 'Ross', 'Geller', 'ross@email.com', 'doctor', '1a1dc91c907325c69271ddf0c944bc72'),
-(58, 'Joey', 'Tribianni', 'joey@email.com', 'patient', '1a1dc91c907325c69271ddf0c944bc72');
+(58, 'Joey', 'Tribianni', 'joey@email.com', 'patient', '1a1dc91c907325c69271ddf0c944bc72'),
+(61, 'Jack', 'Peterson', 'jack@email.com', 'guardian', '1a1dc91c907325c69271ddf0c944bc72'),
+(100, 'Test1', 'T', 'test@email.com', 'patient', '1a1dc91c907325c69271ddf0c944bc72'),
+(101, 'Test', 'Father', 'testf@gmail.com', 'guardian', '1a1dc91c907325c69271ddf0c944bc72'),
+(102, 'Test', 'Mother', 'testm@email.com', 'guardian', '1a1dc91c907325c69271ddf0c944bc72'),
+(104, 'Frank', 'Senior', 'franksr@email.com', 'guardian', '1a1dc91c907325c69271ddf0c944bc72');
 
 --
 -- Indexes for dumped tables
@@ -247,6 +287,12 @@ ALTER TABLE `contact`
 --
 ALTER TABLE `doctorsdetails`
   ADD PRIMARY KEY (`DoctorId`);
+
+--
+-- Indexes for table `guardian`
+--
+ALTER TABLE `guardian`
+  ADD PRIMARY KEY (`GuardianId`);
 
 --
 -- Indexes for table `patient`
@@ -286,25 +332,25 @@ ALTER TABLE `users`
 -- AUTO_INCREMENT for table `contact`
 --
 ALTER TABLE `contact`
-  MODIFY `id` int(10) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
+  MODIFY `id` int(10) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=8;
 
 --
 -- AUTO_INCREMENT for table `room`
 --
 ALTER TABLE `room`
-  MODIFY `RoomID` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
+  MODIFY `RoomID` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=9;
 
 --
 -- AUTO_INCREMENT for table `sensor`
 --
 ALTER TABLE `sensor`
-  MODIFY `SensorID` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=10;
+  MODIFY `SensorID` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=13;
 
 --
 -- AUTO_INCREMENT for table `users`
 --
 ALTER TABLE `users`
-  MODIFY `id` int(10) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=59;
+  MODIFY `id` int(10) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=105;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
