@@ -21,6 +21,8 @@
             $count = 1;
             $records = mysqli_query($conn, "SELECT * FROM room");
             while ($row = mysqli_fetch_assoc($records)) {
+
+                $RoomId = $row['RoomID'];
                 $RoomNo = $row['RoomNo'];
                 $Location = $row['Location'];
                 $Occupied = $row['Occupied'];
@@ -51,7 +53,9 @@
                             <fieldset class="col-md-6 bg-light py-3 px-lg-5" style="margin: auto; ">
 
                                 <?php include('controller/errors.php'); ?>
-                                    
+
+                                <input type="hidden" class="form-control" name="RoomId" value="<?php echo $RoomId; ?>">
+
                                 <div class="input-group">
                                     <label class="input-group-text">Room Number</label>
                                     <input type="number" class="form-control" name="RoomNo" value="<?php echo $RoomNo; ?>">
@@ -70,7 +74,7 @@
                                 <div class="input-group">
                                     <label class="input-group-text">Assign Patient</label>
                                     <select class="custom-select" name="PatientID" required>
-                                        <option value="0">Assign Patient</option>
+                                        <option value="0">No Patient</option>
                                         <?php 
                                             $record = mysqli_query($conn, "SELECT * FROM patient WHERE RoomNo = 0 OR idPatient='$PatientID'");
                                             while ($row2 = mysqli_fetch_assoc($record)) {

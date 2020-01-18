@@ -192,9 +192,9 @@
                 <h3 class="text-center">Doctor's Comments</h3>
                 <div class="input-group col-md-6" style="margin:auto; padding: 15px; background-color: #70befe;   border-radius: 25px;">
                     <input type="hidden" name="patient_id" readonly value="<?php echo $patient_id ; ?>">
-                    <textarea class="form-control" rows="3" <?php if(userType()!=3) echo 'readonly'?> name="DoctorComments"><?php echo $Comments ; ?></textarea>
+                    <textarea class="form-control" rows="3" <?php if(userType()!=2) echo 'readonly'?> name="DoctorComments"><?php echo $Comments ; ?></textarea>
                 </div>
-                <?php if(userType()==3) echo ' 
+                <?php if(userType()==2) echo ' 
                 <div style="text-align:center; margin-top:15px;">
                     <button class="btn btn-success" type="submit" name="update-comments" >Update</button>
                 </div>
