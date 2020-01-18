@@ -69,7 +69,7 @@
 
 
         <div class="row" style="">
-            <form id="contact-us-messages" class="col-md-12" action="doctor-dashboard.php" method="post" >
+            
                 <h3 class="text-center">Messages</h3>
                 <div class="col-md-12 " style="margin:auto; padding: 15px; background-color: #70befe;   border-radius: 25px;">
                     <div class="row row-cols-5 form-group" style="font-weight:bold; text-align:center;">
@@ -90,6 +90,7 @@
                             while($row = mysqli_fetch_assoc($result)) {
                                 $messageID = $row["id"];
                                 echo '
+                                <form id="contact-us-messages" class="" action="doctor-dashboard.php" method="post" >
                                     <div class="row" style="border-top: 1px solid #8c8b8b; margin:10px auto; padding-top:10px;">
                                         <input type="hidden" name="messageID" readonly value="', $messageID ,'">
                                         <div class="col-md-1">', $row["name"]  ,'</div>
@@ -105,6 +106,7 @@
                                         </div>
                                         <br>
                                     </div>
+                                </form>
                                 ';
                         
                             }
@@ -112,10 +114,9 @@
                                 <p style="margin:auto";>No Messages</p>
                             </div>'; }
                         ?>
-                    </table>
 
                 </div>
-            </form>
+            
         </div>      
 
 

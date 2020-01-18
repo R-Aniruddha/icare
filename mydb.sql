@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Jan 17, 2020 at 07:24 PM
+-- Generation Time: Jan 18, 2020 at 10:42 PM
 -- Server version: 10.3.16-MariaDB
 -- PHP Version: 7.3.7
 
@@ -47,7 +47,8 @@ INSERT INTO `contact` (`id`, `name`, `subject`, `emailid`, `message`, `recepient
 (4, 'test', 'tetst', 'test@email.com', 'Delete Test', 'admin', 0),
 (7, 'Frank Senior', 'Account', 'franksr@email.com', 'Dear Administrator,\r\nMy wife has trouble accessing her account. Please look into it.\r\nHer email is bertha@gmail.com.\r\nThank you', 'admin', 0),
 (8, 'Vishal Patel', 'Recovery Progress', 'vishalpatel2788@gmail.com', 'Dear Dr. George,\r\nWould it be possible to get some further medication as I am often feeling faint.', 'doctor', 18),
-(9, 'Frank Senior', 'Thank you', 'franksr@email.com', 'Dear Martin,\r\nOur whole family would like to thank you for helping our son get back on his feat.\r\nWe appreciate all you have done.\r\nSincerely,\r\nFrank Sr', 'doctor', 6);
+(9, 'Frank Senior', 'Thank you', 'franksr@email.com', 'Dear Martin,\r\nOur whole family would like to thank you for helping our son get back on his feat.\r\nWe appreciate all you have done.\r\nSincerely,\r\nFrank Sr', 'doctor', 6),
+(0, 'John Snow', 'Medicine', 'johnsnow@email.com', 'Dear Doctor,\r\nI require stronger doses of the medication.\r\nI am having more serious migraines.\r\nThank you', 'doctor', 18);
 
 -- --------------------------------------------------------
 
@@ -280,12 +281,6 @@ INSERT INTO `users` (`id`, `FirstName`, `LastName`, `Email`, `user_type`, `Passw
 --
 
 --
--- Indexes for table `contact`
---
-ALTER TABLE `contact`
-  ADD PRIMARY KEY (`id`);
-
---
 -- Indexes for table `doctorsdetails`
 --
 ALTER TABLE `doctorsdetails`
@@ -330,12 +325,6 @@ ALTER TABLE `users`
 --
 -- AUTO_INCREMENT for dumped tables
 --
-
---
--- AUTO_INCREMENT for table `contact`
---
-ALTER TABLE `contact`
-  MODIFY `id` int(10) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=10;
 
 --
 -- AUTO_INCREMENT for table `room`
