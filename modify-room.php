@@ -12,14 +12,14 @@
 
 ?>
         
-    <div class="main-content">
+    <div class="main-content" style="margin:auto; width:70%;">
         
         <h2>Admin - Modify Room</h2>
 
         <div id="accordion">
         <?php 
             $count = 1;
-            $records = mysqli_query($conn, "SELECT * FROM room");
+            $records = mysqli_query($conn, "SELECT * FROM room ORDER BY RoomNo ASC");
             while ($row = mysqli_fetch_assoc($records)) {
 
                 $RoomId = $row['RoomID'];
