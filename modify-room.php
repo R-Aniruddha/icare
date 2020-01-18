@@ -50,7 +50,7 @@
                     <div class="card-body">
                         <form id="modify-room-form" class="row bg-light" method="post" action="modify-room.php" style="padding-top:10px; border-radius:12px;">
 
-                            <fieldset class="col-md-6 bg-light py-3 px-lg-5" style="margin: auto; ">
+                            <fieldset class="col-md-7 bg-light py-3 px-lg-5" style="margin: auto; ">
 
                                 <?php include('controller/errors.php'); ?>
 
@@ -89,7 +89,7 @@
                                     </select>
                                 </div>
                             </fieldset>
-                            <fieldset class="col-md-6 bg-light py-3 px-lg-5" style="margin: auto; border-radius:10px;">
+                            <fieldset class="col-md-5 bg-light py-3 px-lg-5" style="margin: auto; border-radius:10px;">
 
                                 <h4>Sensors</h4>
                                 <div class="input-group">
