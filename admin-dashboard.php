@@ -26,7 +26,7 @@
                         ?>
                         <div class="carousel-item col-md-4">
                             <div class="card">
-                                <img class="card-img-top" src="images/avatar1.png" alt="User Image" style="padding: 20px;">
+                                <img class="card-img-top" src="images/avatar1.png" alt="User Image" >
                                 <div class="card-body">
                                     <h5 class="card-title">Dr. <?php echo $row['FirstName'] ," ", $row['LastName']; ?></h5>
                                     <p>
@@ -109,7 +109,7 @@
                         ?>
                         <div class="carousel-item col-md-4">
                             <div class="card h-100" style="margin: auto;">
-                                <img class="card-img-top" src="images/avatar1.png" alt="Patient Image" style="padding: 20px;">
+                                <img class="card-img-top" src="images/avatar1.png" alt="Patient Image" >
                                 <div class="card-body">
                                     <h5 class="card-title"><?php echo $row['First_Name'] ," ", $row['Last_Name']; ?></h5>
                                     <h6><strong><?php if($row['RoomNo'] !=0 )echo "Room Number: ",$row['RoomNo'] ?> </strong> </h6>
@@ -179,7 +179,7 @@
                         ?>
                         <div class="carousel-item col-md-4">
                             <div class="card h-100" style="margin: auto;">
-                                <img class="card-img-top" src="images/avatar1.png" alt="Patient Image" style="padding: 20px;">
+                                <img class="card-img-top" src="images/avatar1.png" alt="Patient Image" >
                                 <div class="card-body">
                                     <h5 class="card-title"><?php echo $row['FirstName'] ," ", $row['LastName']; ?></h5>
                                     <h6><strong>Guardian of: <?php echo $row2['First_Name'] ," ", $row2['Last_Name'];  ?>  </strong> </h6>
@@ -242,17 +242,14 @@
             <form id="contact-us-messages" class="col-md-12" action="admin-dashboard.php" method="post" >
                 <h3 class="text-center">Messages</h3>
                 <div class="col-md-12 " style="margin:auto; padding: 15px; background-color: #70befe;   border-radius: 25px;">
-                    <table class="table ">
-                        <thead>
-                            <tr>
-                                <th scope="col">Name</th>
-                                <th scope="col">Subject</th>
-                                <th scope="col">Email ID</th>
-                                <th scope="col">Message</th>
-                                <th> </th><th> </th>
-
-                            </tr>
-                        </thead>
+                    <div class="row row-cols-5 form-group" style="font-weight:bold; text-align:center;">
+                        <div class="col-md-1">Name</div>
+                        <div class="col-md-2" style="text-align:center;">Subject</div>
+                        <div class="col-md-3">Email ID</div>
+                        <div class="col-md-4">Message</div>
+                        <div class="col-md-1"> </div>
+                        <div class="col-md-1"> </div>
+                    </div>
                         <?php
                         
                         $sql = "SELECT id, name, subject, emailid, message FROM contact WHERE recepient='admin'";
@@ -261,27 +258,25 @@
                             // output data of each row
                             while($row = $result->fetch_assoc()) {
                                 $messageID = $row["id"];
-                                echo "
-                                    <tr>
-                                        <input type='hidden' name='messageID' readonly value='". $messageID. "'>
-                                        <td >" . $row["name"]. "</td>
-                                        <td>" . $row["subject"] . "</td>
-                                        <td>" . $row["emailid"]. "</td>
-                                        <td>" . $row["message"]."</td>
-                                        <td> 
-                                            <a href='mailto:" . $row["emailid"]. "' class='btn btn-primary btn-sm' style='margin:auto;'>
-                                            Reply
-                                            </a> 
-                                        </td>
-                                        <td> 
-                                            <button class='btn btn-secondary btn-sm' type='submit' name='delete-message' >Delete</button>
-                                        
-                                            </a> 
-                                        </td>  
-                                    </tr>
-                                    ";
+                                echo '
+                                    <div class="row" style="border-top: 1px solid #8c8b8b; margin:10px auto; padding-top:10px;">
+                                        <input type="hidden" name="messageID" readonly value="', $messageID ,'">
+                                        <div class="col-md-1">', $row["name"]  ,'</div>
+                                        <div class="col-md-2" style="text-align:center;">', $row["subject"] ,'</div>
+                                        <div class="col-md-3">', $row["emailid"] ,'</div>
+                                        <div class="col-md-4 text-justify">', $row["message"],'</div>
+                                        <div class="col-md-1" style="align-self: center;">
+                                            <a href="mailto:" ', $row["emailid"] ,' " class="btn btn-primary btn-sm" style="margin:auto;">
+                                                Reply</a>
+                                        </div>
+                                        <div class="col-md-1" style="align-self: center;">
+                                            <button class="btn btn-danger btn-sm" type="submit" name="delete-message">Delete</button>
+                                        </div>
+                                        <br>
+                                    </div>
+                                ';
+                        
                             }
-                            echo "</table>";
                         } else { echo "<tr><td colspan='6' style='text-align:center;'>No Messages</tr></td>"; }
                         $conn->close();
                         ?>

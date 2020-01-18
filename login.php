@@ -22,14 +22,10 @@
                 <div class="form-group">
                     <button type="submit" class="btn btn-primary btn-block" name="login_user">Log In</button>
                 </div>
-                
-                <div class="clearfix">
-                    <label class="pull-left checkbox-inline"><input type="checkbox"> Remember Me</label>
-                    <a href="#" class="pull-right">Forgot Password?</a>
-                </div>        
+        
                 
             </form>
-            <p class="text-center"><a href="register.php">Create an Account</a></p>
+            <p class="text-center"><a href="patient-registration.php">Create an Account</a></p>
 
         </div>
         

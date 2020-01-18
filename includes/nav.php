@@ -82,20 +82,31 @@
 
                     <?php if (isAdmin())
                         echo '
-                        <li class="nav-item  
+                        <li class="nav-item  ';
                             if ($thisPage=="Admin Dashboard") 
-						        echo "active"; ">
+						        echo "active"; echo ' ">
                             <a class="nav-link" href="admin-dashboard.php">Dashboard</a>
                         </li>
-                        <li class="nav-item  
+                        <li class="nav-item  ';
                             if ($thisPage=="Create Doctor") 
-						        echo "active"; ">
+						        echo "active"; echo ' ">
                             <a class="nav-link" href="create-doctor.php">Create Doctor Account</a>
                         </li>
-                        <li class="nav-item  
-                            if ($thisPage=="Create Room") 
-						        echo "active"; ">
-                            <a class="nav-link" href="create-room.php">Create Room</a>
+                        <li class=" nav-item dropdown ';
+                            if ($subMenu=="Room") 
+                            echo " active"; echo ' ">
+                            <a class="nav-link dropdown-toggle" id="navbarDropdown" data-toggle="dropdown" role="button" href="create-room.php">Room<span class="caret"></span></a>
+                            <div id="scrolling" class="dropdown-menu" aria-labelledby="navbarDropdown">     
+                                <a class="dropdown-item ';
+                                    if ($thisPage=="Create Room") 
+                                    echo " active"; echo '
+                                "href="create-room.php">Create Room</a>
+                                <a class="dropdown-item ';
+                                    if ($thisPage=="Modify Room") 
+                                echo " active"; echo '
+                                        " href="modify-room.php">Modify Room</a>
+        
+                            </div> 
                         </li>
                         ' 
                     ?>
