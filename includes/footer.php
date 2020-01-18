@@ -14,7 +14,7 @@
                 <h4>Useful Links</h4>
                 <ul style="list-style:none; padding:0;">
                     <li><a href="about.php"> About Us </a> </li>
-                    <li><a href="register.php"> Registration</a></li>
+                    <li><a href="patient-registration.php"> Registration</a></li>
                     <li><a href="contact.php"> Contact Us</a></li>
 
                 </ul>

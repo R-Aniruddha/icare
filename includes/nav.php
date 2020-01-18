@@ -21,7 +21,7 @@
                     </li>
                     -->
                     
-                    <?php if (userType() == 3)
+                    <?php if (userType() == 3){
                         echo '
                             <li class=" nav-item dropdown
                                 if ($thisPage=="Dashboard") 
@@ -45,20 +45,20 @@
                                 <a class="nav-link" href="create-guardian.php">Create Guardian Account</a>
                             </li>
                             
-                    ' ?>
-                    <?php if (userType() == 2)
+                    ';} ?>
+                    <?php if (userType() == 2){
                         echo '
-                        <li class="nav-item   
+                        <li class="nav-item   ';
                             if ($thisPage=="Doctor Dashboard") 
-                            echo "active"; ">
+                            echo "active"; echo '">
                             <a class="nav-link" href="doctor-dashboard.php">Dashboard</a>
                         </li>
-                        <li class="nav-item   
-                            if ($thisPage=="Personal Details") 
-						    echo "active"; ">
+                        <li class="nav-item ';
+                            if($thisPage=="Personal Details") 
+						    echo "active"; echo '">
                             <a class="nav-link" href="doctor-details.php">Personal Details</a>
                         </li>
-                        ' 
+                        ' ;}
                     ?>
                     <?php if (userType() == 4){
 
@@ -80,7 +80,7 @@
                         ' ; }
                     ?>
 
-                    <?php if (isAdmin())
+                    <?php if (isAdmin()){
                         echo '
                         <li class="nav-item  ';
                             if ($thisPage=="Admin Dashboard") 
@@ -108,7 +108,7 @@
         
                             </div> 
                         </li>
-                        ' 
+                        '; }
                     ?>
 
                     <li class=" nav-item dropdown

@@ -62,7 +62,7 @@
                                 </div>
                                 <div class="input-group">
                                     <label class="input-group-text">Location</label>
-                                    <input type="text" class="form-control" name="Location" value="<?php echo $RoomNo; ?>">
+                                    <input type="text" class="form-control" name="Location" value="<?php echo $Location; ?>">
                                 </div>
                                 <div class="input-group">
                                     <label class="input-group-text">Occupied</label>
