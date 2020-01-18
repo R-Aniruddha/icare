@@ -23,10 +23,14 @@
                         $results = mysqli_query($conn, "SELECT * FROM users WHERE user_type = 'doctor'"); 
                     while ($row = mysqli_fetch_assoc($results)) { 
                             $id = $row['id'];
+
+                            $query = mysqli_query($conn, "SELECT Gender FROM doctorsdetails WHERE DoctorId = '$id'"); 
+                            $temp = mysqli_fetch_assoc($query);
+                            $gender = $temp['Gender'];
                         ?>
                         <div class="carousel-item col-md-4">
                             <div class="card">
-                                <img class="card-img-top" src="images/avatar1.png" alt="User Image" >
+                                <img class="card-img-top" src="<?php if($gender == "Male") {echo'images/avatar1.png';} else { echo'images/femaleavatar.png';} ?>" alt="User Image" >
                                 <div class="card-body">
                                     <h5 class="card-title">Dr. <?php echo $row['FirstName'] ," ", $row['LastName']; ?></h5>
                                     <p>
@@ -239,7 +243,7 @@
         </div>
 
         <div class="main-content row" style="">
-            <form id="contact-us-messages" class="col-md-12" action="admin-dashboard.php" method="post" >
+            
                 <h3 class="text-center">Messages</h3>
                 <div class="col-md-12 " style="margin:auto; padding: 15px; background-color: #70befe;   border-radius: 25px;">
                     <div class="row row-cols-5 form-group" style="font-weight:bold; text-align:center;">
@@ -259,9 +263,10 @@
                             while($row = $result->fetch_assoc()) {
                                 $messageID = $row["id"];
                                 echo '
+                                <form id="contact-us-messages"action="admin-dashboard.php" method="post" >
                                     <div class="row" style="border-top: 1px solid #8c8b8b; margin:10px auto; padding-top:10px;">
-                                        <input type="hidden" name="messageID" readonly value="', $messageID ,'">
-                                        <div class="col-md-1">', $row["name"]  ,'</div>
+                                        <input type="hidden" name="messageID" value="', $messageID ,'">
+                                        <div class="col-md-1">', $row["name"]  ,'</div> 
                                         <div class="col-md-2" style="text-align:center;">', $row["subject"] ,'</div>
                                         <div class="col-md-3">', $row["emailid"] ,'</div>
                                         <div class="col-md-4 text-justify">', $row["message"],'</div>
@@ -274,16 +279,16 @@
                                         </div>
                                         <br>
                                     </div>
+                                </form>
                                 ';
                         
                             }
                         } else { echo "<tr><td colspan='6' style='text-align:center;'>No Messages</tr></td>"; }
                         $conn->close();
                         ?>
-                    </table>
 
                 </div>
-            </form>
+            
         </div>
 
     

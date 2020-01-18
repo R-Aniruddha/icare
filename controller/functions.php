@@ -376,22 +376,9 @@ if (isset($_POST['modify-room'])) {
         }
 
     }
-      //Remove patient ID from room
-      //$query = "SELECT RoomNo FROM room WHERE PatientID='$PatientID' ";
-      //$result = mysqli_query($conn, $query) or die('MySQL Error: ' . mysqli_error($conn));
-      //$temp = mysqli_fetch_assoc($result);
-      //$OldRoomNo = $temp['RoomNo'];
       
-      
-      //$query = "UPDATE room SET PatientID = 0, Occupied = 'No' WHERE RoomNo='$OldRoomNo'";
-      //mysqli_query($conn, $query) or die('MySQL Error: ' . mysqli_error($conn));
-
       
     }
-    
-   
-   //Insert roomno into patient table 
-    
 
   
 }
@@ -648,9 +635,9 @@ function login() {
         $_SESSION['success']  = "You are now logged in";
         $query = "SELECT * FROM doctorsdetails WHERE DoctorId='$userid' ";
         $res = mysqli_query($conn, $query);
-        $logged_in_user = mysqli_fetch_assoc($res);
-        $phone = $logged_in_user['Phone'];
-        if($phone = "") { 
+        $temp = mysqli_fetch_assoc($res);
+        $phone = $temp['Phone'];
+        if($phone == "") { 
           header('location: doctor-details.php');
         } else {
           header('location: doctor-dashboard.php');
@@ -735,8 +722,10 @@ function userType() {
 //contact-us
 if (isset($_POST['contact_us'])) {
  global $conn, $errors;
-    
-  $userid      = $_POST['userid'];
+  
+  if(isset($_POST['userid'])){
+    $userid      = $_POST['userid'];
+  }
   $name         = $_POST['name'];
   $subject      = $_POST['subject'];
   if(isset($_POST['Recepient'])) {
@@ -774,7 +763,7 @@ if (isset($_POST['delete-message'])) {
      
    $id = $_POST['messageID'];
      
- $query = "DELETE FROM contact WHERE id = '$id'";
+    $query = "DELETE FROM contact WHERE id = '$id'";
     $sql= mysqli_query($conn, $query)  or die('MySQL Error: ' . mysqli_error($conn));
 }
  
