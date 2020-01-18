@@ -233,7 +233,7 @@
                         <br>
                         <?php if(userType()==2) echo '
                             <div style="margin: 0 5px;">
-                                <button class="btn btn-success" type="submit" name="update-room" >Select</button>
+                                <button class="btn btn-success" type="submit" name="update-roomno" >Select</button>
                             </div>
                         '?>
                     </div>

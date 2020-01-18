@@ -1,5 +1,7 @@
 :root {
     font-size: 20px;
+    font-family: "Times New Roman", Times, serif;
+
 }
 
 .container-fluid {
@@ -176,7 +178,8 @@ border-left: thin solid #000000;
 
 #doctor-details-registration .input-group, #create-doctor-form .input-group, 
 #user-account .input-group , #create-room-form .input-group 
-#patient-details .input-group, #registration .input-group{
+#patient-details .input-group, #registration .input-group
+#modify-room-form .input-group{
     margin: 6px auto;
 }
 

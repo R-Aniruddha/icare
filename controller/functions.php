@@ -96,8 +96,8 @@ if (isset($_POST['create_room'])) {
 
   
 
-  $user_check_query = "SELECT * FROM sensor WHERE RoomNo='$RoomNo'";
-  $result = mysqli_query($conn, $user_check_query);
+  $check_query = "SELECT * FROM sensor WHERE RoomNo='$RoomNo'";
+  $result = mysqli_query($conn, $check_query);
   $room = mysqli_fetch_assoc($result);
 
   if ($room) { // if room exists & RoomNo 0 is not accepted
@@ -284,8 +284,8 @@ if (isset($_POST['update-guardian-details'])) {
 	header('location: guardian-details.php');
 }
 
-//Update Room
-if (isset($_POST['update-room'])) { 
+//Update Room Number
+if (isset($_POST['update-roomno'])) { 
 
   $PatientID = $_POST['patient_id'];
   $RoomNo = $_POST['room_no']; 
@@ -296,6 +296,42 @@ if (isset($_POST['update-room'])) {
     $result = mysqli_query($conn, $query) or die('MySQL Error: ' . mysqli_error($conn));
     $temp = mysqli_fetch_assoc($result);
     $OldRoomNo = $temp['RoomNo'];
+    $query = "UPDATE room SET PatientID = 0, Occupied = 'No' WHERE RoomNo='$OldRoomNo'";
+    mysqli_query($conn, $query) or die('MySQL Error: ' . mysqli_error($conn));
+
+    //Inserting Patient ID in new room table
+     $query = "UPDATE room SET PatientID = '$PatientID', Occupied = 'Yes' WHERE RoomNo='$RoomNo'";
+     mysqli_query($conn, $query) or die('MySQL Error: ' . mysqli_error($conn));
+   
+   //Insert roomno into patient table 
+    mysqli_query($conn, "UPDATE patient SET RoomNo='$RoomNo' WHERE idPatient='$PatientID' ") or die('MySQL Error: ' . mysqli_error($conn));
+  }
+
+  
+}
+
+//Update Room Details
+if (isset($_POST['modify-room'])) { 
+
+  $RoomNo = $_POST['room_no']; 
+  $check_query = "SELECT * FROM sensor WHERE RoomNo='$RoomNo'";
+  $result = mysqli_query($conn, $check_query);
+  $room = mysqli_fetch_assoc($result);
+
+  if ($room) { // if room exists & RoomNo 0 is not accepted
+    if ($room['RoomNo'] == $RoomNo) {
+      array_push($errors, "Room Number already exists");
+    }
+    if ($room['RoomNo'] == 0) {
+      array_push($errors, "Room Number 0 not allowed");
+    }
+  }
+
+  if (count($errors) == 0) {
+    //$query = "SELECT RoomNo FROM room WHERE PatientID='$PatientID' ";
+    //$result = mysqli_query($conn, $query) or die('MySQL Error: ' . mysqli_error($conn));
+    //$temp = mysqli_fetch_assoc($result);
+    //$OldRoomNo = $temp['RoomNo'];
     $query = "UPDATE room SET PatientID = 0, Occupied = 'No' WHERE RoomNo='$OldRoomNo'";
     mysqli_query($conn, $query) or die('MySQL Error: ' . mysqli_error($conn));
 
