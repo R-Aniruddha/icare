@@ -50,7 +50,7 @@
                     <input type="password" name="Password_2" class="form-control">
                 </div>
                 <div class="input-group">
-                    <button type="submit" class="btn btn-primary btn-md" name="modify-account-details">Edit</button>
+                    <button type="submit" style="margin: 10px 0 0 0;" class="btn btn-primary" name="modify-account-details">Modify</button>
                 </div>
             </fieldset>    
         </form>

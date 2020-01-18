@@ -43,7 +43,9 @@
         </div>
 
         <div class="border-top" style="padding:5px; margin-top: 5px;">
-            <a href="#" target="_blank">&copy; Copyright 2019 </a>
+            <a href="#" target="_blank">&copy; <?php  $fromYear = 2019;   $thisYear = (int)date('Y'); 
+              echo $fromYear . (($fromYear != $thisYear) ? '-' . $thisYear : '');?> 
+            </a>
             <a href="#" class="verticalLine" target="_blank"> ICare </a>
         </div>
     </footer>

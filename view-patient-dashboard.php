@@ -32,6 +32,9 @@
         $sleep    			=  $n['SleepSensor'];
         $bloodpressure    			=  $n['BloodPressureSensor'];
         $heartrate    			=  $n['HeartRateSensor'];
+
+        //Check if sensor data is shown
+        $count=0;
     }
 
 ?>
@@ -50,7 +53,7 @@
         <h3 class="text-center">Health Statistics</h3>
 
         <div class="row" >
-            <?php if($heartrate == "Yes") echo ' 
+            <?php if($heartrate == "Yes"){ $count++; echo ' 
                 <div class="col">
                     <div class="rounded" style="background-color: #1082df; opacity: 0.9; text-align: center;">
                         <br><br><br><br>
@@ -84,9 +87,9 @@
                         </div>
                     </div>
                 </div>
-            '; ?>
+            '; }?>
 
-            <?php if($bloodpressure == "Yes") echo ' 
+            <?php if($bloodpressure == "Yes"){ $count++; echo ' 
                 <div class="col">
                     <div class="rounded" style="background-color: #1082df; opacity: 0.9; text-align: center;">
                         <br><br><br><br>
@@ -126,9 +129,9 @@
                         </div>
                     </div>
                 </div>
-            '; ?>
+            '; }?>
 
-            <?php if($sleep == "Yes") echo ' 
+            <?php if($sleep == "Yes"){ $count++; echo ' 
                 <div class="col">
                     <div class="rounded" style="background-color: #1082df; opacity: 0.9;text-align: center;">
                         <br><br><br><br>
@@ -184,9 +187,11 @@
                         </div>
                     </div>
                 </div>
-            '; ?>
+            ';} ?>
 
         </div>
+        <?php if($count==0) echo '<h5 class="text-center">No Sensor Data - First Assign Patient to a room</h5>'; ?>
+
         <div class="row" style="padding: 30px 0;"> 
             <form class="col-md-12" action="view-patient-dashboard.php?id=<?php echo $patient_id?>" method="post">
                 <h3 class="text-center">Doctor's Comments</h3>
