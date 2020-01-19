@@ -70,7 +70,7 @@
 
         <div class="row" style="">
             
-                <h3 class="text-center">Messages</h3>
+                <h3 class="text-center" style="flex: auto;">Messages</h3>
                 <div class="col-md-12 " style="margin:auto; padding: 15px; background-color: #70befe;   border-radius: 25px;">
                     <div class="row row-cols-5 form-group" style="font-weight:bold; text-align:center;">
                         <div class="col-md-1">Name</div>
