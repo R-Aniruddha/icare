@@ -177,6 +177,8 @@
         '; ?>
 
     </div>
+    <?php if(($heartrate == "") && ($bloodpressure == "") && ($sleep == "")) echo '<h5 class="text-center" style="margin-top:20px;">No Sensor Data - Request Admin/Doctor to assign you to a room</h5>'; ?>
+
     <div class="row" style="padding: 30px 0;">
         <div id="doctor-comments" class="col-md-12" name="doctor-comments">
             <h3 class="text-center">Doctor's Comments</h3>
