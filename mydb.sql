@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Jan 18, 2020 at 10:42 PM
+-- Generation Time: Jan 21, 2020 at 04:13 PM
 -- Server version: 10.3.16-MariaDB
 -- PHP Version: 7.3.7
 
@@ -48,7 +48,7 @@ INSERT INTO `contact` (`id`, `name`, `subject`, `emailid`, `message`, `recepient
 (7, 'Frank Senior', 'Account', 'franksr@email.com', 'Dear Administrator,\r\nMy wife has trouble accessing her account. Please look into it.\r\nHer email is bertha@gmail.com.\r\nThank you', 'admin', 0),
 (8, 'Vishal Patel', 'Recovery Progress', 'vishalpatel2788@gmail.com', 'Dear Dr. George,\r\nWould it be possible to get some further medication as I am often feeling faint.', 'doctor', 18),
 (9, 'Frank Senior', 'Thank you', 'franksr@email.com', 'Dear Martin,\r\nOur whole family would like to thank you for helping our son get back on his feat.\r\nWe appreciate all you have done.\r\nSincerely,\r\nFrank Sr', 'doctor', 6),
-(0, 'John Snow', 'Medicine', 'johnsnow@email.com', 'Dear Doctor,\r\nI require stronger doses of the medication.\r\nI am having more serious migraines.\r\nThank you', 'doctor', 18);
+(12, 'John Snow', 'Thank you', 'johnsnow@email.com', 'Dear Dr. George,\r\nI would like to thank you for all your help.\r\nThe recovery went smoothly due to your assistance.\r\nThank you again for everything', 'doctor', 18);
 
 -- --------------------------------------------------------
 
@@ -81,7 +81,7 @@ INSERT INTO `doctorsdetails` (`DoctorId`, `FirstName`, `LastName`, `Phone`, `Str
 (6, 'Martin', 'John', '987654321', '1 Rue', 'London', 'England', 'Male', '2019-12-10', 'English', 'Cardiologist', 'Orthopedics', 'MBBS', 'Yes'),
 (18, 'George', 'Ezra', '1234657980', '14 Chatlet', 'Paris', 'France', 'Male', '2017-12-31', 'French', 'General', 'Regular', 'Master in Medicine', 'Yes'),
 (37, 'Lawrence', 'King', '987654321', '6, Rue Vaugirad', 'Paris', 'France', 'Male', '1986-07-21', 'French', 'General Practioner', 'Medicine', 'MBBS', 'Yes'),
-(57, 'Ross', 'Geller', '', '', '', '', '', '', '', '', '', '', '');
+(105, 'Scarlett', 'Johansson', '9587460249', '1 Avenue du Colonel Henri, 75014', 'Paris', 'France', 'Female', '1975-02-08', 'American', 'Neurosurgeon', 'Surgery', 'BMBS', 'Yes');
 
 -- --------------------------------------------------------
 
@@ -108,7 +108,8 @@ INSERT INTO `guardian` (`GuardianId`, `Phone`, `Street`, `City`, `Country`, `Gen
 (61, '9587424780', '35 Rue du Chevalier de la Barre - 75018', 'Paris', 'France', 'Male', '1987-11-30', 2),
 (101, '', '', '', '', '', '', 100),
 (102, '', '', '', '', '', '', 100),
-(104, '4468465825', '207 Rue du Faubourg Saint-Denis, 75010', 'Paris', 'France', 'Male', '1988-02-22', 2);
+(104, '4468465825', '207 Rue du Faubourg Saint-Denis, 75010', 'Paris', 'France', 'Male', '1988-02-22', 2),
+(106, '764061985', '10 Rue Vaugirard', 'Paris', 'France', 'Female', '1978-12-29', 2);
 
 -- --------------------------------------------------------
 
@@ -159,11 +160,11 @@ CREATE TABLE `patient` (
 --
 
 INSERT INTO `patient` (`idPatient`, `First_Name`, `Last_Name`, `Phone_number`, `BirthDate`, `Address`, `Cholesterol`, `Emerg_FirstName`, `Emerg_LastName`, `Emerg_Relation`, `Emerg_PhoneNumber1`, `Emerg2_PhoneNumber2`, `Emerg_PhoneNumber2`, `HepatitisB`, `ChickenPox`, `Measles`, `Medical_History`, `Height`, `Weight`, `DoctorId`, `Gender`, `Occupation`, `Marital_Status`, `EmailID`, `Social_Security`, `Emerg2_Relation`, `Emerg2_FirstName`, `Emerg2_PhoneNumber1`, `BloodPressure`, `HeartDisease`, `Vaccination_History`, `OtherHealthIssues`, `Emerg2_LastName`, `DoctorComments`, `RoomNo`) VALUES
-(2, 'Frank', 'Peterson', '91', '2000-01-03', '10', 'Yes', 'John', 'Kennedy', 'Friend', '123456798', '', '', 'Yes', 'IMMUNE', 'NOT IMMUNE', 'Liver disease', '199', '99', 6, 'Male', 'Unemployed', 'Other', 'frank@gmail.com', '1234567890', 'Brother', 'Mark', '987987987', 'Yes', 'No', 'Small pox', 'Kidney Failure', 'Henry', 'No comments at the moment', 302),
-(3, 'Vishal', 'Patel', '33', 'October', '1 rue des poissonniers', 'wcvcwv', 'qqqq', 'sss', 'ssssss', '5556522255', '5265558522', '54545454545', 'No', 'NOT IMMUNE', 'NOT IMMUNE', 'fdgfxbxcb cv cv ', '178', '70', 18, 'Male', 'Unemployed', 'Married', 'vishalpatel2788@gmail.com', '2222455214', 'xcxzcxzvzx', 'ddddd', '7845855545', 'High', 'No', 'General', 'Liver problem', 'Fred', 'Recovery is proceeding slowly\r\nLot of sleep required\r\nBlood pressure needs to be carefully monitored', 210),
+(2, 'Frank', 'Peterson', '91', '2000-01-03', '10', 'Yes', 'John', 'Kennedy', 'Friend', '123456798', '', '', 'Yes', 'IMMUNE', 'NOT IMMUNE', 'Liver disease', '199', '99', 6, 'Male', 'Unemployed', 'Other', 'frank@gmail.com', '1234567890', 'Brother', 'Mark', '987987987', 'Yes', 'No', 'Small pox', 'Kidney Failure', 'Henry', 'Patient has recovered\r\nNo more treatment necessary', 302),
+(3, 'Vishal', 'Patel', '07541236951', '1992-02-13', '1 rue des poissonniers', 'Yes', 'Mark', 'Ronson', 'Friend', '5556522255', '5265558522', '54545454545', 'No', 'NOT IMMUNE', 'NOT IMMUNE', 'Sugar', '178', '70', 18, 'Male', 'Unemployed', 'Married', 'vishalpatel2788@gmail.com', '2222455214', 'Friend', 'Amy', '7845855545', 'Yes', 'No', 'General', 'Liver problem', 'Shaw', 'Recovery is proceeding well\r\nLot of sleep required\r\nBlood pressure needs to be carefully monitored', 210),
 (56, 'John', 'Snow', '9988776655', '2011-11-11', '10 Rue Butte Aux Cailles', 'Yes', 'Arya', 'Stark', 'Sister', '9273498275', '8873612007', '8627349106', 'Yes', 'IMMUNE', 'IMMUNE', 'Sugar', '190', '82', 18, 'Male', 'Employed', 'Single', 'johnsnow@email.com', '12314325', 'Sister', 'Sansa', '0764061654', 'No', 'Yes', 'ChickenPox, Small Pox, Measles', 'Kidney', 'Stark', 'Patient will make full recovery soon.\r\nRequires a few more days of rest.\r\n', 0),
 (58, 'Joey', 'Tribianni', '9988776652', '1990-06-20', '20 Rue du Faubourg Saint-Denis, 75010 Paris', 'No', 'Ross', 'Geller', 'Friend', '9865413895', '', '', 'No', 'IMMUNE', 'NOT IMMUNE', 'Amnesia', '196', '85', 6, 'Male', 'Employed', 'Single', 'joey@email.com', '13424325', 'Friend', 'Phoebe', '9786300015', 'Yes', 'No', 'ChickenPox, Small Pox', 'Liver', 'Buffet', 'No comments at the moment', 112),
-(100, 'Test1', 'T', '9988776652', '1990-06-20', '20 Rue du Faubourg Saint-Denis, 75010 Paris', 'No', 'Ross', 'Geller', 'Friend', '9865413895', '', '', 'No', 'IMMUNE', 'NOT IMMUNE', 'Amnesia', '196', '85', 6, 'Male', 'Employed', 'Single', 'test@email.com', '13424325', 'Friend', 'Phoebe', '9786300015', 'Yes', 'No', 'ChickenPox, Small Pox', 'Liver', 'Buffet', 'No comments at the moment', 203);
+(100, 'Test1', 'T', '9988776652', '1990-06-20', '20 Rue du Faubourg Saint-Denis, 75010 Paris', 'No', 'Ross', 'Geller', 'Friend', '9865413895', '', '', 'No', 'IMMUNE', 'NOT IMMUNE', 'Amnesia', '196', '85', 6, 'Male', 'Employed', 'Single', 'test@email.com', '13424325', 'Friend', 'Phoebe', '9786300015', 'Yes', 'No', 'ChickenPox, Small Pox', 'Liver', 'Buffet', 'Under strict supervision\r\nBloodpressure needs to be lowered\r\nMore vitamin intake required', 203);
 
 -- --------------------------------------------------------
 
@@ -268,17 +269,24 @@ INSERT INTO `users` (`id`, `FirstName`, `LastName`, `Email`, `user_type`, `Passw
 (18, 'George', 'Ezra', 'george@email.com', 'doctor', '1a1dc91c907325c69271ddf0c944bc72'),
 (37, 'Lawrence', 'King', 'lawrence@email.com', 'doctor', '1a1dc91c907325c69271ddf0c944bc72'),
 (56, 'John', 'Snow', 'johnsnow@email.com', 'patient', '1a1dc91c907325c69271ddf0c944bc72'),
-(57, 'Ross', 'Geller', 'ross@email.com', 'doctor', '1a1dc91c907325c69271ddf0c944bc72'),
 (58, 'Joey', 'Tribianni', 'joey@email.com', 'patient', '1a1dc91c907325c69271ddf0c944bc72'),
 (61, 'Jack', 'Peterson', 'jack@email.com', 'guardian', '1a1dc91c907325c69271ddf0c944bc72'),
 (100, 'Test1', 'T', 'test@email.com', 'patient', '1a1dc91c907325c69271ddf0c944bc72'),
 (101, 'Test', 'Father', 'testf@gmail.com', 'guardian', '1a1dc91c907325c69271ddf0c944bc72'),
 (102, 'Test', 'Mother', 'testm@email.com', 'guardian', '1a1dc91c907325c69271ddf0c944bc72'),
-(104, 'Frank', 'Senior', 'franksr@email.com', 'guardian', '1a1dc91c907325c69271ddf0c944bc72');
+(104, 'Frank', 'Senior', 'franksr@email.com', 'guardian', '1a1dc91c907325c69271ddf0c944bc72'),
+(105, 'Scarlett', 'Johansson', 'scarlett@email.com', 'doctor', '1a1dc91c907325c69271ddf0c944bc72'),
+(106, 'Jane', 'Peterson', 'jane@email.com', 'guardian', '1a1dc91c907325c69271ddf0c944bc72');
 
 --
 -- Indexes for dumped tables
 --
+
+--
+-- Indexes for table `contact`
+--
+ALTER TABLE `contact`
+  ADD PRIMARY KEY (`id`);
 
 --
 -- Indexes for table `doctorsdetails`
@@ -327,6 +335,12 @@ ALTER TABLE `users`
 --
 
 --
+-- AUTO_INCREMENT for table `contact`
+--
+ALTER TABLE `contact`
+  MODIFY `id` int(10) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=13;
+
+--
 -- AUTO_INCREMENT for table `room`
 --
 ALTER TABLE `room`
@@ -342,7 +356,7 @@ ALTER TABLE `sensor`
 -- AUTO_INCREMENT for table `users`
 --
 ALTER TABLE `users`
-  MODIFY `id` int(10) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=105;
+  MODIFY `id` int(10) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=107;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;

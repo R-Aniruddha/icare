@@ -230,7 +230,7 @@
                     </div>
                     
                     <div class="input-group">
-                        <span class="input-group-text">last Name</span>
+                        <span class="input-group-text">Last Name</span>
                         <input type="text" class="form-control" required value="<?php echo $Emerg_LastName ; ?>" name="Emerg_LastName">
                     </div>
                     
@@ -259,7 +259,7 @@
                 </div>
                 
                 <div class="input-group">
-                    <span class="input-group-text">last Name</span>
+                    <span class="input-group-text">Last Name</span>
                     <input type="text" class="form-control" required value="<?php echo $Emerg2_LastName ; ?>" name="Emerg2_LastName">
                 </div>
                 

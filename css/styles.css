@@ -56,7 +56,7 @@ h6 {
 }
 
 #mySlider .carousel-inner{
-    max-height: 500px;
+    max-height: 600px;
 }
 
 .footer{
@@ -177,8 +177,8 @@ border-left: thin solid #000000;
 }
 
 #doctor-details-registration .input-group, #create-doctor-form .input-group, 
-#user-account .input-group , #create-room-form .input-group 
-#patient-details .input-group, #registration .input-group
+#user-account .input-group , #create-room-form .input-group, 
+#patient-details .input-group, #registration .input-group,
 #modify-room-form .input-group, #create-guardian-form .input-group,
 #patient-details .input-group{
     margin: 6px auto;
@@ -192,11 +192,7 @@ border-left: thin solid #000000;
 	padding:10px 0 10px 2px;
 	opacity:0.8;
 }
-@media (min-width: 768px) {
-    .contact-page{
-        /*margin-top: -120px*/
-    }
-}
+
 
 
     .done {

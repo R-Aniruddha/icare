@@ -3,8 +3,7 @@
 	include('includes/header.php');
 ?>
     <!-- CAROUSEL CODE STARTS HERE --> 
-    <div class="row">
-        <div id="mySlider" class="carousel slide" data-ride="carousel" data-interval="2000" style="margin:auto;">
+        <div id="mySlider" class="carousel slide" data-ride="carousel" data-interval="false" style="margin:auto;">
             <!--data-pause="false" data-interval="1000"-->
                 <!-- Indicators dot navigation -->
                 <ol class="carousel-indicators">
@@ -16,13 +15,13 @@
                 <!-- wrapper for slides -->
                 <div class="carousel-inner" >
                     <div class="carousel-item active">
-                        <img class="d-block w-100" src="images/image-6.jpg" alt="Smart Hospital" />
+                        <img class="d-block w-100" src="images/image-3.jpg" alt="Smart Hospital" />
                         <div class="carousel-caption">
                             <h1>Remote Health Monitoring System</h1>
                         </div>
                     </div>
                      <div class="carousel-item">
-                        <img class="d-block w-100" src="images/image-3.jpg" alt="" />
+                        <img class="d-block w-100" src="images/image-5.png" alt="" />
                     </div>
                      <div class="carousel-item">
                         <img class="d-block w-100" src="images/image-4.jpg" alt="" />
@@ -30,7 +29,7 @@
                         </div>
                     </div>
                     <div class="carousel-item">
-                        <img class="d-block w-100" src="images/image-5.png" alt="" />
+                        <img class="d-block w-100" src="images/image-8.jpg" alt="" />
                         <div class="carousel-caption">
                         </div>
                     </div>
@@ -49,7 +48,7 @@
 
             </div>
 
-   </div>
+        </div>
     <!-- CAROUSEL CODE ENDS HERE --> 
 
     <div class="main-content">

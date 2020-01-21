@@ -81,15 +81,15 @@ if (isLoggedIn()) {
             </select>
           </div>
           <div class="input-group">
-              <span for="date-input" class="input-group-text">Date * </span>
+              <span for="date-input" class="input-group-text">Date </span>
               <input class="form-control" type="date" value="<?php echo $DOB ; ?>" name="DOB">
           </div>
           <div class="input-group">
-            <span class="input-group-text" id="">Nationality * </span>
+            <span class="input-group-text" id="">Nationality </span>
             <input type="text" class="form-control" name="Nationality" required value="<?php echo $Nationality ; ?>">
           </div>
           <div class="input-group">
-            <span class="input-group-text" id="">Speciality * </span>
+            <span class="input-group-text" id="">Speciality </span>
             <input type="text" class="form-control" name="Speciality" required value="<?php echo $Speciality ; ?>">
           </div>
           <div class="input-group">
@@ -97,10 +97,11 @@ if (isLoggedIn()) {
             <input type="text" class="form-control" name="Department" required value="<?php echo $Department ; ?>" >
           </div>
           <div class="input-group">
-            <span class="input-group-text" id="">Qualifications * </span>
+            <span class="input-group-text" id="">Qualifications </span>
             <input type="text" class="form-control" name="Qualifications" required value="<?php echo $Qualifications ; ?>">
           </div>
           <div class="input-group">
+          <span class="input-group-text">Availability</span>
             <select class="custom-select" name="Availability" required>
               <option <?php if($Availability == "Yes")echo "selected" ?> value="Yes">Yes</option>
               <option <?php if($Availability == "No")echo "selected" ?> value="No">No</option>
