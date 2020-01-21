@@ -33,6 +33,7 @@ if($_POST['rowid']) {
                 $fname = $row3['FirstName'];
                 $lname = $row3['LastName'];
                 echo '<li> Guardian ',$count, ': ', $fname, ' ', $lname, '</li>';
+                $count++;
             }
         } else {
             echo '<li>No Guardians Currently </li>';
