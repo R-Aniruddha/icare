@@ -42,11 +42,13 @@
     <div class="main-content">
         
         <!-- logged in user information -->
+        <?php if(userType() == 2){ echo '
         <div class="" style="float:right;">
             <button class="btn btn-lg" style="background-color:#3fc4a5;" name="delete-message">
-                <a href="view-patient-details.php?id=<?php echo $patient_id ; ?>" style="text-decoration:none; color:white;">Patient Details</a>
+                <a href="view-patient-details.php?id=', $patient_id, '" style="text-decoration:none; color:white;">Patient Details</a>
             </button>
         </div>
+        ' ; }?>
         <h2> Patient - 
         <?php  if (isset($patient_id)) : ?>
             <strong>
