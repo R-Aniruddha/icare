@@ -30,6 +30,8 @@
                 
                 if(!isLoggedIn()) {
                     include('includes/homenav.php');
+                } else if (isAdmin()){
+                    include('includes/admin-nav.php');
                 } else {
                     include('includes/nav.php');
                 }
